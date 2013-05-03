@@ -1,0 +1,9 @@
+package com.w9jds.eveprofiler;
+
+public class ApiInfo {
+    private String Uri;
+    public String ApiEnd;
+    public String getUri() { return Uri; }
+    public String setUri(String Uri) { this.Uri = Uri; }
+	
+}

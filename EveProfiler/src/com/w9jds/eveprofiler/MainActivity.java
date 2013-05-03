@@ -1,29 +1,8 @@
 package com.w9jds.eveprofiler;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
@@ -32,15 +11,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -59,12 +34,25 @@ public class MainActivity extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+	
+	private ArrayList<CharacterInfo> Characters = new ArrayList<CharacterInfo>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		ArrayList<ArrayList<String>> Info = new ArrayList<ArrayList<String>>(2);
+		Info.add(new ArrayList<String>());
+		Info.get(0).add(getString(R.string.Api_Uri));
+		Info.get(0).add(getString(R.string.List_Characters));
+		Info.add(new ArrayList<String>());
+		Info.get(1).add("keyID");
+		Info.get(1).add("1996957");
+		Info.get(1).add("vCode");
+		Info.get(1).add("I6YLp1vVB0KYAir2B3Z4mDIPtZrFHlpeysYYSaxGkjV4rO820NpTOBustmNsoEA4");
+		new CallApi().execute(Info);
 
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
@@ -197,12 +185,7 @@ public class MainActivity extends FragmentActivity implements
 		{
 			View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
 			
-			try {
-				loadCharacterView();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+
 
 			
 			
@@ -212,31 +195,6 @@ public class MainActivity extends FragmentActivity implements
 			return rootView;
 		}
 		
-		public void loadCharacterView() throws Exception
-		{
-			// Create a new HttpClient and Post Header
-			HttpClient httpclient = new DefaultHttpClient();
-			HttpPost httppost = new HttpPost(getString(R.string.Api_Uri) + getString(R.string.List_Characters));
 
-			try {
-			    // Add your data
-			    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-			    nameValuePairs.add(new BasicNameValuePair("userID", "2086488"));
-			    nameValuePairs.add(new BasicNameValuePair("apiKey", "jwJdnNFNAIGo4R0kKrgWjAr1kfptGGmj7O8yNM2ddENL21Yj0hSZ8QyaCJI7rtJN"));
-			    httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-			    // Execute HTTP Post Request
-			    HttpResponse response = httpclient.execute(httppost);
-			    HttpEntity entity = response.getEntity();
-			    String responseString = EntityUtils.toString(entity);
-			    
-			    responseString.split("<row");
-			    
-			} catch (ClientProtocolException e) {
-			    // TODO Auto-generated catch block
-			} catch (IOException e) {
-			    // TODO Auto-generated catch block
-			}
-		}
 	}
 }

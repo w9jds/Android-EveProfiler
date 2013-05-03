@@ -1,0 +1,20 @@
+package com.w9jds.eveprofiler;
+
+public class ParseXml {
+
+	public void parse(String response)
+	{
+		String[] str = response.split("<row |=\"|\" ");
+		
+		
+		
+		
+		System.out.println(response);
+		
+		
+	}
+	
+	
+	
+	
+}

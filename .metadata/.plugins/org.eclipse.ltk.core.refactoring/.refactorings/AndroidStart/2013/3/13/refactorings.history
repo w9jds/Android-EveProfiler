@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 2 elements from project &apos;AndroidStart&apos;&#x0D;&#x0A;- Original project: &apos;AndroidStart&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     viewcenter.xml&#x0D;&#x0A;     viewleft.xml" description="Delete elements" element1="res/layout/viewleft.xml" element2="res/layout/viewcenter.xml" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="2" stamp="1364599670203" subPackages="false" version="1.0"/>
+</session>
