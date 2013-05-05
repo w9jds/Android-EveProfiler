@@ -15,12 +15,16 @@ import org.apache.http.util.EntityUtils;
 
 import android.os.AsyncTask;
 
-public class CallApi extends AsyncTask<ArrayList<ArrayList<String>>, Void, String>{
+public class CallApi extends AsyncTask<ArrayList<ArrayList<Object>>, Void, String>{
 		
-	protected String doInBackground(ArrayList<ArrayList<String>>... Info)
+	MainActivity Main = new MainActivity();
+	String ApiCalled = "";
+	
+	protected String doInBackground(ArrayList<ArrayList<Object>>... Info)
 	{
-		ArrayList<ArrayList<String>> ApiInfo = Info[0];
+		ArrayList<ArrayList<Object>> ApiInfo = Info[0];
 		String responseString = "";
+		Main = (MainActivity)ApiInfo.get(2).get(0);
 		
 		try {
 
@@ -28,19 +32,21 @@ public class CallApi extends AsyncTask<ArrayList<ArrayList<String>>, Void, Strin
 			HttpClient httpclient = new DefaultHttpClient();
 			HttpPost httppost = new HttpPost();
 			
+			ApiCalled = ApiInfo.get(0).get(1).toString();
+			
 			switch(ApiInfo.get(0).size())
 			{
 				case 1:
-					httppost = new HttpPost(ApiInfo.get(0).get(0));
+					httppost = new HttpPost(ApiInfo.get(0).get(0).toString());
 					break;
 				case 2:
-					httppost = new HttpPost(ApiInfo.get(0).get(0) + ApiInfo.get(0).get(1));
+					httppost = new HttpPost(ApiInfo.get(0).get(0).toString() + ApiInfo.get(0).get(1).toString());
 					break;
 				case 3:
-					httppost = new HttpPost(ApiInfo.get(0).get(0) + ApiInfo.get(0).get(1) + ApiInfo.get(0).get(2));
+					httppost = new HttpPost(ApiInfo.get(0).get(0).toString() + ApiInfo.get(0).get(1).toString() + ApiInfo.get(0).get(2).toString());
 					break;
 			}
-
+			
 		    // Add your data
 		    List<NameValuePair> nameValuePairs;
 		    
@@ -48,22 +54,22 @@ public class CallApi extends AsyncTask<ArrayList<ArrayList<String>>, Void, Strin
 		    {
 			    case 2:
 		    		nameValuePairs = new ArrayList<NameValuePair>(1);
-		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(0), ApiInfo.get(1).get(1)));
+		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(0).toString(), ApiInfo.get(1).get(1).toString()));
 		    		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 		    		break;
 		    
 		    	case 4:
 		    		nameValuePairs = new ArrayList<NameValuePair>(2);
-		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(0), ApiInfo.get(1).get(1)));
-		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(2), ApiInfo.get(1).get(3)));
+		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(0).toString(), ApiInfo.get(1).get(1).toString()));
+		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(2).toString(), ApiInfo.get(1).get(3).toString()));
 		    		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 		    		break;
 		    		
 		    	case 6:
 		    		nameValuePairs = new ArrayList<NameValuePair>(3);
-		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(0), ApiInfo.get(1).get(1)));
-		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(2), ApiInfo.get(1).get(3)));
-		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(4), ApiInfo.get(1).get(5)));
+		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(0).toString(), ApiInfo.get(1).get(1).toString()));
+		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(2).toString(), ApiInfo.get(1).get(3).toString()));
+		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(4).toString(), ApiInfo.get(1).get(5).toString()));
 		    		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
 		    }
@@ -74,16 +80,13 @@ public class CallApi extends AsyncTask<ArrayList<ArrayList<String>>, Void, Strin
 		    responseString = EntityUtils.toString(entity);
 
 		} 
-		catch (Exception e){ 
-			System.out.println(e);
-			}
+		catch (Exception e){ System.out.println(e); }
 		
 		return responseString;
 	}
 	
 	protected void onPostExecute(String result)
 	{
-		new ParseXml().parse(result);
-	
+		Main.ApiResponse(result, ApiCalled);
 	}
 }

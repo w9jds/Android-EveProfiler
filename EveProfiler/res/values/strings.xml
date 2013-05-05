@@ -42,8 +42,5 @@
     <string name="Type_Icon">http://image.eveonline.com/InventoryType/</string>
     <string name="Render">http://image.eveonline.com/Render/</string>
     
-    <string name="Cap_1">Capsuleer One</string>
-    <string name="Cap_2">Capsuleer Two</string>
-    <string name="Cap_3">Capsuleer Three</string>
 
 </resources>

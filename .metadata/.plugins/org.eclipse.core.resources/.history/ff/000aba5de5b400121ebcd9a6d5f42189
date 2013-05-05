@@ -1,0 +1,22 @@
+package com.w9jds.eveprofiler;
+
+public class CharacterInfo {
+	private String name;
+	private double characterID;
+	private String corporationName;
+	private double corporationID;
+	
+	public String getName() { return name; }
+	public void setName(String name) { this.name = name; }
+	
+	public double getCharacterID() { return characterID; }
+	public void setCharacterID(Double characterID) { this.characterID = characterID; }
+	
+	public String getCorporationName() { return corporationName; }
+	public void setCorporationName(String corporationName) { this.corporationName = corporationName; } 
+	
+	public double getCorporationID() { return corporationID; }
+	public void setCorporationID(Double corporationID) { this.corporationID = corporationID; }
+	
+	
+}

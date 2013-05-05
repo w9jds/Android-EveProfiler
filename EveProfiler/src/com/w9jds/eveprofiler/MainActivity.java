@@ -1,7 +1,6 @@
 package com.w9jds.eveprofiler;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 import android.app.ActionBar;
@@ -17,25 +16,13 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MainActivity extends FragmentActivity implements
-		ActionBar.TabListener {
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener 
+{
 
-	/**
-	 * The {@link android.support.v4.view.PagerAdapter} that will provide
-	 * fragments for each of the sections. We use a
-	 * {@link android.support.v4.app.FragmentPagerAdapter} derivative, which
-	 * will keep every loaded fragment in memory. If this becomes too memory
-	 * intensive, it may be best to switch to a
-	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-	 */
 	SectionsPagerAdapter mSectionsPagerAdapter;
 
-	/**
-	 * The {@link ViewPager} that will host the section contents.
-	 */
 	ViewPager mViewPager;
-	
-	private ArrayList<CharacterInfo> Characters = new ArrayList<CharacterInfo>();
+	ArrayList<CharacterInfo> Characters = new ArrayList<CharacterInfo>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -43,18 +30,68 @@ public class MainActivity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		ArrayList<ArrayList<String>> Info = new ArrayList<ArrayList<String>>(2);
-		Info.add(new ArrayList<String>());
+		GetCharacterList();
+	}
+
+	private void GetCharacterList()
+	{
+		ArrayList<ArrayList<Object>> Info = new ArrayList<ArrayList<Object>>(3);
+		Info.add(new ArrayList<Object>());
 		Info.get(0).add(getString(R.string.Api_Uri));
 		Info.get(0).add(getString(R.string.List_Characters));
-		Info.add(new ArrayList<String>());
+		Info.add(new ArrayList<Object>());
 		Info.get(1).add("keyID");
 		Info.get(1).add("1996957");
 		Info.get(1).add("vCode");
 		Info.get(1).add("I6YLp1vVB0KYAir2B3Z4mDIPtZrFHlpeysYYSaxGkjV4rO820NpTOBustmNsoEA4");
+		Info.add(new ArrayList<Object>());
+		Info.get(2).add(this);
 		new CallApi().execute(Info);
-
-		// Set up the action bar.
+	}
+	
+	private void GetCharacterSheet(int Position)
+	{
+		ArrayList<ArrayList<Object>> Info = new ArrayList<ArrayList<Object>>(3);
+		Info.add(new ArrayList<Object>());
+		Info.get(0).add(getString(R.string.Api_Uri));
+		Info.get(0).add(getString(R.string.Character_Sheet));
+		Info.add(new ArrayList<Object>());
+		Info.get(1).add("keyID");
+		Info.get(1).add("1996957");
+		Info.get(1).add("vCode");
+		Info.get(1).add("I6YLp1vVB0KYAir2B3Z4mDIPtZrFHlpeysYYSaxGkjV4rO820NpTOBustmNsoEA4");
+		Info.get(1).add("characterID");
+		Info.get(1).add(Characters.get(Position).getCharacterID());
+		Info.add(new ArrayList<Object>());
+		Info.get(2).add(this);
+		new CallApi().execute(Info);
+	}
+	
+	public void ApiResponse(String XMLResponse, String ApiCalled)
+	{
+		if (ApiCalled == getString(R.string.List_Characters))
+		{
+			ArrayList<ArrayList<String>> ParsedResponse = new ParseXml().ParseCharacterList(XMLResponse);
+			for (int i = 0; i < ParsedResponse.size(); i++)
+			{
+				Characters.add(new CharacterInfo());
+				Characters.get(i).setName(ParsedResponse.get(i).get(0));
+				Characters.get(i).setCharacterID(ParsedResponse.get(i).get(1));
+				Characters.get(i).setCorporationName(ParsedResponse.get(i).get(2));
+				Characters.get(i).setCorporationID(ParsedResponse.get(i).get(3));
+			}
+			CreateTabItems();
+		}
+		else if (ApiCalled == getString(R.string.Character_Sheet))
+		{
+			
+			
+			
+		}
+	}
+	
+	public void CreateTabItems()
+	{
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
@@ -70,25 +107,19 @@ public class MainActivity extends FragmentActivity implements
 		// tab. We can also use ActionBar.Tab#select() to do this if we have
 		// a reference to the Tab.
 		mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() 
-			{
-				@Override
-				public void onPageSelected(int position) 
-				{
-					actionBar.setSelectedNavigationItem(position);
-				}
-			});
+		{
+			@Override
+			public void onPageSelected(int position) { actionBar.setSelectedNavigationItem(position); }
+		});
 
-		// For each of the sections in the app, add a tab to the action bar.
+		// For each character create a tab and use the characters name as the f
 		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) 
 		{
-			// Create a tab with text corresponding to the page title defined by
-			// the adapter. Also specify this Activity object, which implements
-			// the TabListener interface, as the callback (listener) for when
-			// this tab is selected.
 			actionBar.addTab(actionBar.newTab().setText(mSectionsPagerAdapter.getPageTitle(i)).setTabListener(this));
 		}
+		
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) 
 	{
@@ -100,6 +131,8 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) 
 	{
+		GetCharacterSheet(tab.getPosition());
+		
 		// When the given tab is selected, switch to the corresponding page in
 		// the ViewPager.
 		mViewPager.setCurrentItem(tab.getPosition());
@@ -117,10 +150,6 @@ public class MainActivity extends FragmentActivity implements
 		
 	}
 
-	/**
-	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-	 * one of the sections/tabs/pages.
-	 */
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
 		public SectionsPagerAdapter(FragmentManager fm) 
@@ -144,35 +173,18 @@ public class MainActivity extends FragmentActivity implements
 		@Override
 		public int getCount() 
 		{
-			// Show 3 total pages.
-			return 3;
+			return Characters.size();
 		}
-
+		
 		@Override
 		public CharSequence getPageTitle(int position) 
 		{
-			Locale l = Locale.getDefault();
-			switch (position) {
-			case 0:
-				return getString(R.string.Cap_1).toUpperCase(l);
-			case 1:
-				return getString(R.string.Cap_2).toUpperCase(l);
-			case 2:
-				return getString(R.string.Cap_3).toUpperCase(l);
-			}
-			return null;
+			return Characters.get(position).getName();
 		}
 	}
 
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
 	public static class DummySectionFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
+
 		public static final String ARG_SECTION_NUMBER = "section_number";
 
 		public DummySectionFragment() 
@@ -185,16 +197,7 @@ public class MainActivity extends FragmentActivity implements
 		{
 			View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
 			
-
-
-			
-			
-			
-			//TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
-			//dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
 			return rootView;
 		}
-		
-
 	}
 }

@@ -24,11 +24,12 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int CapsuleerName=0x7f080003;
         public static final int CapsuleerPortrait=0x7f080002;
+        public static final int CloneLabel=0x7f080004;
+        public static final int HomeSystemLabel=0x7f080005;
         public static final int MainGrid=0x7f080001;
-        public static final int SkillPointsLabel=0x7f080004;
-        public static final int action_settings=0x7f080005;
+        public static final int SkillPointsLabel=0x7f080003;
+        public static final int action_settings=0x7f080006;
         public static final int pager=0x7f080000;
     }
     public static final class layout {
@@ -46,9 +47,6 @@ public final class R {
         public static final int Api_Uri=0x7f050002;
         public static final int Asset_List=0x7f050007;
         public static final int Cal_Event_Attendees=0x7f050008;
-        public static final int Cap_1=0x7f050026;
-        public static final int Cap_2=0x7f050027;
-        public static final int Cap_3=0x7f050028;
         public static final int Character_Portrait=0x7f050021;
         public static final int Character_Sheet=0x7f050009;
         public static final int Contact_List=0x7f05000a;
