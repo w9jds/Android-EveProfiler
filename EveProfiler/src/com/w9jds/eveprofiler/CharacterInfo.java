@@ -21,6 +21,10 @@ public class CharacterInfo {
 	private String Perception;
 	private String Willpower;
 	private ArrayList<ArrayList<String>> Skills;
+	private byte[] CharacterPortrait;
+	
+	public byte[] getCharacterPortrait() { return CharacterPortrait; }
+	public void setCharacterPortrait(byte[] CharacterPortrait) { this.CharacterPortrait = CharacterPortrait; }
 
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }

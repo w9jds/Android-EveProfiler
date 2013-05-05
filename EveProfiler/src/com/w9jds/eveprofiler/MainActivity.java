@@ -1,10 +1,10 @@
 package com.w9jds.eveprofiler;
 
 import java.util.ArrayList;
-import java.util.Locale;
-
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener 
 {
@@ -67,9 +68,19 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		new CallApi().execute(Info);
 	}
 	
+	private void GetCharacterImage(int Position)
+	{
+		ArrayList<Object> Info = new ArrayList<Object>();
+		Info.add(getString(R.string.Character_Portrait));
+		Info.add(Characters.get(Position).getCharacterID());
+		Info.add("128");
+		Info.add(this);
+		new CallImageApi().execute(Info);
+	}
+	
 	public void ApiResponse(String XMLResponse, String ApiCalled)
 	{
-		if (ApiCalled == getString(R.string.List_Characters))
+		if (ApiCalled.equals(getString(R.string.List_Characters)) == true)
 		{
 			ArrayList<ArrayList<String>> ParsedResponse = new ParseXml().ParseCharacterList(XMLResponse);
 			for (int i = 0; i < ParsedResponse.size(); i++)
@@ -82,12 +93,25 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			}
 			CreateTabItems();
 		}
-		else if (ApiCalled == getString(R.string.Character_Sheet))
+		else if (ApiCalled.equals(getString(R.string.Character_Sheet)) == true)
 		{
 			
 			
 			
 		}
+	}
+	
+	public void ApiImageResponse(byte[] response, String ApiCalled)
+	{
+		if (ApiCalled.equals(getString(R.string.Character_Portrait)) == true)
+		{
+			Characters.get(mViewPager.getCurrentItem()).setCharacterPortrait(response);
+			ImageView image = (ImageView) mViewPager.getChildAt(mViewPager.getCurrentItem()).findViewById(R.id.CapsuleerPortrait);
+			Bitmap bMap = BitmapFactory.decodeByteArray(response, 0, response.length);
+			image.setImageBitmap(bMap);
+		}
+		
+		
 	}
 	
 	public void CreateTabItems()
@@ -131,11 +155,18 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	@Override
 	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) 
 	{
-		GetCharacterSheet(tab.getPosition());
-		
+		int Position = tab.getPosition();
+
 		// When the given tab is selected, switch to the corresponding page in
 		// the ViewPager.
-		mViewPager.setCurrentItem(tab.getPosition());
+		mViewPager.setCurrentItem(Position);
+		
+		if (Characters.get(Position).getCharacterPortrait() == null)
+			GetCharacterImage(Position);
+		
+		if (Characters.get(Position).getCloneSkillPoints() != "")
+			GetCharacterSheet(Position);
+		
 	}
 
 	@Override
@@ -196,6 +227,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
 		{
 			View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
+			
+			
+			
 			
 			return rootView;
 		}

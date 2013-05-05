@@ -24,12 +24,29 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int Alliance=0x7f080014;
+        public static final int AllianceLabel=0x7f08000a;
+        public static final int Background=0x7f080010;
+        public static final int BackgroundLabel=0x7f080006;
+        public static final int Bounty=0x7f080016;
+        public static final int BountyLabel=0x7f08000c;
         public static final int CapsuleerPortrait=0x7f080002;
+        public static final int Clone=0x7f08000e;
         public static final int CloneLabel=0x7f080004;
+        public static final int Corporation=0x7f080013;
+        public static final int CorporationLabel=0x7f080009;
+        public static final int DateOBirth=0x7f080011;
+        public static final int DateOBirthLabel=0x7f080007;
+        public static final int HomeSystem=0x7f08000f;
         public static final int HomeSystemLabel=0x7f080005;
         public static final int MainGrid=0x7f080001;
+        public static final int School=0x7f080012;
+        public static final int SchoolLabel=0x7f080008;
+        public static final int SecurityStatus=0x7f080015;
+        public static final int SecurityStatusLabel=0x7f08000b;
+        public static final int SkillPoints=0x7f08000d;
         public static final int SkillPointsLabel=0x7f080003;
-        public static final int action_settings=0x7f080006;
+        public static final int action_settings=0x7f080017;
         public static final int pager=0x7f080000;
     }
     public static final class layout {
@@ -43,19 +60,26 @@ public final class R {
         public static final int API_Key_Info=0x7f050004;
         public static final int Account_Balance=0x7f050006;
         public static final int Account_Status=0x7f050003;
+        public static final int AllianceString=0x7f05002d;
         public static final int Alliance_Logo=0x7f050023;
         public static final int Api_Uri=0x7f050002;
         public static final int Asset_List=0x7f050007;
+        public static final int BackgroundString=0x7f050029;
+        public static final int BountyString=0x7f05002f;
         public static final int Cal_Event_Attendees=0x7f050008;
         public static final int Character_Portrait=0x7f050021;
         public static final int Character_Sheet=0x7f050009;
+        public static final int CloneString=0x7f050027;
         public static final int Contact_List=0x7f05000a;
         public static final int Contact_Notif=0x7f05000b;
         public static final int Contacts=0x7f05000c;
         public static final int ContractBids=0x7f05000e;
         public static final int ContractItems=0x7f05000d;
         public static final int Corp_Logo=0x7f050022;
+        public static final int CorporationString=0x7f05002c;
+        public static final int DateOBirthString=0x7f05002a;
         public static final int Factional_Warfare_Stats=0x7f05000f;
+        public static final int HomeSystemString=0x7f050028;
         public static final int Industry_Jobs=0x7f050010;
         public static final int KillMails=0x7f050011;
         public static final int List_Characters=0x7f050005;
@@ -70,6 +94,9 @@ public final class R {
         public static final int Notifications=0x7f050018;
         public static final int Render=0x7f050025;
         public static final int Research=0x7f05001a;
+        public static final int SchoolString=0x7f05002b;
+        public static final int SecurityStatusString=0x7f05002e;
+        public static final int SkillPointsString=0x7f050026;
         public static final int Skill_Queue=0x7f05001c;
         public static final int Skill_in_Training=0x7f05001b;
         public static final int Type_Icon=0x7f050024;

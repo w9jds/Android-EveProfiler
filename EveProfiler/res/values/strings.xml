@@ -42,5 +42,15 @@
     <string name="Type_Icon">http://image.eveonline.com/InventoryType/</string>
     <string name="Render">http://image.eveonline.com/Render/</string>
     
-
+    <string name="SkillPointsString">Skill Points</string>
+    <string name="CloneString">Clone</string>
+	<string name="HomeSystemString">Home System</string>
+    <string name="BackgroundString">Background</string>
+    <string name="DateOBirthString">Date Of Birth</string>
+    <string name="SchoolString">School</string>
+    <string name="CorporationString">Corporation</string>
+    <string name="AllianceString">Alliance</string>
+    <string name="SecurityStatusString">Security Status</string>
+    <string name="BountyString">Bounty</string>
+    
 </resources>
