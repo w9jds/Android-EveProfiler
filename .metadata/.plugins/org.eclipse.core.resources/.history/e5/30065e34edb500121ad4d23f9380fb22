@@ -111,22 +111,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 					Characters.get(mViewPager.getCurrentItem()).setAllianceName(ParseResponse.get(i).get(1));
 				else if (ParseResponse.get(i).get(0).equals("allianceID") == true)
 					Characters.get(mViewPager.getCurrentItem()).setAllianceID(ParseResponse.get(i).get(1));
-				else if (ParseResponse.get(i).get(0).equals("cloneName") == true)
-					Characters.get(mViewPager.getCurrentItem()).setCloneName(ParseResponse.get(i).get(1));
-				else if (ParseResponse.get(i).get(0).equals("cloneSkillPoints") == true)
-					Characters.get(mViewPager.getCurrentItem()).setCloneSkillPoints(ParseResponse.get(i).get(1));
-				else if (ParseResponse.get(i).get(0).equals("balance") == true)
-					Characters.get(mViewPager.getCurrentItem()).setWalletBalance(ParseResponse.get(i).get(1));
-				else if (ParseResponse.get(i).get(0).equals("intelligence") == true)
-					Characters.get(mViewPager.getCurrentItem()).setIntelligence(ParseResponse.get(i).get(1));
-				else if (ParseResponse.get(i).get(0).equals("memory") == true)
-					Characters.get(mViewPager.getCurrentItem()).setMemory(ParseResponse.get(i).get(1));
-				else if (ParseResponse.get(i).get(0).equals("charisma") == true)
-					Characters.get(mViewPager.getCurrentItem()).setCharisma(ParseResponse.get(i).get(1));
-				else if (ParseResponse.get(i).get(0).equals("perception") == true)
-					Characters.get(mViewPager.getCurrentItem()).setPerception(ParseResponse.get(i).get(1));
-				else if (ParseResponse.get(i).get(0).equals("willpower") == true)
-					Characters.get(mViewPager.getCurrentItem()).setWillpower(ParseResponse.get(i).get(1));
 				
 				
 				
@@ -139,16 +123,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	
 	private void UpdateCharacterView()
 	{
-		TextView Clone = (TextView) mViewPager.getChildAt(mViewPager.getCurrentItem()).findViewById(R.id.Clone);
-		Clone.setText(Characters.get(mViewPager.getCurrentItem()).getCloneName() + " (" + Characters.get(mViewPager.getCurrentItem()).getCloneSkillPoints() + ")");
-		TextView DOB = (TextView) mViewPager.getChildAt(mViewPager.getCurrentItem()).findViewById(R.id.DateOBirth);
-		DOB.setText(Characters.get(mViewPager.getCurrentItem()).getDateOfBirth());
-		TextView Background = (TextView) mViewPager.getChildAt(mViewPager.getCurrentItem()).findViewById(R.id.Background);
-		Background.setText(Characters.get(mViewPager.getCurrentItem()).getRace() + " - " + Characters.get(mViewPager.getCurrentItem()).getBloodLine() + " - " + Characters.get(mViewPager.getCurrentItem()).getAncestry());
-		TextView Corporation = (TextView) mViewPager.getChildAt(mViewPager.getCurrentItem()).findViewById(R.id.Corporation);
-		Corporation.setText(Characters.get(mViewPager.getCurrentItem()).getCorporationName());
-		TextView Alliance = (TextView) mViewPager.getChildAt(mViewPager.getCurrentItem()).findViewById(R.id.Alliance);
-		Alliance.setText(Characters.get(mViewPager.getCurrentItem()).getAllianceName());
+		//TextView Clone = (TextView) mViewPager.getChildAt(mViewPager.getCurrentItem()).findViewById(R.id.Clone);
+		//Clone.setText(Characters.get(mViewPager.getCurrentItem()).getCloneName() + " (" + Characters.get(mViewPager.getCurrentItem()).getCloneSkillPoints() + ")");
+		//TextView DOB = (TextView) mViewPager.getChildAt(mViewPager.getCurrentItem()).findViewById(R.id.DateOBirth);
+		//DOB.setText(Characters.get(mViewPager.getCurrentItem()).getDateOfBirth());
+		//TextView Background = (TextView) mViewPager.getChildAt(mViewPager.getCurrentItem()).findViewById(R.id.Background);
+		//Background.setText(Characters.get(mViewPager.getCurrentItem()).getRace() + " - " + Characters.get(mViewPager.getCurrentItem()).getBloodLine() + " - " + Characters.get(mViewPager.getCurrentItem()).getAncestry());
+		//TextView Corporation = (TextView) mViewPager.getChildAt(mViewPager.getCurrentItem()).findViewById(R.id.Corporation);
+		//Corporation.setText(Characters.get(mViewPager.getCurrentItem()).getCorporationName());
+		
 		
 		
 		

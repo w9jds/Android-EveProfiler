@@ -41,8 +41,8 @@ public class ParseXml
 		
 		for (int i = 0; i < split.length; i++)
 		{
-			if (split[i].startsWith("willpower") == true || split[i].startsWith("perception") == true || split[i].startsWith("charisma") == true || split[i].startsWith("memory") == true || split[i].startsWith("intelligence") == true || split[i].startsWith("DoB") == true || split[i].startsWith("race") == true || split[i].startsWith("bloodLine") == true || split[i].startsWith("ancestry") == true || split[i].startsWith("cloneName") == true || split[i].startsWith("cloneSkillPoints") == true || split[i].startsWith("balance") == true || split[i].startsWith("allianceName") == true || split[i].startsWith("allianceID") == true)
-			{ 
+			if (split[i].startsWith("memory") split[i].startsWith("intelligence") == true || split[i].startsWith("DoB") == true || split[i].startsWith("race") == true || split[i].startsWith("bloodLine") == true || split[i].startsWith("ancestry") == true || split[i].startsWith("cloneName") == true || split[i].startsWith("cloneSkillPoints") == true || split[i].startsWith("balance") == true || split[i].startsWith("allianceName") == true || split[i].startsWith("allianceID") == true)
+			{
 				String[] change = split[i].split(">");
 				Character.add(new ArrayList<String>());
 				Character.get(Character.size()-1).add(change[0]);

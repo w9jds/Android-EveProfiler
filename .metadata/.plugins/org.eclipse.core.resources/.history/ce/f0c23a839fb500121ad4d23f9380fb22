@@ -34,19 +34,18 @@ public class ParseXml
 		
 	}
 	
-	public ArrayList<ArrayList<String>> ParseCharacterSheet(String response)
+	public ArrayList<String> ParseCharacterSheet(String response)
 	{
-		ArrayList<ArrayList<String>> Character = new ArrayList<ArrayList<String>>();
+		ArrayList<String> Character = new ArrayList<String>();
 		String[] split = response.split("<");
+		ArrayList<String> CharacterInfo = new ArrayList<String>();
 		
 		for (int i = 0; i < split.length; i++)
 		{
-			if (split[i].startsWith("willpower") == true || split[i].startsWith("perception") == true || split[i].startsWith("charisma") == true || split[i].startsWith("memory") == true || split[i].startsWith("intelligence") == true || split[i].startsWith("DoB") == true || split[i].startsWith("race") == true || split[i].startsWith("bloodLine") == true || split[i].startsWith("ancestry") == true || split[i].startsWith("cloneName") == true || split[i].startsWith("cloneSkillPoints") == true || split[i].startsWith("balance") == true || split[i].startsWith("allianceName") == true || split[i].startsWith("allianceID") == true)
-			{ 
+			if (split[i].startsWith("DoB") == true || split[i].startsWith("race") == true || split[i].startsWith("bloodLine") == true || split[i].startsWith("ancestry") == true || split[i].startsWith("cloneName") == true || split[i].startsWith("cloneSkillPoints") == true || split[i].startsWith("balance"))
+			{
 				String[] change = split[i].split(">");
-				Character.add(new ArrayList<String>());
-				Character.get(Character.size()-1).add(change[0]);
-				Character.get(Character.size()-1).add(change[1]);
+				CharacterInfo.add(change[1]);
 			}
 			
 		}

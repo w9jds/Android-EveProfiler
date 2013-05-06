@@ -7,8 +7,6 @@ public class CharacterInfo {
 	private String characterID;
 	private String corporationName;
 	private String corporationID;
-	private String allianceName;
-	private String allianceID;
 	private String DateOfBirth;
 	private String Race;
 	private String BloodLine;
@@ -78,12 +76,6 @@ public class CharacterInfo {
 	
 	public String getWillpower() { return Willpower; }
 	public void setWillpower(String Willpower) { this.Willpower = Willpower; }
-	
-	public String getAllianceName() { return allianceName; }
-	public void setAllianceName(String allianceName) { this.allianceName = allianceName; }
-	
-	public String getAllianceID() { return allianceID; }
-	public void setAllianceID(String allianceID) { this.allianceID = allianceID; }
 	
 	public ArrayList<ArrayList<String>> getSkills() { return Skills; }
 	public void setSkills(ArrayList<ArrayList<String>> Skills) { this.Skills = Skills; }
