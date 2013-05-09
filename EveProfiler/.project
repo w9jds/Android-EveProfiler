@@ -3,6 +3,7 @@
 	<name>EveProfiler</name>
 	<comment></comment>
 	<projects>
+		<project>SlideMenu</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
