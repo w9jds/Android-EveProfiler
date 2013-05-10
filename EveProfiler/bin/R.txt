@@ -12,8 +12,10 @@ int attr touchModeAbove 0x7f010006
 int attr touchModeBehind 0x7f010007
 int attr viewAbove 0x7f010001
 int attr viewBehind 0x7f010002
+int color grey 0x7f070000
 int dimen activity_horizontal_margin 0x7f050000
 int dimen activity_vertical_margin 0x7f050001
+int dimen shadow_width 0x7f050003
 int dimen slidingmenu_offset 0x7f050002
 int drawable ic_launcher 0x7f020000
 int id Alliance 0x7f04001b
@@ -50,8 +52,10 @@ int id selected_view 0x7f040004
 int id slidingmenumain 0x7f04001e
 int layout activity_main 0x7f030000
 int layout fragment_main_dummy 0x7f030001
-int layout slidingmenumain 0x7f030002
-int menu main 0x7f080000
+int layout menuview 0x7f030002
+int layout settingsview 0x7f030003
+int layout slidingmenumain 0x7f030004
+int menu main 0x7f090000
 int string API_Key_Info 0x7f060004
 int string Account_Balance 0x7f060006
 int string Account_Status 0x7f060003
@@ -100,8 +104,8 @@ int string Wallet_Journal 0x7f06001f
 int string Wallet_Transactions 0x7f060020
 int string action_settings 0x7f060001
 int string app_name 0x7f060000
-int style AppBaseTheme 0x7f070000
-int style AppTheme 0x7f070001
+int style AppBaseTheme 0x7f080000
+int style AppTheme 0x7f080001
 int[] styleable SlidingMenu { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d }
 int styleable SlidingMenu_behindOffset 3
 int styleable SlidingMenu_behindScrollScale 5

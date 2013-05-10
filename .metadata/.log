@@ -4573,3 +4573,364 @@ com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
 	at org.eclipse.jdt.internal.launching.SocketAttachConnector.connect(SocketAttachConnector.java:141)
 	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController.connectRemoteDebugger(AndroidLaunchController.java:1419)
 	at com.android.ide.eclipse.adt.internal.launch.AndroidLaunchController$4.run(AndroidLaunchController.java:1700)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 20:13:09.452
+!MESSAGE Conversion to Dalvik format failed with error 1
+!STACK 0
+com.android.ide.eclipse.adt.internal.build.DexException: Conversion to Dalvik format failed with error 1
+	at com.android.ide.eclipse.adt.internal.build.BuildHelper.executeDx(BuildHelper.java:751)
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper.exportReleaseApk(ExportHelper.java:269)
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper$2.run(ExportHelper.java:354)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2013-05-09 20:25:48.600 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.7.0_15
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-05-09 20:25:51.710
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 20:25:54.098
+!MESSAGE loadAndParseRClass failed to find class com.w9jds.eveprofiler.R
+!STACK 0
+java.lang.ClassFormatError: Incompatible magic value 0 in class file <Unknown>
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.resources.manager.ProjectClassLoader.loadFromProject(ProjectClassLoader.java:147)
+	at com.android.ide.eclipse.adt.internal.resources.manager.ProjectClassLoader.findClass(ProjectClassLoader.java:69)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.getDeclaredClasses0(Native Method)
+	at java.lang.Class.getDeclaredClasses(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.resources.manager.CompiledResourcesMonitor.parseClass(CompiledResourcesMonitor.java:259)
+	at com.android.ide.eclipse.adt.internal.resources.manager.CompiledResourcesMonitor.loadAndParseRClass(CompiledResourcesMonitor.java:229)
+	at com.android.ide.eclipse.adt.internal.resources.manager.CompiledResourcesMonitor.projectOpenedWithWorkspace(CompiledResourcesMonitor.java:192)
+	at com.android.ide.eclipse.adt.internal.resources.manager.GlobalProjectMonitor.addProjectListener(GlobalProjectMonitor.java:427)
+	at com.android.ide.eclipse.adt.internal.resources.manager.CompiledResourcesMonitor.setupMonitor(CompiledResourcesMonitor.java:64)
+	at com.android.ide.eclipse.adt.internal.resources.manager.ResourceManager.setup(ResourceManager.java:120)
+	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1534)
+	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:264)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:896)
+	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:849)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 20:25:54.142
+!MESSAGE loadAndParseRClass failed to find class com.jeremyfeinstein.slidingmenu.lib.R
+!STACK 0
+java.lang.ClassFormatError: Incompatible magic value 0 in class file <Unknown>
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.resources.manager.ProjectClassLoader.loadFromProject(ProjectClassLoader.java:147)
+	at com.android.ide.eclipse.adt.internal.resources.manager.ProjectClassLoader.findClass(ProjectClassLoader.java:69)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at com.android.ide.eclipse.adt.internal.resources.manager.CompiledResourcesMonitor.loadAndParseRClass(CompiledResourcesMonitor.java:217)
+	at com.android.ide.eclipse.adt.internal.resources.manager.CompiledResourcesMonitor.projectOpenedWithWorkspace(CompiledResourcesMonitor.java:192)
+	at com.android.ide.eclipse.adt.internal.resources.manager.GlobalProjectMonitor.addProjectListener(GlobalProjectMonitor.java:427)
+	at com.android.ide.eclipse.adt.internal.resources.manager.CompiledResourcesMonitor.setupMonitor(CompiledResourcesMonitor.java:64)
+	at com.android.ide.eclipse.adt.internal.resources.manager.ResourceManager.setup(ResourceManager.java:120)
+	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1534)
+	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:264)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:896)
+	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:849)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.egit.ui 2 0 2013-05-09 20:26:02.284
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2013-05-09 20:26:02.285
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Jeremy'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 20:28:19.232
+!MESSAGE Export Wizard Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Conversion to Dalvik format failed with error 1
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper.exportReleaseApk(ExportHelper.java:312)
+	at com.android.ide.eclipse.adt.internal.wizards.export.ExportWizard.doExport(ExportWizard.java:296)
+	at com.android.ide.eclipse.adt.internal.wizards.export.ExportWizard.access$0(ExportWizard.java:233)
+	at com.android.ide.eclipse.adt.internal.wizards.export.ExportWizard$1.run(ExportWizard.java:218)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Caused by: com.android.ide.eclipse.adt.internal.build.DexException: Conversion to Dalvik format failed with error 1
+	at com.android.ide.eclipse.adt.internal.build.BuildHelper.executeDx(BuildHelper.java:751)
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper.exportReleaseApk(ExportHelper.java:269)
+	... 4 more
+!SUBENTRY 1 com.android.ide.eclipse.adt 4 0 2013-05-09 20:28:19.233
+!MESSAGE Conversion to Dalvik format failed with error 1
+!STACK 0
+com.android.ide.eclipse.adt.internal.build.DexException: Conversion to Dalvik format failed with error 1
+	at com.android.ide.eclipse.adt.internal.build.BuildHelper.executeDx(BuildHelper.java:751)
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper.exportReleaseApk(ExportHelper.java:269)
+	at com.android.ide.eclipse.adt.internal.wizards.export.ExportWizard.doExport(ExportWizard.java:296)
+	at com.android.ide.eclipse.adt.internal.wizards.export.ExportWizard.access$0(ExportWizard.java:233)
+	at com.android.ide.eclipse.adt.internal.wizards.export.ExportWizard$1.run(ExportWizard.java:218)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 21:22:48.172
+!MESSAGE Failed to add C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\bin\classes
+!STACK 0
+com.android.sdklib.build.ApkCreationException: Failed to add C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\bin\classes
+	at com.android.sdklib.build.ApkBuilder.addSourceFolder(ApkBuilder.java:627)
+	at com.android.sdklib.build.ApkBuilder.addSourceFolder(ApkBuilder.java:605)
+	at com.android.ide.eclipse.adt.internal.build.BuildHelper.finalPackage(BuildHelper.java:434)
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper.exportReleaseApk(ExportHelper.java:273)
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper$2.run(ExportHelper.java:354)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.android.sdklib.build.ApkCreationException: Failed to add C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\bin\classes\com\jeremyfeinstein\slidingmenu\lib
+	at com.android.sdklib.build.ApkBuilder.addFile(ApkBuilder.java:513)
+	at com.android.sdklib.build.ApkBuilder.processFileForResource(ApkBuilder.java:868)
+	at com.android.sdklib.build.ApkBuilder.processFileForResource(ApkBuilder.java:854)
+	at com.android.sdklib.build.ApkBuilder.processFileForResource(ApkBuilder.java:854)
+	at com.android.sdklib.build.ApkBuilder.processFileForResource(ApkBuilder.java:854)
+	at com.android.sdklib.build.ApkBuilder.addSourceFolder(ApkBuilder.java:622)
+	... 5 more
+Caused by: java.io.FileNotFoundException: C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\bin\classes\com\jeremyfeinstein\slidingmenu\lib (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at com.android.sdklib.internal.build.SignedJarBuilder.writeFile(SignedJarBuilder.java:185)
+	at com.android.sdklib.build.ApkBuilder.doAddFile(ApkBuilder.java:823)
+	at com.android.sdklib.build.ApkBuilder.addFile(ApkBuilder.java:507)
+	... 10 more
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 21:25:11.170
+!MESSAGE Failed to add C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\bin\classes
+!STACK 0
+com.android.sdklib.build.ApkCreationException: Failed to add C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\bin\classes
+	at com.android.sdklib.build.ApkBuilder.addSourceFolder(ApkBuilder.java:627)
+	at com.android.sdklib.build.ApkBuilder.addSourceFolder(ApkBuilder.java:605)
+	at com.android.ide.eclipse.adt.internal.build.BuildHelper.finalPackage(BuildHelper.java:434)
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper.exportReleaseApk(ExportHelper.java:273)
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper$2.run(ExportHelper.java:354)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: com.android.sdklib.build.ApkCreationException: Failed to add C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\bin\classes\com\jeremyfeinstein\slidingmenu\lib
+	at com.android.sdklib.build.ApkBuilder.addFile(ApkBuilder.java:513)
+	at com.android.sdklib.build.ApkBuilder.processFileForResource(ApkBuilder.java:868)
+	at com.android.sdklib.build.ApkBuilder.processFileForResource(ApkBuilder.java:854)
+	at com.android.sdklib.build.ApkBuilder.processFileForResource(ApkBuilder.java:854)
+	at com.android.sdklib.build.ApkBuilder.processFileForResource(ApkBuilder.java:854)
+	at com.android.sdklib.build.ApkBuilder.addSourceFolder(ApkBuilder.java:622)
+	... 5 more
+Caused by: java.io.FileNotFoundException: C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\bin\classes\com\jeremyfeinstein\slidingmenu\lib (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at com.android.sdklib.internal.build.SignedJarBuilder.writeFile(SignedJarBuilder.java:185)
+	at com.android.sdklib.build.ApkBuilder.doAddFile(ApkBuilder.java:823)
+	at com.android.sdklib.build.ApkBuilder.addFile(ApkBuilder.java:507)
+	... 10 more
+!SESSION 2013-05-09 21:48:07.839 -----------------------------------------------
+eclipse.buildId=v21.1.0-569685
+java.version=1.7.0_15
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2013-05-09 21:48:16.076
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2013-05-09 21:48:16.078
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Jeremy'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 21:49:04.179
+!MESSAGE Conversion to Dalvik format failed with error 1
+!STACK 0
+com.android.ide.eclipse.adt.internal.build.DexException: Conversion to Dalvik format failed with error 1
+	at com.android.ide.eclipse.adt.internal.build.BuildHelper.executeDx(BuildHelper.java:751)
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper.exportReleaseApk(ExportHelper.java:269)
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper$2.run(ExportHelper.java:354)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 22:08:34.651
+!MESSAGE Export Wizard Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Conversion to Dalvik format failed with error 1
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper.exportReleaseApk(ExportHelper.java:312)
+	at com.android.ide.eclipse.adt.internal.wizards.export.ExportWizard.doExport(ExportWizard.java:296)
+	at com.android.ide.eclipse.adt.internal.wizards.export.ExportWizard.access$0(ExportWizard.java:233)
+	at com.android.ide.eclipse.adt.internal.wizards.export.ExportWizard$1.run(ExportWizard.java:218)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Caused by: com.android.ide.eclipse.adt.internal.build.DexException: Conversion to Dalvik format failed with error 1
+	at com.android.ide.eclipse.adt.internal.build.BuildHelper.executeDx(BuildHelper.java:751)
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper.exportReleaseApk(ExportHelper.java:269)
+	... 4 more
+!SUBENTRY 1 com.android.ide.eclipse.adt 4 0 2013-05-09 22:08:34.653
+!MESSAGE Conversion to Dalvik format failed with error 1
+!STACK 0
+com.android.ide.eclipse.adt.internal.build.DexException: Conversion to Dalvik format failed with error 1
+	at com.android.ide.eclipse.adt.internal.build.BuildHelper.executeDx(BuildHelper.java:751)
+	at com.android.ide.eclipse.adt.internal.project.ExportHelper.exportReleaseApk(ExportHelper.java:269)
+	at com.android.ide.eclipse.adt.internal.wizards.export.ExportWizard.doExport(ExportWizard.java:296)
+	at com.android.ide.eclipse.adt.internal.wizards.export.ExportWizard.access$0(ExportWizard.java:233)
+	at com.android.ide.eclipse.adt.internal.wizards.export.ExportWizard$1.run(ExportWizard.java:218)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 22:34:27.143
+!MESSAGE palette: Failed to find style 'switchStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 22:34:27.146
+!MESSAGE palette: Failed to find style 'switchStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 22:34:27.150
+!MESSAGE palette: Failed to find style 'switchStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 22:34:27.152
+!MESSAGE palette: Failed to find style 'switchStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 22:34:27.155
+!MESSAGE palette: Failed to find style 'switchStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 22:34:27.159
+!MESSAGE palette: Failed to find style 'switchStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-05-09 22:34:27.162
+!MESSAGE Failed to render set of icons for Switch
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-05-09 22:34:27.164
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at android.widget.Switch.jumpDrawablesToCurrentState(Switch.java:825)
+	at android.view.ViewGroup.jumpDrawablesToCurrentState(ViewGroup.java:5158)
+	at android.view.ViewGroup.jumpDrawablesToCurrentState(ViewGroup.java:5158)
+	at android.widget.FrameLayout.jumpDrawablesToCurrentState(FrameLayout.java:189)
+	at android.view.View.onAttachedToWindow(View.java:11560)
+	at android.view.View.dispatchAttachedToWindow(View.java:11937)
+	at android.view.ViewGroup.dispatchAttachedToWindow(ViewGroup.java:2415)
+	at android.view.AttachInfo_Accessor.setAttachInfo(AttachInfo_Accessor.java:42)
+	at com.android.layoutlib.bridge.impl.RenderSessionImpl.inflate(RenderSessionImpl.java:393)
+	at com.android.layoutlib.bridge.Bridge.createSession(Bridge.java:332)
+	at com.android.ide.common.rendering.LayoutLibrary.createSession(LayoutLibrary.java:325)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.RenderService.createRenderSession(RenderService.java:440)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.PreviewIconFactory.render(PreviewIconFactory.java:273)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.PreviewIconFactory.initColors(PreviewIconFactory.java:595)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.PreviewIconFactory.getBackgroundColor(PreviewIconFactory.java:570)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.PaletteControl.reloadPalette(PaletteControl.java:437)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.reloadPalette(GraphicalEditorPart.java:1320)
+	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.changed(GraphicalEditorPart.java:764)
+	at com.android.ide.eclipse.adt.internal.editors.layout.configuration.ConfigurationChooser.onThemeChange(ConfigurationChooser.java:1540)
+	at com.android.ide.eclipse.adt.internal.editors.layout.configuration.SelectThemeAction.run(SelectThemeAction.java:48)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1077)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1062)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:774)
+	at org.eclipse.jface.action.ActionContributionItem$9.handleEvent(ActionContributionItem.java:1284)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1053)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4169)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3758)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2701)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2665)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2499)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:679)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:668)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)

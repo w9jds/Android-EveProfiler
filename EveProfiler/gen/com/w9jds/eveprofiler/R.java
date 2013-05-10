@@ -121,6 +121,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          */
         public static final int viewBehind=0x7f010002;
     }
+    public static final class color {
+        public static final int grey=0x7f070000;
+    }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
 
@@ -130,6 +133,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          */
         public static final int activity_horizontal_margin=0x7f050000;
         public static final int activity_vertical_margin=0x7f050001;
+        public static final int shadow_width=0x7f050003;
         public static final int slidingmenu_offset=0x7f050002;
     }
     public static final class drawable {
@@ -172,10 +176,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int fragment_main_dummy=0x7f030001;
-        public static final int slidingmenumain=0x7f030002;
+        public static final int menuview=0x7f030002;
+        public static final int settingsview=0x7f030003;
+        public static final int slidingmenumain=0x7f030004;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int main=0x7f090000;
     }
     public static final class string {
         public static final int API_Key_Info=0x7f060004;
@@ -249,11 +255,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
     }
     public static final class styleable {
         /** Attributes that can be used with a SlidingMenu.
