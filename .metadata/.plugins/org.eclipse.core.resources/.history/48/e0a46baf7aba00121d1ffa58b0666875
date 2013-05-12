@@ -1,0 +1,282 @@
+package com.w9jds.eveprofiler;
+
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.DefaultHandler;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+
+public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<CharacterInfo>>{
+		
+	MainActivity Main = new MainActivity();
+	
+	protected ArrayList<CharacterInfo> doInBackground(ArrayList<Object>... Info)
+	{
+		ArrayList<CharacterInfo> Characters = new ArrayList<CharacterInfo>();
+		Main = (MainActivity)Info[0].get(1);
+		
+		if (Info[0].get(0) == "getCharacters")
+		{
+			ArrayList<String> params = new ArrayList<String>();
+			params.add(Main.getString(R.string.List_Characters));
+			ArrayList<String> keys = new ArrayList<String>();
+			
+			String Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+			
+			try
+			{
+				SAXParserFactory spf = SAXParserFactory.newInstance();
+		        SAXParser sp = spf.newSAXParser();
+	
+		        /* Get the XMLReader of the SAXParser we created. */
+		        XMLReader xr = sp.getXMLReader();
+		        /* Create a new ContentHandler and apply it to the XML-Reader*/ 
+		        ParseCharacterList Handler = new ParseCharacterList();
+		        xr.setContentHandler(Handler);
+	
+		        /* Parse the xml-data from our URL. */
+		        InputSource inputSource = new InputSource();
+		        inputSource.setEncoding("UTF-8");
+		        inputSource.setCharacterStream(new StringReader(Response));
+	
+		        /* Parse the xml-data from our URL. */
+		        xr.parse(inputSource);
+		        /* Parsing has finished. */
+		        
+		        Characters = Handler.data;
+			}
+			catch(Exception e){}
+			
+//			Characters = new CallApi.asyncParse().ParseCharacterList(Response);
+//	        SharedPreferences settings = Main.getSharedPreferences("Characters", 0);
+//	        SharedPreferences.Editor editor = settings.edit();
+//	        editor.("CharacterList", Characters);
+//	        editor.commit();
+			
+			for (int i = 0; i < Characters.size(); i++){
+				
+				params.clear();
+				params.add(Main.getString(R.string.Character_Sheet));
+				keys.clear();
+				keys.add(Characters.get(i).getCharacterID());
+				
+				Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+				
+				Characters.get(i).setDateOfBirth(Response);
+				
+				try
+				{
+					SAXParserFactory spf = SAXParserFactory.newInstance();
+			        SAXParser sp = spf.newSAXParser();
+		
+			        /* Get the XMLReader of the SAXParser we created. */
+			        XMLReader xr = sp.getXMLReader();
+			        /* Create a new ContentHandler and apply it to the XML-Reader*/ 
+			        ParseCharacterSheet Handler = new ParseCharacterSheet();
+			        xr.setContentHandler(Handler);
+		
+			        /* Parse the xml-data from our URL. */
+			        InputSource inputSource = new InputSource();
+			        inputSource.setEncoding("UTF-8");
+			        inputSource.setCharacterStream(new StringReader(Response));
+		
+			        /* Parse the xml-data from our URL. */
+			        xr.parse(inputSource);
+			        /* Parsing has finished. */
+			        
+			        Characters.get(i).Combine(Handler.data);
+				}
+				catch(Exception e){}
+
+			}
+
+		}
+
+		
+		return Characters;
+	}
+
+	class ParseCharacterList extends DefaultHandler {
+	    
+		String elementValue = null;
+	    Boolean elementOn = false;
+		public ArrayList<CharacterInfo> data = new ArrayList<CharacterInfo>();
+	    
+	    /**
+	     * This will be called when the tags of the XML starts.
+	     **/
+	    @Override
+	    public void startElement(String uri, String localName, String qName, org.xml.sax.Attributes attributes) throws SAXException {
+	        elementOn = true;	        	
+            /**
+             * We can get the values of attributes for eg. if the CD tag had an attribute( <CD attr= "band">Akon</CD> )
+             * we can get the value "band". Below is an example of how to achieve this.
+             *
+             * String attributeValue = attributes.getValue("attr");
+             * data.setAttribute(attributeValue);
+             *
+             * */
+	        if (localName.equals("row"))
+	        {
+	        	data.add(new CharacterInfo());
+	        	String attributeValue = attributes.getValue("name");
+	        	data.get(data.size()-1).setName(attributeValue);
+	        	attributeValue = attributes.getValue("characterID");
+	        	data.get(data.size()-1).setCharacterID(attributeValue);
+	        	attributeValue = attributes.getValue("corporationName");
+	        	data.get(data.size()-1).setCorporationName(attributeValue);
+	        	attributeValue = attributes.getValue("corporationID");
+	        	data.get(data.size()-1).setCorporationID(attributeValue);
+	        }
+	    }
+	}
+	
+	class ParseCharacterSheet extends DefaultHandler {
+		
+		String elementValue = null;
+	    Boolean elementOn = false;
+	    private StringBuffer buffer = new StringBuffer();
+		public CharacterInfo data = new CharacterInfo();
+	    
+	    /**
+	     * This will be called when the tags of the XML starts.
+	     **/
+	    @Override
+	    public void startElement(String uri, String localName, String qName, org.xml.sax.Attributes attributes) throws SAXException {
+	        elementOn = true;	        	
+	        if (localName.equals("DoB") || localName.equals("race") || localName.equals("bloodLine") || localName.equals("ancestry") || localName.equals("gender")
+	        		|| localName.equals("allianceName") || localName.equals("allianceID") || localName.equals("cloneName") || localName.equals("cloneSkillPoints")
+	        		|| localName.equals("balance") || localName.equals("intelligence") || localName.equals("memory") || localName.equals("charisma") || localName.equals("perception")
+	        		|| localName.equals("willpower"))
+	        	buffer.setLength(0);
+	        
+	        
+
+
+	    }
+	    
+	    @Override
+	    public void endElement(String uri, String localName, String qName) throws SAXException {
+	        elementOn = true;	        	
+	        if (localName.equals("DoB"))
+	        	data.setDateOfBirth(elementValue);
+	        else if (localName.equals("race"))
+	        	data.setRace(elementValue);
+	        else if (localName.equals("bloodLine"))
+	        	data.setBloodLine(elementValue);
+	        else if (localName.equals("ancestry"))
+	        	data.setAncestry(elementValue);
+	        else if (localName.equals("gender"))
+	        	data.setGender(elementValue);
+	        else if (localName.equals("allianceName"))
+	        	data.setAllianceName(elementValue);
+	        else if (localName.equals("allianceID"))
+	        	data.setAllianceID(elementValue);
+	        else if (localName.equals("cloneName"))
+	        	data.setCloneName(elementValue);
+	        else if (localName.equals("cloneSkillPoints"))
+	        	data.setCloneSkillPoints(elementValue);
+	        else if (localName.equals("balance"))
+	        	data.setWalletBalance(elementValue);
+	        else if (localName.equals("intelligence"))
+	        	data.setIntelligence(elementValue);
+	        else if (localName.equals("memory"))
+	        	data.setMemory(elementValue);
+	        else if (localName.equals("charisma"))
+	        	data.setCharisma(elementValue);
+	        else if (localName.equals("perception"))
+	        	data.setPerception(elementValue);
+	        else if (localName.equals("willpower"))
+	        	data.setWillpower(elementValue);
+
+	    }
+	    
+	    
+	    
+	}
+	
+	class asyncClass {
+		
+		String responseString = "";
+		public String ApiCall(ArrayList<String> Params, ArrayList<String> Keys, MainActivity Main){
+			try {
+					
+				// Create a new HttpClient and Post Header
+				HttpClient httpclient = new DefaultHttpClient();
+				HttpPost httppost = new HttpPost();
+				
+				switch(Params.size())
+				{
+	//				case 1:
+	//					httppost = new HttpPost();
+	//					break;
+					case 1:
+						httppost = new HttpPost(Main.getString(R.string.Api_Uri) + Params.get(0));
+						break;
+					case 2:
+						httppost = new HttpPost(Main.getString(R.string.Api_Uri) + Params.get(0) + Params.get(0));
+						break;
+				}
+				
+			    // Add your data
+			    List<NameValuePair> nameValuePairs;
+			    //pull api keys
+		        SharedPreferences settings = Main.getSharedPreferences("ApiKeys", 0);
+		        String keyid = settings.getString("keyid", null);
+		        String vCode = settings.getString("vCode", null);
+			    
+			    switch(Keys.size())
+			    {
+	//			    case 2:
+	//		    		nameValuePairs = new ArrayList<NameValuePair>(1);
+	//		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(0).toString(), ApiInfo.get(1).get(1).toString()));
+	//		    		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+	//		    		break;
+			    
+			    	case 0:
+			    		nameValuePairs = new ArrayList<NameValuePair>(2);
+			    		nameValuePairs.add(new BasicNameValuePair("keyID", keyid));
+			    		nameValuePairs.add(new BasicNameValuePair("vCode", vCode));
+			    		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+			    		break;
+			    		
+			    	case 1:
+			    		nameValuePairs = new ArrayList<NameValuePair>(3);
+			    		nameValuePairs.add(new BasicNameValuePair("keyID", keyid));
+			    		nameValuePairs.add(new BasicNameValuePair("vCode", vCode));
+			    		nameValuePairs.add(new BasicNameValuePair("characterID", Keys.get(0)));
+			    		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+			    }
+	
+			    		    // Execute HTTP Post Request
+			    HttpResponse response = httpclient.execute(httppost);
+			    HttpEntity entity = response.getEntity();
+			    responseString = EntityUtils.toString(entity);
+			} 
+			catch (Exception e){ System.out.println(e); }
+	
+		    return responseString;
+		}
+	}
+
+	
+	protected void onPostExecute(ArrayList<CharacterInfo> result)
+	{
+		//Main.ApiResponse(result, ApiCalled);
+	}
+}

@@ -1,0 +1,247 @@
+package com.w9jds.eveprofiler;
+
+import java.io.InputStream;
+import java.net.ContentHandler;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.jar.Attributes;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.sax.Element;
+import android.sax.RootElement;
+import android.sax.StartElementListener;
+
+public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<CharacterInfo>>{
+		
+	MainActivity Main = new MainActivity();
+	
+	protected ArrayList<CharacterInfo> doInBackground(ArrayList<Object>... Info)
+	{
+		ArrayList<CharacterInfo> Characters = new ArrayList<CharacterInfo>();
+		Main = (MainActivity)Info[0].get(1);
+		
+		if (Info[0].get(0) == "getCharacters")
+		{
+			ArrayList<String> params = new ArrayList<String>();
+			params.add(Main.getString(R.string.List_Characters));
+			ArrayList<String> keys = new ArrayList<String>();
+			
+			String Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+			
+//			Characters = new CallApi.asyncParse().ParseCharacterList(Response);
+//	        SharedPreferences settings = Main.getSharedPreferences("Characters", 0);
+//	        SharedPreferences.Editor editor = settings.edit();
+//	        editor.("CharacterList", Characters);
+//	        editor.commit();
+			
+			for (int i = 0; i < Characters.size(); i++){
+				
+				params.clear();
+				params.add(Main.getString(R.string.Character_Sheet));
+				keys.clear();
+				keys.add(Characters.get(i).getCharacterID());
+				
+				Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+				
+				Characters.get(i).setDateOfBirth(Response);
+				
+
+			}
+
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+			
+			
+			
+			
+			
+			
+
+
+		
+		
+		return Characters;
+	}
+
+	class asyncParse extends DefaultHandler {
+	    
+		String elementValue = null;
+	    Boolean elementOn = false;
+		public CharacterInfo data = null;
+	    public CharacterInfo getXMLData() {
+	        return data;
+	    }
+	    public void setXMLData(CharacterInfo data) {
+	        XMLHandler.data = data;
+	    }
+	    /**
+	     * This will be called when the tags of the XML starts.
+	     **/
+	    @Override
+	    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+	        elementOn = true;
+	        if (localName.equals("CATALOG"))
+	        {
+	            data = new CharacterInfo();
+	        } 
+	        else if (localName.equals("CD")) {
+	        	
+	            /**
+	             * We can get the values of attributes for eg. if the CD tag had an attribute( <CD attr= "band">Akon</CD> )
+	             * we can get the value "band". Below is an example of how to achieve this.
+	             *
+	             * String attributeValue = attributes.getValue("attr");
+	             * data.setAttribute(attributeValue);
+	             *
+	             * */
+	        	
+	        }
+	    }
+	    /**
+	     * This will be called when the tags of the XML end.
+	     **/
+	    @Override
+	    public void endElement(String uri, String localName, String qName) throws SAXException {
+	        elementOn = false;
+	        /**
+	         * Sets the values after retrieving the values from the XML tags
+	         * */
+	        if (localName.equalsIgnoreCase("DoB"))
+	            data.setDateOfBirth(elementValue);
+	        else if (localName.equalsIgnoreCase("race"))
+	            data.setRace(elementValue);
+	        else if (localName.equalsIgnoreCase("bloodLine"))
+	            data.setBloodLine(elementValue);
+	        else if (localName.equalsIgnoreCase("ancestry"))
+	            data.setAncestry(elementValue);
+	        else if (localName.equalsIgnoreCase("gender"))
+	            data.setGender(elementValue);
+	        else if (localName.equalsIgnoreCase("allianceName"))
+	            data.setAllianceName(elementValue);
+	        else if (localName.equalsIgnoreCase("allianceID"))
+	        	data.setAllianceID(elementValue);
+	        else if (localName.equalsIgnoreCase("cloneName"))
+	        	data.setCloneName(elementValue);
+	        else if (localName.equalsIgnoreCase("cloneSkillPoints"))
+	        	data.setCloneSkillPoints(elementValue);
+	        else if (localName.equalsIgnoreCase("balance"))
+	        	data.setWalletBalance(elementValue);
+	        else if (localName.equalsIgnoreCase("intelligence"))
+	        	data.setIntelligence(elementValue);
+	        else if (localName.equalsIgnoreCase("memory"))
+	        	data.setMemory(elementValue);
+	        else if (localName.equalsIgnoreCase("charisma"))
+	        	data.setCharisma(elementValue);
+	        
+	        
+	    }
+	    /**
+	     * This is called to get the tags value
+	     **/
+	    @Override
+	    public void characters(char[] ch, int start, int length)
+	            throws SAXException {
+	        if (elementOn) {
+	            elementValue = new String(ch, start, length);
+	            elementOn = false;
+	        }
+	    }
+		
+		
+		
+		
+		
+	}
+	
+	class asyncClass {
+		
+		String responseString = "";
+		public String ApiCall(ArrayList<String> Params, ArrayList<String> Keys, MainActivity Main){
+			try {
+					
+				// Create a new HttpClient and Post Header
+				HttpClient httpclient = new DefaultHttpClient();
+				HttpPost httppost = new HttpPost();
+				
+				switch(Params.size())
+				{
+	//				case 1:
+	//					httppost = new HttpPost();
+	//					break;
+					case 1:
+						httppost = new HttpPost(Main.getString(R.string.Api_Uri) + Params.get(0));
+						break;
+					case 2:
+						httppost = new HttpPost(Main.getString(R.string.Api_Uri) + Params.get(0) + Params.get(0));
+						break;
+				}
+				
+			    // Add your data
+			    List<NameValuePair> nameValuePairs;
+			    //pull api keys
+		        SharedPreferences settings = Main.getSharedPreferences("ApiKeys", 0);
+		        String keyid = settings.getString("keyid", null);
+		        String vCode = settings.getString("vCode", null);
+			    
+			    switch(Keys.size())
+			    {
+	//			    case 2:
+	//		    		nameValuePairs = new ArrayList<NameValuePair>(1);
+	//		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(0).toString(), ApiInfo.get(1).get(1).toString()));
+	//		    		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+	//		    		break;
+			    
+			    	case 0:
+			    		nameValuePairs = new ArrayList<NameValuePair>(2);
+			    		nameValuePairs.add(new BasicNameValuePair("keyID", keyid));
+			    		nameValuePairs.add(new BasicNameValuePair("vCode", vCode));
+			    		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+			    		break;
+			    		
+			    	case 1:
+			    		nameValuePairs = new ArrayList<NameValuePair>(3);
+			    		nameValuePairs.add(new BasicNameValuePair("keyID", keyid));
+			    		nameValuePairs.add(new BasicNameValuePair("vCode", vCode));
+			    		nameValuePairs.add(new BasicNameValuePair("characterID", Keys.get(0)));
+			    		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+			    }
+	
+			    		    // Execute HTTP Post Request
+			    HttpResponse response = httpclient.execute(httppost);
+			    HttpEntity entity = response.getEntity();
+			    responseString = EntityUtils.toString(entity);
+			} 
+			catch (Exception e){ System.out.println(e); }
+	
+		    return responseString;
+		}
+	}
+
+	
+	protected void onPostExecute(ArrayList<CharacterInfo> result)
+	{
+		//Main.ApiResponse(result, ApiCalled);
+	}
+}

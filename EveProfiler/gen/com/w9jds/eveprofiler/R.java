@@ -122,7 +122,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int viewBehind=0x7f010002;
     }
     public static final class color {
-        public static final int grey=0x7f070000;
+        public static final int grey=0x7f080001;
+        public static final int lightgrey=0x7f080002;
+        public static final int white=0x7f080000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -131,107 +133,135 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
-        public static final int shadow_width=0x7f050003;
-        public static final int slidingmenu_offset=0x7f050002;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
+        public static final int shadow_width=0x7f060004;
+        public static final int slidingmenu_offset=0x7f060002;
+        public static final int slidingmenu_small=0x7f060003;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int assets=0x7f020000;
+        public static final int attributes=0x7f020001;
+        public static final int corp=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int wallet=0x7f020004;
     }
     public static final class id {
-        public static final int Alliance=0x7f04001b;
-        public static final int AllianceLabel=0x7f040011;
-        public static final int Background=0x7f040017;
-        public static final int BackgroundLabel=0x7f04000d;
-        public static final int Bounty=0x7f04001d;
-        public static final int BountyLabel=0x7f040013;
-        public static final int CapsuleerPortrait=0x7f040008;
-        public static final int Clone=0x7f040015;
-        public static final int CloneLabel=0x7f04000b;
-        public static final int Corporation=0x7f04001a;
-        public static final int CorporationLabel=0x7f040010;
-        public static final int DateOBirth=0x7f040018;
-        public static final int DateOBirthLabel=0x7f04000e;
-        public static final int HomeSystem=0x7f040016;
-        public static final int HomeSystemLabel=0x7f04000c;
-        public static final int LayoutMain=0x7f040005;
-        public static final int MainGrid=0x7f040007;
-        public static final int School=0x7f040019;
-        public static final int SchoolLabel=0x7f04000f;
-        public static final int SecurityStatus=0x7f04001c;
-        public static final int SecurityStatusLabel=0x7f040012;
-        public static final int SkillPoints=0x7f040014;
-        public static final int SkillPointsLabel=0x7f04000a;
-        public static final int StatsGrid=0x7f040009;
-        public static final int action_settings=0x7f04001f;
-        public static final int fullscreen=0x7f040003;
-        public static final int left=0x7f040000;
-        public static final int margin=0x7f040002;
-        public static final int pager=0x7f040006;
-        public static final int right=0x7f040001;
-        public static final int selected_view=0x7f040004;
-        public static final int slidingmenumain=0x7f04001e;
+        public static final int Alliance=0x7f05002b;
+        public static final int AllianceLabel=0x7f050021;
+        public static final int Attributes=0x7f050011;
+        public static final int AttributesLabel=0x7f050013;
+        public static final int AttributesPic=0x7f050012;
+        public static final int Background=0x7f050027;
+        public static final int BackgroundLabel=0x7f05001d;
+        public static final int Bounty=0x7f05002d;
+        public static final int BountyLabel=0x7f050023;
+        public static final int CapsuleerPortrait=0x7f050018;
+        public static final int Clone=0x7f050025;
+        public static final int CloneLabel=0x7f05001b;
+        public static final int Corporation=0x7f05002a;
+        public static final int CorporationLabel=0x7f050020;
+        public static final int DateOBirth=0x7f050028;
+        public static final int DateOBirthLabel=0x7f05001e;
+        public static final int HomeSystem=0x7f050026;
+        public static final int HomeSystemLabel=0x7f05001c;
+        public static final int LayoutMain=0x7f050005;
+        public static final int Mail=0x7f050008;
+        public static final int MailLabel=0x7f05000a;
+        public static final int MailPic=0x7f050009;
+        public static final int MainGrid=0x7f050017;
+        public static final int School=0x7f050029;
+        public static final int SchoolLabel=0x7f05001f;
+        public static final int SecurityStatus=0x7f05002c;
+        public static final int SecurityStatusLabel=0x7f050022;
+        public static final int SkillPoints=0x7f050024;
+        public static final int SkillPointsLabel=0x7f05001a;
+        public static final int Skills=0x7f05000e;
+        public static final int SkillsLabel=0x7f050010;
+        public static final int SkillsPic=0x7f05000f;
+        public static final int StatsGrid=0x7f050019;
+        public static final int action_settings=0x7f05002f;
+        public static final int assets=0x7f050014;
+        public static final int assetsLabel=0x7f050016;
+        public static final int assetsPic=0x7f050015;
+        public static final int content=0x7f050007;
+        public static final int fullscreen=0x7f050003;
+        public static final int left=0x7f050000;
+        public static final int margin=0x7f050002;
+        public static final int pager=0x7f050006;
+        public static final int right=0x7f050001;
+        public static final int selected_view=0x7f050004;
+        public static final int slidingmenumain=0x7f05002e;
+        public static final int wallet=0x7f05000b;
+        public static final int walletLabel=0x7f05000d;
+        public static final int walletPic=0x7f05000c;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int fragment_main_dummy=0x7f030001;
-        public static final int menuview=0x7f030002;
-        public static final int settingsview=0x7f030003;
-        public static final int slidingmenumain=0x7f030004;
+        public static final int drawerview=0x7f030001;
+        public static final int fragment_main_dummy=0x7f030002;
+        public static final int slidingmenumain=0x7f030003;
+        public static final int smalldrawerview=0x7f030004;
     }
     public static final class menu {
-        public static final int main=0x7f090000;
+        public static final int main=0x7f0a0000;
     }
     public static final class string {
-        public static final int API_Key_Info=0x7f060004;
-        public static final int Account_Balance=0x7f060006;
-        public static final int Account_Status=0x7f060003;
-        public static final int AllianceString=0x7f06002d;
-        public static final int Alliance_Logo=0x7f060023;
-        public static final int Api_Uri=0x7f060002;
-        public static final int Asset_List=0x7f060007;
-        public static final int BackgroundString=0x7f060029;
-        public static final int BountyString=0x7f06002f;
-        public static final int Cal_Event_Attendees=0x7f060008;
-        public static final int Character_Portrait=0x7f060021;
-        public static final int Character_Sheet=0x7f060009;
-        public static final int CloneString=0x7f060027;
-        public static final int Contact_List=0x7f06000a;
-        public static final int Contact_Notif=0x7f06000b;
-        public static final int Contacts=0x7f06000c;
-        public static final int ContractBids=0x7f06000e;
-        public static final int ContractItems=0x7f06000d;
-        public static final int Corp_Logo=0x7f060022;
-        public static final int CorporationString=0x7f06002c;
-        public static final int DateOBirthString=0x7f06002a;
-        public static final int Factional_Warfare_Stats=0x7f06000f;
-        public static final int HomeSystemString=0x7f060028;
-        public static final int Industry_Jobs=0x7f060010;
-        public static final int KillMails=0x7f060011;
-        public static final int List_Characters=0x7f060005;
-        public static final int Locations=0x7f060012;
-        public static final int MailMessHeaders=0x7f060015;
-        public static final int Mail_Bodies=0x7f060013;
-        public static final int Mailing_Lists=0x7f060014;
-        public static final int Market_Orders=0x7f060016;
-        public static final int Medals=0x7f060017;
-        public static final int NPC_Standings=0x7f06001d;
-        public static final int Notification_Text=0x7f060019;
-        public static final int Notifications=0x7f060018;
-        public static final int Render=0x7f060025;
-        public static final int Research=0x7f06001a;
-        public static final int SchoolString=0x7f06002b;
-        public static final int SecurityStatusString=0x7f06002e;
-        public static final int SkillPointsString=0x7f060026;
-        public static final int Skill_Queue=0x7f06001c;
-        public static final int Skill_in_Training=0x7f06001b;
-        public static final int Type_Icon=0x7f060024;
-        public static final int Upcoming_Cal_Events=0x7f06001e;
-        public static final int Wallet_Journal=0x7f06001f;
-        public static final int Wallet_Transactions=0x7f060020;
-        public static final int action_settings=0x7f060001;
-        public static final int app_name=0x7f060000;
+        public static final int API_Key_Info=0x7f07000b;
+        public static final int Account_Balance=0x7f07000d;
+        public static final int Account_Status=0x7f07000a;
+        public static final int AllianceString=0x7f070034;
+        public static final int Alliance_Logo=0x7f07002a;
+        public static final int Api_Uri=0x7f070009;
+        public static final int Asset_List=0x7f07000e;
+        public static final int BackgroundString=0x7f070030;
+        public static final int BountyString=0x7f070036;
+        public static final int Cal_Event_Attendees=0x7f07000f;
+        public static final int Character_Portrait=0x7f070028;
+        public static final int Character_Sheet=0x7f070010;
+        public static final int CloneString=0x7f07002e;
+        public static final int Contact_List=0x7f070011;
+        public static final int Contact_Notif=0x7f070012;
+        public static final int Contacts=0x7f070013;
+        public static final int ContractBids=0x7f070015;
+        public static final int ContractItems=0x7f070014;
+        public static final int Corp_Logo=0x7f070029;
+        public static final int CorporationString=0x7f070033;
+        public static final int DateOBirthString=0x7f070031;
+        public static final int Factional_Warfare_Stats=0x7f070016;
+        public static final int HomeSystemString=0x7f07002f;
+        public static final int Industry_Jobs=0x7f070017;
+        public static final int KillMails=0x7f070018;
+        public static final int List_Characters=0x7f07000c;
+        public static final int Locations=0x7f070019;
+        public static final int MailMessHeaders=0x7f07001c;
+        public static final int Mail_Bodies=0x7f07001a;
+        public static final int Mailing_Lists=0x7f07001b;
+        public static final int Market_Orders=0x7f07001d;
+        public static final int Medals=0x7f07001e;
+        public static final int NPC_Standings=0x7f070024;
+        public static final int Notification_Text=0x7f070020;
+        public static final int Notifications=0x7f07001f;
+        public static final int Render=0x7f07002c;
+        public static final int Research=0x7f070021;
+        public static final int SchoolString=0x7f070032;
+        public static final int SecurityStatusString=0x7f070035;
+        public static final int SkillPointsString=0x7f07002d;
+        public static final int Skill_Queue=0x7f070023;
+        public static final int Skill_in_Training=0x7f070022;
+        public static final int Type_Icon=0x7f07002b;
+        public static final int Upcoming_Cal_Events=0x7f070025;
+        public static final int Wallet_Journal=0x7f070026;
+        public static final int Wallet_Transactions=0x7f070027;
+        public static final int action_settings=0x7f070008;
+        public static final int app_name=0x7f070007;
+        public static final int pref_header_general=0x7f070001;
+        public static final int pref_keyid=0x7f070003;
+        public static final int pref_title_drawerSize=0x7f070006;
+        public static final int pref_title_keyid=0x7f070002;
+        public static final int pref_title_vCode=0x7f070004;
+        public static final int pref_vCode=0x7f070005;
+        public static final int title_activity_settings=0x7f070000;
     }
     public static final class style {
         /** 
@@ -255,11 +285,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f090001;
+    }
+    public static final class xml {
+        public static final int pref_general=0x7f040000;
+        public static final int pref_headers=0x7f040001;
     }
     public static final class styleable {
         /** Attributes that can be used with a SlidingMenu.
