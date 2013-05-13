@@ -6,10 +6,7 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.w9jds.eveprofiler.R;
 import com.w9jds.eveprofiler.Classes.CallApi;
 import com.w9jds.eveprofiler.Classes.CharacterInfo;
-import com.w9jds.eveprofiler.R.dimen;
-import com.w9jds.eveprofiler.R.id;
-import com.w9jds.eveprofiler.R.layout;
-import com.w9jds.eveprofiler.R.menu;
+import com.w9jds.eveprofiler.Classes.PrevSettings;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
@@ -30,6 +27,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener 
@@ -37,6 +35,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	private SlidingMenu menu;
 	private SectionsPagerAdapter mSectionsPagerAdapter;
 	private ViewPager mViewPager;
+	private PrevSettings prevSettings = new PrevSettings();
 	private static ArrayList<CharacterInfo> Characters = new ArrayList<CharacterInfo>();
 	private static final int RESULT_SETTINGS = 1;
 
@@ -78,6 +77,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 	private void getCharacters()
 	{
+		ProgressBar pb = (ProgressBar)getWindow().getDecorView().findViewById(R.id.progressBar);
+		pb.setVisibility(View.VISIBLE);
 		ArrayList<Object> get = new ArrayList<Object>();
 		get.add("getCharacters");
 		get.add(this);
@@ -86,8 +87,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	
 	public void ApiResponse(ArrayList<CharacterInfo> apiCharacters)
 	{
+		ProgressBar pb = (ProgressBar)getWindow().getDecorView().findViewById(R.id.progressBar);
 		Characters = apiCharacters;
 		CreateTabItems();
+		pb.setVisibility(View.GONE);
 	}
 	
 	public void CreateTabItems()
@@ -136,6 +139,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	        	menu.toggle();
 	        	break;
 	        case R.id.action_settings:
+	        	SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+	        	prevSettings.setsmallDrawer(sharedPrefs.getBoolean("drawerSize", true));
+	        	prevSettings.setapiKey(sharedPrefs.getString("keyid", null));
+	        	prevSettings.setvCode(sharedPrefs.getString("vCode", null));
 	        	startActivityForResult(new Intent(this, SettingsActivity.class), RESULT_SETTINGS);
 	        	break;
 	        default:
@@ -149,10 +156,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
         case RESULT_SETTINGS:
-        	ActionBar actionBar = getActionBar();
-        	actionBar.removeAllTabs();
-        	LoadDrawer();
-        	getCharacters();
+        	SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        	if (prevSettings.getapiKey() != sharedPrefs.getString("keyid", null) || prevSettings.getvCode() != sharedPrefs.getString("vCode", null)){
+	        	ActionBar actionBar = getActionBar();
+	        	actionBar.removeAllTabs();
+	        	getCharacters();
+        	}
+        	if (prevSettings.getsmallDrawer() != sharedPrefs.getBoolean("drawerSize", true))
+        		LoadDrawer();
             break;
         }
     }
@@ -218,7 +229,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public static class DummySectionFragment extends Fragment {
 
 		public static final String ARG_SECTION_NUMBER = "section_number";
-		int Position;
 		
 		public DummySectionFragment() 
 		{
@@ -230,19 +240,32 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		{
 			View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
 
-			TextView Clone = (TextView) rootView.findViewById(R.id.Clone);
-			Clone.setText(Characters.get(container.getChildCount()).getCloneName() + " (" + Characters.get(container.getChildCount()).getCloneSkillPoints() + ")");
-			TextView DOB = (TextView) rootView.findViewById(R.id.DateOBirth);
-			DOB.setText(Characters.get(container.getChildCount()).getDateOfBirth());
-			TextView Background = (TextView) rootView.findViewById(R.id.Background);
-			Background.setText(Characters.get(container.getChildCount()).getRace() + " - " + Characters.get(container.getChildCount()).getBloodLine() + " - " + Characters.get(container.getChildCount()).getAncestry());
-			TextView Corporation = (TextView) rootView.findViewById(R.id.Corporation);
-			Corporation.setText(Characters.get(container.getChildCount()).getCorporationName());
-			TextView Alliance = (TextView) rootView.findViewById(R.id.Alliance);
-			Alliance.setText(Characters.get(Position).getAllianceName());
+//			TextView Clone = (TextView) rootView.findViewById(R.id.Clone);
+//			Clone.setText(Characters.get(container.getChildCount()).getCloneName() + " (" + Characters.get(container.getChildCount()).getCloneSkillPoints() + ")");
+//			TextView DOB = (TextView) rootView.findViewById(R.id.DateOBirth);
+//			DOB.setText(Characters.get(container.getChildCount()).getDateOfBirth());
+//			TextView Background = (TextView) rootView.findViewById(R.id.Background);
+//			Background.setText(Characters.get(container.getChildCount()).getRace() + " - " + Characters.get(container.getChildCount()).getBloodLine() + " - " + Characters.get(container.getChildCount()).getAncestry());
+			
 			ImageView image = (ImageView) rootView.findViewById(R.id.CapsuleerPortrait);
 			Bitmap bMap = BitmapFactory.decodeByteArray(Characters.get(container.getChildCount()).getCharacterPortrait(), 0, Characters.get(container.getChildCount()).getCharacterPortrait().length);
 			image.setImageBitmap(bMap);
+			
+			image = (ImageView) rootView.findViewById(R.id.corpPic);
+			bMap = BitmapFactory.decodeByteArray(Characters.get(container.getChildCount()).getCorporationPortrait(), 0, Characters.get(container.getChildCount()).getCorporationPortrait().length);
+			image.setImageBitmap(bMap);			
+			TextView Corporation = (TextView) rootView.findViewById(R.id.CorpName);
+			Corporation.setText(Characters.get(container.getChildCount()).getCorporationName());
+
+			if (Characters.get(container.getChildCount()).getAlliancePortrait() != null){
+				TextView Alliance = (TextView) rootView.findViewById(R.id.allianceName);
+				Alliance.setText(Characters.get(container.getChildCount()).getAllianceName());
+				image = (ImageView) rootView.findViewById(R.id.alliancePic);
+				bMap = BitmapFactory.decodeByteArray(Characters.get(container.getChildCount()).getAlliancePortrait(), 0, Characters.get(container.getChildCount()).getAlliancePortrait().length);
+				image.setImageBitmap(bMap);	
+			}
+			
+
 			
 			return rootView;
 		}

@@ -1,0 +1,245 @@
+package com.w9jds.eveprofiler.Activities;
+
+import java.util.ArrayList;
+
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.w9jds.eveprofiler.R;
+import com.w9jds.eveprofiler.Classes.CallApi;
+import com.w9jds.eveprofiler.Classes.CharacterInfo;
+import android.app.ActionBar;
+import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener 
+{
+	private SlidingMenu menu;
+	private SectionsPagerAdapter mSectionsPagerAdapter;
+	private ViewPager mViewPager;
+	private static ArrayList<CharacterInfo> Characters = new ArrayList<CharacterInfo>();
+	private static final int RESULT_SETTINGS = 1;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) 
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		LoadDrawer();
+		getCharacters();
+	}
+	
+	private void LoadDrawer()
+	{
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+		
+        menu = new SlidingMenu(this);
+        menu.setMode(SlidingMenu.LEFT);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+        menu.setShadowWidthRes(R.dimen.shadow_width);
+        //menu.setShadowDrawable(R.drawable.shadow);
+        menu.setFadeDegree(0.35f);
+        menu.attachToActivity(this, SlidingMenu.SLIDING_WINDOW);
+        
+        if (sharedPrefs.getBoolean("drawerSize", true) == false)
+        {
+	        menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+	        menu.setMenu(R.layout.drawerview);
+        }
+        else 
+        {
+	        menu.setMenu(R.layout.smalldrawerview);
+	        menu.setBehindWidthRes(R.dimen.slidingmenu_small);
+        }
+
+	}
+
+	private void getCharacters()
+	{
+		ArrayList<Object> get = new ArrayList<Object>();
+		get.add("getCharacters");
+		get.add(this);
+		new CallApi().execute(get);
+	}
+	
+	public void ApiResponse(ArrayList<CharacterInfo> apiCharacters)
+	{
+		Characters = apiCharacters;
+		CreateTabItems();
+	}
+	
+	public void CreateTabItems()
+	{
+		final ActionBar actionBar = getActionBar();
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+		// Create the adapter that will return a fragment for each of the three
+		// primary sections of the app.
+		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+		// Set up the ViewPager with the sections adapter.
+		mViewPager = (ViewPager) findViewById(R.id.pager);
+		mViewPager.setAdapter(mSectionsPagerAdapter);
+
+		// When swiping between different sections, select the corresponding
+		// tab. We can also use ActionBar.Tab#select() to do this if we have
+		// a reference to the Tab.
+		mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() 
+		{
+			@Override
+			public void onPageSelected(int position) { actionBar.setSelectedNavigationItem(position); }
+		});
+
+		// For each character create a tab and use the characters name as the title
+		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) 
+		{
+			actionBar.addTab(actionBar.newTab().setText(mSectionsPagerAdapter.getPageTitle(i)).setTabListener(this));
+
+		}
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) 
+	{
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) 
+	    {
+	        case android.R.id.home:
+	        	menu.toggle();
+	        	break;
+	        case R.id.action_settings:
+	        	startActivityForResult(new Intent(this, SettingsActivity.class), RESULT_SETTINGS);
+	        	break;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	    return true;
+    }
+	
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+        case RESULT_SETTINGS:
+        	ActionBar actionBar = getActionBar();
+        	actionBar.removeAllTabs();
+        	LoadDrawer();
+        	getCharacters();
+            break;
+        }
+    }
+	
+
+	@Override
+	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) 
+	{
+		int Position = tab.getPosition();
+
+		// When the given tab is selected, switch to the corresponding page in
+		// the ViewPager.
+		mViewPager.setCurrentItem(Position);		
+	}
+
+	@Override
+	public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) 
+	{
+		
+	}
+
+	@Override
+	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) 
+	{
+		
+	}
+
+	public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+		public SectionsPagerAdapter(FragmentManager fm) 
+		{
+			super(fm);
+		}
+
+		@Override
+		public Fragment getItem(int position) 
+		{
+			// getItem is called to instantiate the fragment for the given page.
+			// Return a DummySectionFragment (defined as a static inner class
+			// below) with the page number as its lone argument.
+			Fragment fragment = new DummySectionFragment();
+			
+			Bundle args = new Bundle();
+			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
+			fragment.setArguments(args);
+			
+			return fragment;
+		}
+
+		@Override
+		public int getCount() 
+		{
+			return Characters.size();
+		}
+		
+		@Override
+		public CharSequence getPageTitle(int position) 
+		{
+			return Characters.get(position).getName();
+		}
+	}
+
+	public static class DummySectionFragment extends Fragment {
+
+		public static final String ARG_SECTION_NUMBER = "section_number";
+		int Position;
+		
+		public DummySectionFragment() 
+		{
+			
+		}
+		
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
+		{
+			View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
+
+//			TextView Clone = (TextView) rootView.findViewById(R.id.Clone);
+//			Clone.setText(Characters.get(container.getChildCount()).getCloneName() + " (" + Characters.get(container.getChildCount()).getCloneSkillPoints() + ")");
+//			TextView DOB = (TextView) rootView.findViewById(R.id.DateOBirth);
+//			DOB.setText(Characters.get(container.getChildCount()).getDateOfBirth());
+//			TextView Background = (TextView) rootView.findViewById(R.id.Background);
+//			Background.setText(Characters.get(container.getChildCount()).getRace() + " - " + Characters.get(container.getChildCount()).getBloodLine() + " - " + Characters.get(container.getChildCount()).getAncestry());
+			TextView Corporation = (TextView) rootView.findViewById(R.id.CorpName);
+			Corporation.setText(Characters.get(container.getChildCount()).getCorporationName());
+			TextView Alliance = (TextView) rootView.findViewById(R.id.allianceName);
+			Alliance.setText(Characters.get(Position).getAllianceName());
+			ImageView image = (ImageView) rootView.findViewById(R.id.CapsuleerPortrait);
+			Bitmap bMap = BitmapFactory.decodeByteArray(Characters.get(container.getChildCount()).getCharacterPortrait(), 0, Characters.get(container.getChildCount()).getCharacterPortrait().length);
+			image.setImageBitmap(bMap);
+			
+			return rootView;
+		}
+	}
+}

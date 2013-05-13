@@ -98,8 +98,9 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 				
 				asyncClass portrait = new asyncClass();
 				Characters.get(i).setCharacterPortrait(portrait.ApiImageCall(Main.getString(R.string.Character_Portrait), Characters.get(i).getCharacterID(), "128"));
-			
-				
+				Characters.get(i).setCorporationPortrait(portrait.ApiImageCall(Main.getString(R.string.Corp_Logo), Characters.get(i).getCorporationID(), "64"));
+				if (Characters.get(i).getAllianceID() != null)
+					Characters.get(i).setAlliancePortrait(portrait.ApiImageCall(Main.getString(R.string.Alliance_Logo), Characters.get(i).getAllianceID(), "64"));
 			}
 		}
 		return Characters;

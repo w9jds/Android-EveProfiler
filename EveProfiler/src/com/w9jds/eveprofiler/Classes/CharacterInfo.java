@@ -30,7 +30,9 @@ public class CharacterInfo implements Serializable {
 	private String Willpower;
 	private ArrayList<SkillInfo> Skills;
 	private byte[] CharacterPortrait;
-	
+	private byte[] corporationPortrait;
+	private byte[] alliancePortrait;
+			
 	public void CombineSheet(CharacterInfo Info2) {
 		
 		if(this.name == null)
@@ -75,8 +77,18 @@ public class CharacterInfo implements Serializable {
 			this.Skills = Info2.getSkills();
 		if(this.CharacterPortrait == null)
 			this.CharacterPortrait = Info2.getCharacterPortrait();
+		if(this.corporationPortrait == null)
+			this.corporationPortrait = Info2.getCorporationPortrait();
+		if(this.alliancePortrait == null)
+			this.alliancePortrait = Info2.getAlliancePortrait();
 
 	}
+	
+	public byte[] getAlliancePortrait() { return alliancePortrait; }
+	public void setAlliancePortrait(byte[] alliancePortrait) { this.alliancePortrait = alliancePortrait; }
+	
+	public byte[] getCorporationPortrait() { return corporationPortrait; }
+	public void setCorporationPortrait(byte[] corporationPortrait) { this.corporationPortrait = corporationPortrait; }
 	
 	public byte[] getCharacterPortrait() { return CharacterPortrait; }
 	public void setCharacterPortrait(byte[] CharacterPortrait) { this.CharacterPortrait = CharacterPortrait; }

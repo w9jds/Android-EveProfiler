@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.apache.http.message.BasicNameValuePair"/>
-<fullyQualifiedTypeName name="org.apache.http.client.ClientProtocolException"/>
-<fullyQualifiedTypeName name="java.util.Observable"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="android.os.AsyncTask"/>
-<fullyQualifiedTypeName name="org.apache.http.client.methods.HttpGet"/>
-<fullyQualifiedTypeName name="org.apache.http.util.EntityUtils"/>
-<fullyQualifiedTypeName name="android.widget.ImageView"/>
-<fullyQualifiedTypeName name="android.graphics.Bitmap"/>
 <fullyQualifiedTypeName name="android.graphics.BitmapFactory"/>
 <fullyQualifiedTypeName name="android.R.xml"/>
 <fullyQualifiedTypeName name="com.w9jds.eveprofiler.MainActivity"/>
@@ -17,22 +7,16 @@
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="com.slidinglayer.SlidingLayer"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
-<fullyQualifiedTypeName name="com.w9jds.eveprofiler.R.dimen"/>
 <fullyQualifiedTypeName name="android.view.KeyEvent"/>
 <fullyQualifiedTypeName name="android.view.MenuItem"/>
 <fullyQualifiedTypeName name="android.graphics.drawable.Drawable"/>
-<fullyQualifiedTypeName name="android.preference.PreferenceManager"/>
 <fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
 <fullyQualifiedTypeName name="android.widget.RelativeLayout.LayoutParams"/>
 <fullyQualifiedTypeName name="com.w9jds.eveprofiler.R.drawable"/>
 <fullyQualifiedTypeName name="com.w9jds.eveprofiler.R"/>
 <fullyQualifiedTypeName name="com.jeremyfeinstein.slidingmenu.lib.SlidingMenu"/>
-<fullyQualifiedTypeName name="com.w9jds.eveprofiler.R.layout"/>
-<fullyQualifiedTypeName name="android.R"/>
-<fullyQualifiedTypeName name="android.R.id"/>
 <fullyQualifiedTypeName name="com.w9jds.eveprofiler.R.menu"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
-<fullyQualifiedTypeName name="com.w9jds.eveprofiler.R.id"/>
 <fullyQualifiedTypeName name="com.w9jds.eveprofiler.R.string"/>
 <fullyQualifiedTypeName name="android.content.SharedPreferences"/>
 <fullyQualifiedTypeName name="com.w9jds.eveprofiler.CallApi.asyncParse"/>
@@ -60,4 +44,20 @@
 <fullyQualifiedTypeName name="org.xml.sax.XMLReader"/>
 <fullyQualifiedTypeName name="org.xml.sax.InputSource"/>
 <fullyQualifiedTypeName name="java.io.StringReader"/>
+<fullyQualifiedTypeName name="java.text.DecimalFormat"/>
+<fullyQualifiedTypeName name="org.apache.http.client.methods.HttpGet"/>
+<fullyQualifiedTypeName name="android.app.ActionBar.Tab"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.id"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="android.preference.PreferenceManager"/>
+<fullyQualifiedTypeName name="com.w9jds.eveprofiler.Activities.MainActivity"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="android.widget.ListView"/>
+<fullyQualifiedTypeName name="com.w9jds.eveprofiler.R.dimen"/>
+<fullyQualifiedTypeName name="com.w9jds.eveprofiler.Classes.PrevSettings"/>
+<fullyQualifiedTypeName name="com.w9jds.eveprofiler.R.layout"/>
+<fullyQualifiedTypeName name="com.w9jds.eveprofiler.R.id"/>
+<fullyQualifiedTypeName name="android.widget.ProgressBar"/>
+<fullyQualifiedTypeName name="android.view.View"/>
 </qualifiedTypeNameHistroy>

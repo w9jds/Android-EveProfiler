@@ -1,6 +1,4 @@
 INDEX VERSION 1.126+C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\.metadata\.plugins\org.eclipse.jdt.core
-2899521537.index
-1752915426.index
 1987802654.index
 899736385.index
 4205282017.index
