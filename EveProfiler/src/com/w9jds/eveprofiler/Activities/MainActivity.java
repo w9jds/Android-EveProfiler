@@ -2,6 +2,8 @@ package com.w9jds.eveprofiler.Activities;
 
 import java.util.ArrayList;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.w9jds.eveprofiler.R;
 import com.w9jds.eveprofiler.Classes.CallApi;
@@ -39,7 +41,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	private static ArrayList<CharacterInfo> Characters = new ArrayList<CharacterInfo>();
 	private static final int RESULT_SETTINGS = 1;
 
-	@Override
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    @Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
@@ -92,8 +95,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		CreateTabItems();
 		pb.setVisibility(View.GONE);
 	}
-	
-	public void CreateTabItems()
+
+    public void CreateTabItems()
 	{
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -145,6 +148,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	        	prevSettings.setvCode(sharedPrefs.getString("vCode", null));
 	        	startActivityForResult(new Intent(this, SettingsActivity.class), RESULT_SETTINGS);
 	        	break;
+	        case R.id.action_refresh:
+	        	ActionBar actionBar = getActionBar();
+	        	actionBar.removeAllTabs();
+	        	getCharacters();
+	        	break;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
@@ -168,6 +176,18 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         }
     }
 	
+    public void onDrawerButtonClicked(View v)
+    {
+    	switch(v.getId()){
+    		case R.id.MailButton:
+                menu.toggle();
+    			this.startActivity(new Intent(this, MailActivity.class));
+    			break;
+    		default:
+    			break;
+    	}
+    	
+    }
 
 	@Override
 	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) 
@@ -257,6 +277,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			
 			TextView Corporation = (TextView) rootView.findViewById(R.id.CorpName);
 			Corporation.setText(Characters.get(container.getChildCount()).getCorporationName());
+			TextView IskWealth = (TextView) rootView.findViewById(R.id.WealthIsk);
+			IskWealth.setText(Characters.get(container.getChildCount()).getWalletBalance() + " ISK");
 
 			if (Characters.get(container.getChildCount()).getAlliancePortrait() != null){
 				TextView Alliance = (TextView) rootView.findViewById(R.id.allianceName);
