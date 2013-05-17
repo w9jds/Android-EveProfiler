@@ -273,8 +273,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			
 			image = (ImageView) rootView.findViewById(R.id.corpPic);
 			bMap = BitmapFactory.decodeByteArray(Characters.get(container.getChildCount()).getCorporationPortrait(), 0, Characters.get(container.getChildCount()).getCorporationPortrait().length);
-			image.setImageBitmap(bMap);		
-			
+			image.setImageBitmap(bMap);
+
+            TextView SecStatus = (TextView) rootView.findViewById(R.id.SecStatus);
+            SecStatus.setText(Characters.get(container.getChildCount()).getSecStatus());
 			TextView Corporation = (TextView) rootView.findViewById(R.id.CorpName);
 			Corporation.setText(Characters.get(container.getChildCount()).getCorporationName());
 			TextView IskWealth = (TextView) rootView.findViewById(R.id.WealthIsk);

@@ -9,15 +9,37 @@
         android:id="@+id/content"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/MailButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/drawer_mail"
             android:onClick="onDrawerButtonClicked" android:enabled="true" android:clickable="true"
-            style="@android:style/Holo.ButtonBar"/>
+            android:foreground="?android:selectableItemBackground"/>
+
+        <Button
+            android:id="@+id/AssetsButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/drawer_assets"
+            android:onClick="onDrawerButtonClicked" android:enabled="true" android:clickable="true"
+            android:foreground="?android:selectableItemBackground"/>
+
+        <Button
+            android:id="@+id/WalletButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/drawer_wallet"
+            android:onClick="onDrawerButtonClicked" android:enabled="true" android:clickable="true"
+            android:foreground="?android:selectableItemBackground"/>
 
     </LinearLayout>
 

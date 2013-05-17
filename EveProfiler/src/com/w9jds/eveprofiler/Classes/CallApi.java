@@ -15,6 +15,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -35,7 +36,6 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 	
 	protected ArrayList<CharacterInfo> doInBackground(ArrayList<Object>... Info)
 	{
-
 		Main = (MainActivity)Info[0].get(1);
 		
 		if (Info[0].get(0) == "getCharacters")
@@ -43,43 +43,30 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 			ArrayList<String> params = new ArrayList<String>();
 			params.add(Main.getString(R.string.List_Characters));
 			ArrayList<String> keys = new ArrayList<String>();
-			
 			String Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
 			
 			try
 			{
 				SAXParserFactory spf = SAXParserFactory.newInstance();
 		        SAXParser sp = spf.newSAXParser();
-	
-		        /* Get the XMLReader of the SAXParser we created. */
 		        XMLReader xr = sp.getXMLReader();
-		        /* Create a new ContentHandler and apply it to the XML-Reader*/ 
 		        ParseCharacterList Handler = new ParseCharacterList();
 		        xr.setContentHandler(Handler);
-	
-		        /* Parse the xml-data from our URL. */
 		        InputSource inputSource = new InputSource();
 		        inputSource.setEncoding("UTF-8");
 		        inputSource.setCharacterStream(new StringReader(Response));
-	
-		        /* Parse the xml-data from our URL. */
 		        xr.parse(inputSource);
-		        /* Parsing has finished. */
-		        
 		        Characters = Handler.data;
 			}
 			catch(Exception e){}
-			
-			
+
 			for (int i = 0; i < Characters.size(); i++)
 			{
-				
 				params.clear();
 				params.add(Main.getString(R.string.Character_Sheet));
 				keys.clear();
 				keys.add(Characters.get(i).getCharacterID());
 				Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
-				
 				try
 				{
 					SAXParserFactory spf = SAXParserFactory.newInstance();
@@ -95,37 +82,47 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 			        Characters.get(i).setSkills(Handler.Skills);
 				}
 				catch(Exception e){}
-				
+
+                params.clear();
+                params.add(Main.getString(string.NPC_Standings));
+                keys.clear();
+                keys.add(Characters.get(i).getCharacterID());
+                Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+                try
+                {
+                    SAXParserFactory spf = SAXParserFactory.newInstance();
+                    SAXParser sp = spf.newSAXParser();
+                    XMLReader xr = sp.getXMLReader();
+                    ParseCharacterStandings Handler = new ParseCharacterStandings();
+                    xr.setContentHandler(Handler);
+                    InputSource inputSource = new InputSource();
+                    inputSource.setEncoding("UTF-8");
+                    inputSource.setCharacterStream(new StringReader(Response));
+                    xr.parse(inputSource);
+                    Characters.get(i).setagentStandings(Handler.agent);
+                    Characters.get(i).setNPCStandings(Handler.NPC);
+                    Characters.get(i).setfactionStandings(Handler.faction);
+                    Characters.get(i).setSecStatus(Handler.SecurityStatus);
+                }
+                catch(Exception e){}
+
 				asyncClass portrait = new asyncClass();
 				Characters.get(i).setCharacterPortrait(portrait.ApiImageCall(Main.getString(R.string.Character_Portrait), Characters.get(i).getCharacterID(), "128"));
 				Characters.get(i).setCorporationPortrait(portrait.ApiImageCall(Main.getString(R.string.Corp_Logo), Characters.get(i).getCorporationID(), "64"));
-				if (Characters.get(i).getAllianceID() != null)
+				if(Characters.get(i).getAllianceID() != null)
 					Characters.get(i).setAlliancePortrait(portrait.ApiImageCall(Main.getString(R.string.Alliance_Logo), Characters.get(i).getAllianceID(), "64"));
 			}
 		}
 		return Characters;
 	}
 
-	class ParseCharacterList extends DefaultHandler {
-	    
-		String elementValue = null;
-	    Boolean elementOn = false;
+	class ParseCharacterList extends DefaultHandler
+    {
 		public ArrayList<CharacterInfo> data = new ArrayList<CharacterInfo>();
-	    
-	    /**
-	     * This will be called when the tags of the XML starts.
-	     **/
+
 	    @Override
-	    public void startElement(String uri, String localName, String qName, org.xml.sax.Attributes attributes) throws SAXException {
-	        elementOn = true;	        	
-            /**
-             * We can get the values of attributes for eg. if the CD tag had an attribute( <CD attr= "band">Akon</CD> )
-             * we can get the value "band". Below is an example of how to achieve this.
-             *
-             * String attributeValue = attributes.getValue("attr");
-             * data.setAttribute(attributeValue);
-             *
-             * */
+	    public void startElement(String uri, String localName, String qName, org.xml.sax.Attributes attributes) throws SAXException
+        {
 	        if (localName.equals("row"))
 	        {
 	        	data.add(new CharacterInfo());
@@ -141,7 +138,8 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 	    }
 	}
 	
-	class ParseCharacterSheet extends DefaultHandler {
+	class ParseCharacterSheet extends DefaultHandler
+    {
 		private boolean isDoB = false;
 		private boolean isRace = false;
 		private boolean isbloodLine = false;
@@ -212,7 +210,8 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 	    }
 	    
 	    @Override
-	    public void endElement(String uri, String localName, String qName) throws SAXException {	        	
+	    public void endElement(String uri, String localName, String qName) throws SAXException
+        {
 	        if (localName.equals("DoB"))
 	        	isDoB = false;
 	        else if (localName.equals("race"))
@@ -246,10 +245,9 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 	    }
 	    
 	    @Override
-	    public void characters(char ch[], int start, int length) {
-	        // get all text value inside the element tag
+	    public void characters(char ch[], int start, int length)
+        {
 	        String chars = new String(ch, start, length);
-	 
 			if (isDoB) data.setDateOfBirth(chars);
 			else if(isRace) data.setRace(chars);
 			else if(isbloodLine) data.setBloodLine(chars);
@@ -267,9 +265,74 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 			else if(iswillpower) data.setWillpower(chars);
 	    }
 	}
-	
-	class asyncClass {                                                                                                                                  
 
+    class ParseCharacterStandings extends DefaultHandler
+    {
+        private boolean agentsdesc = false;
+        private boolean npcdesc = false;
+        private boolean factiondesc = false;
+        public ArrayList<StandingInfo> agent = new ArrayList<StandingInfo>();
+        public ArrayList<StandingInfo> NPC = new ArrayList<StandingInfo>();
+        public ArrayList<StandingInfo> faction = new ArrayList<StandingInfo>();
+        public String SecurityStatus = null;
+
+        @Override
+        public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException
+        {
+            if(localName.equals("rowset") && attributes.getValue("name").equals("agents"))
+                agentsdesc = true;
+            else if(localName.equals("rowset") && attributes.getValue("name").equals("NPCCorporations"))
+                npcdesc = true;
+            else if(localName.equals("rowset") && attributes.getValue("name").equals("factions"))
+                factiondesc = true;
+            else if(agentsdesc == true)
+            {
+                agent.add(new StandingInfo());
+                String attributeValue = attributes.getValue("fromID");
+                agent.get(agent.size()-1).setfromID(attributeValue);
+                attributeValue = attributes.getValue("fromName");
+                agent.get(agent.size()-1).setfromName(attributeValue);
+                attributeValue = attributes.getValue("standing");
+                agent.get(agent.size()-1).setStranding(attributeValue);
+            }
+            else if(npcdesc == true)
+            {
+                NPC.add(new StandingInfo());
+                String attributeValue = attributes.getValue("fromID");
+                NPC.get(NPC.size()-1).setfromID(attributeValue);
+                attributeValue = attributes.getValue("fromName");
+                NPC.get(NPC.size()-1).setfromName(attributeValue);
+                attributeValue = attributes.getValue("standing");
+                if(attributes.getValue("fromName").equals("CONCORD"))
+                    SecurityStatus = attributeValue;
+                NPC.get(NPC.size()-1).setStranding(attributeValue);
+            }
+            else if(factiondesc == true)
+            {
+                faction.add(new StandingInfo());
+                String attributeValue = attributes.getValue("fromID");
+                faction.get(faction.size()-1).setfromID(attributeValue);
+                attributeValue = attributes.getValue("fromName");
+                faction.get(faction.size()-1).setfromName(attributeValue);
+                attributeValue = attributes.getValue("standing");
+                faction.get(faction.size()-1).setStranding(attributeValue);
+            }
+        }
+
+        @Override
+        public void endElement(String uri, String localName, String qName) throws SAXException
+        {
+            if (localName.equals("rowset"))
+            {
+                agentsdesc = false;
+                npcdesc = false;
+                factiondesc = false;
+            }
+        }
+    }
+	
+	class asyncClass
+    {
 		public byte[] ApiImageCall(String uri, String toonID, String size)
 		{
 			byte[] responseArray = new byte[Integer.parseInt(size)];
@@ -298,7 +361,8 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 		
 		}
 
-		public String ApiCall(ArrayList<String> Params, ArrayList<String> Keys, MainActivity Main){
+		public String ApiCall(ArrayList<String> Params, ArrayList<String> Keys, MainActivity Main)
+        {
 			String responseString = "";
 			
 			try {
@@ -359,7 +423,6 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 	
 		    return responseString;
 		}
-		
 	}
 
 	

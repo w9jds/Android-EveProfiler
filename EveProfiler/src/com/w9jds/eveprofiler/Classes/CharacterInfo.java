@@ -28,7 +28,11 @@ public class CharacterInfo implements Serializable {
 	private String Charisma;
 	private String Perception;
 	private String Willpower;
+    private String SecStatus;
 	private ArrayList<SkillInfo> Skills;
+    private ArrayList<StandingInfo> agentStandings;
+    private ArrayList<StandingInfo> NPCStandings;
+    private ArrayList<StandingInfo> factionStandings;
 	private byte[] CharacterPortrait;
 	private byte[] corporationPortrait;
 	private byte[] alliancePortrait;
@@ -83,7 +87,19 @@ public class CharacterInfo implements Serializable {
 			this.alliancePortrait = Info2.getAlliancePortrait();
 
 	}
-	
+
+    public String getSecStatus() { return SecStatus; }
+    public void setSecStatus(String SecStatus) { this.SecStatus = SecStatus; }
+
+    public ArrayList<StandingInfo> getagentStandings() { return agentStandings; }
+    public void setagentStandings(ArrayList<StandingInfo> agentStandings) { this.agentStandings = agentStandings; }
+
+    public ArrayList<StandingInfo> getNPCStandings() { return NPCStandings; }
+    public void setNPCStandings(ArrayList<StandingInfo> NPCStandings) { this.NPCStandings = NPCStandings; }
+
+    public ArrayList<StandingInfo> getfactionStandings() { return factionStandings; }
+    public void setfactionStandings(ArrayList<StandingInfo> factionStandings) { this.factionStandings = factionStandings; }
+
 	public byte[] getAlliancePortrait() { return alliancePortrait; }
 	public void setAlliancePortrait(byte[] alliancePortrait) { this.alliancePortrait = alliancePortrait; }
 	
