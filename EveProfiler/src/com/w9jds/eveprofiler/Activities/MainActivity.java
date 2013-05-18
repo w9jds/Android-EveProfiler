@@ -275,10 +275,24 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			bMap = BitmapFactory.decodeByteArray(Characters.get(container.getChildCount()).getCorporationPortrait(), 0, Characters.get(container.getChildCount()).getCorporationPortrait().length);
 			image.setImageBitmap(bMap);
 
+            TextView ActiveShipType = (TextView) rootView.findViewById(R.id.ActiveShipType);
+            ActiveShipType.setText(Characters.get(container.getChildCount()).getShipTypeName());
+
+            TextView ActiveShipName = (TextView) rootView.findViewById(R.id.ActiveShipName);
+            ActiveShipName.setText("[" + Characters.get(container.getChildCount()).getShipName() + "]");
+
+            TextView LastKnownLocation = (TextView) rootView.findViewById(R.id.Location);
+            LastKnownLocation.setText(Characters.get(container.getChildCount()).getLastKnownLocation());
+
+            TextView SkillPoints = (TextView) rootView.findViewById(R.id.SkillPoints);
+            SkillPoints.setText(Characters.get(container.getChildCount()).getSkillPoints());
+
             TextView SecStatus = (TextView) rootView.findViewById(R.id.SecStatus);
             SecStatus.setText(Characters.get(container.getChildCount()).getSecStatus());
+
 			TextView Corporation = (TextView) rootView.findViewById(R.id.CorpName);
 			Corporation.setText(Characters.get(container.getChildCount()).getCorporationName());
+
 			TextView IskWealth = (TextView) rootView.findViewById(R.id.WealthIsk);
 			IskWealth.setText(Characters.get(container.getChildCount()).getWalletBalance() + " ISK");
 

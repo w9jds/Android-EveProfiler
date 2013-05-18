@@ -33,6 +33,9 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 		
 	MainActivity Main = new MainActivity();
 	ArrayList<CharacterInfo> Characters = new ArrayList<CharacterInfo>();
+    ArrayList<String> params = new ArrayList<String>();
+    ArrayList<String> keys = new ArrayList<String>();
+    String Response = null;
 	
 	protected ArrayList<CharacterInfo> doInBackground(ArrayList<Object>... Info)
 	{
@@ -40,81 +43,140 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 		
 		if (Info[0].get(0) == "getCharacters")
 		{
-			ArrayList<String> params = new ArrayList<String>();
-			params.add(Main.getString(R.string.List_Characters));
-			ArrayList<String> keys = new ArrayList<String>();
-			String Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
-			
-			try
-			{
-				SAXParserFactory spf = SAXParserFactory.newInstance();
-		        SAXParser sp = spf.newSAXParser();
-		        XMLReader xr = sp.getXMLReader();
-		        ParseCharacterList Handler = new ParseCharacterList();
-		        xr.setContentHandler(Handler);
-		        InputSource inputSource = new InputSource();
-		        inputSource.setEncoding("UTF-8");
-		        inputSource.setCharacterStream(new StringReader(Response));
-		        xr.parse(inputSource);
-		        Characters = Handler.data;
-			}
-			catch(Exception e){}
+            CallMethods Calls = new CallMethods();
+            Calls.CharactersList();
 
 			for (int i = 0; i < Characters.size(); i++)
 			{
-				params.clear();
-				params.add(Main.getString(R.string.Character_Sheet));
-				keys.clear();
-				keys.add(Characters.get(i).getCharacterID());
-				Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
-				try
-				{
-					SAXParserFactory spf = SAXParserFactory.newInstance();
-			        SAXParser sp = spf.newSAXParser();
-			        XMLReader xr = sp.getXMLReader();
-			        ParseCharacterSheet Handler = new ParseCharacterSheet();
-			        xr.setContentHandler(Handler);
-			        InputSource inputSource = new InputSource();
-			        inputSource.setEncoding("UTF-8");
-			        inputSource.setCharacterStream(new StringReader(Response));
-			        xr.parse(inputSource);			        
-			        Characters.get(i).CombineSheet(Handler.data);
-			        Characters.get(i).setSkills(Handler.Skills);
-				}
-				catch(Exception e){}
+                Calls.CharacterInfo(i);
+                Calls.CharacterPortrait(i, "128");
+                Calls.CorporationPortrait(i, "64");
+                if(Characters.get(i).getAllianceID() != null)
+                    Calls.AlliancePortrait(i, "64");
 
-                params.clear();
-                params.add(Main.getString(string.NPC_Standings));
-                keys.clear();
-                keys.add(Characters.get(i).getCharacterID());
-                Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
-                try
-                {
-                    SAXParserFactory spf = SAXParserFactory.newInstance();
-                    SAXParser sp = spf.newSAXParser();
-                    XMLReader xr = sp.getXMLReader();
-                    ParseCharacterStandings Handler = new ParseCharacterStandings();
-                    xr.setContentHandler(Handler);
-                    InputSource inputSource = new InputSource();
-                    inputSource.setEncoding("UTF-8");
-                    inputSource.setCharacterStream(new StringReader(Response));
-                    xr.parse(inputSource);
-                    Characters.get(i).setagentStandings(Handler.agent);
-                    Characters.get(i).setNPCStandings(Handler.NPC);
-                    Characters.get(i).setfactionStandings(Handler.faction);
-                    Characters.get(i).setSecStatus(Handler.SecurityStatus);
-                }
-                catch(Exception e){}
-
-				asyncClass portrait = new asyncClass();
-				Characters.get(i).setCharacterPortrait(portrait.ApiImageCall(Main.getString(R.string.Character_Portrait), Characters.get(i).getCharacterID(), "128"));
-				Characters.get(i).setCorporationPortrait(portrait.ApiImageCall(Main.getString(R.string.Corp_Logo), Characters.get(i).getCorporationID(), "64"));
-				if(Characters.get(i).getAllianceID() != null)
-					Characters.get(i).setAlliancePortrait(portrait.ApiImageCall(Main.getString(R.string.Alliance_Logo), Characters.get(i).getAllianceID(), "64"));
 			}
 		}
 		return Characters;
 	}
+
+    class CallMethods
+    {
+        public void CharactersList()
+        {
+            params.clear();
+            params.add(Main.getString(R.string.List_Characters));
+            keys.clear();
+            Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+
+            try
+            {
+                SAXParserFactory spf = SAXParserFactory.newInstance();
+                SAXParser sp = spf.newSAXParser();
+                XMLReader xr = sp.getXMLReader();
+                ParseCharacterList Handler = new ParseCharacterList();
+                xr.setContentHandler(Handler);
+                InputSource inputSource = new InputSource();
+                inputSource.setEncoding("UTF-8");
+                inputSource.setCharacterStream(new StringReader(Response));
+                xr.parse(inputSource);
+                Characters = Handler.data;
+            }
+            catch(Exception e){}
+        }
+
+        public void CharacterInfo(int i)
+        {
+            params.clear();
+            params.add(Main.getString(R.string.Character_Info));
+            keys.clear();
+            keys.add(Characters.get(i).getCharacterID());
+            Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+
+            try
+            {
+                SAXParserFactory spf = SAXParserFactory.newInstance();
+                SAXParser sp = spf.newSAXParser();
+                XMLReader xr = sp.getXMLReader();
+                ParseCharacterInfo Handler = new ParseCharacterInfo();
+                xr.setContentHandler(Handler);
+                InputSource inputSource = new InputSource();
+                inputSource.setEncoding("UTF-8");
+                inputSource.setCharacterStream(new StringReader(Response));
+                xr.parse(inputSource);
+                Characters.get(i).CombineSheet(Handler.data);
+            }
+            catch(Exception e){}
+        }
+
+        public void CharacterPortrait(int i, String size)
+        {
+            asyncClass portrait = new asyncClass();
+            Characters.get(i).setCharacterPortrait(portrait.ApiImageCall(Main.getString(R.string.Character_Portrait), Characters.get(i).getCharacterID(), size));
+        }
+
+        public void AlliancePortrait(int i, String size)
+        {
+            asyncClass portrait = new asyncClass();
+            Characters.get(i).setAlliancePortrait(portrait.ApiImageCall(Main.getString(R.string.Alliance_Logo), Characters.get(i).getAllianceID(), size));
+        }
+
+        public void CorporationPortrait(int i, String size)
+        {
+            asyncClass portrait = new asyncClass();
+            Characters.get(i).setCorporationPortrait(portrait.ApiImageCall(Main.getString(R.string.Corp_Logo), Characters.get(i).getCorporationID(), size));
+        }
+
+        public void CharacterSheet(int i)
+        {
+            params.clear();
+            params.add(Main.getString(R.string.Character_Sheet));
+            keys.clear();
+            keys.add(Characters.get(i).getCharacterID());
+            Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+            try
+            {
+                SAXParserFactory spf = SAXParserFactory.newInstance();
+                SAXParser sp = spf.newSAXParser();
+                XMLReader xr = sp.getXMLReader();
+                ParseCharacterSheet Handler = new ParseCharacterSheet();
+                xr.setContentHandler(Handler);
+                InputSource inputSource = new InputSource();
+                inputSource.setEncoding("UTF-8");
+                inputSource.setCharacterStream(new StringReader(Response));
+                xr.parse(inputSource);
+                Characters.get(i).CombineSheet(Handler.data);
+                Characters.get(i).setSkills(Handler.Skills);
+                Characters.get(i).setSkillPoints(Handler.totalSP);
+            }
+            catch(Exception e){}
+        }
+
+        public void CharacterStandings(int i)
+        {
+            params.clear();
+            params.add(Main.getString(string.NPC_Standings));
+            keys.clear();
+            keys.add(Characters.get(i).getCharacterID());
+            Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+            try
+            {
+                SAXParserFactory spf = SAXParserFactory.newInstance();
+                SAXParser sp = spf.newSAXParser();
+                XMLReader xr = sp.getXMLReader();
+                ParseCharacterStandings Handler = new ParseCharacterStandings();
+                xr.setContentHandler(Handler);
+                InputSource inputSource = new InputSource();
+                inputSource.setEncoding("UTF-8");
+                inputSource.setCharacterStream(new StringReader(Response));
+                xr.parse(inputSource);
+                Characters.get(i).setagentStandings(Handler.agent);
+                Characters.get(i).setNPCStandings(Handler.NPC);
+                Characters.get(i).setfactionStandings(Handler.faction);
+                Characters.get(i).setSecStatus(Handler.SecurityStatus);
+            }
+            catch(Exception e){}
+        }
+    }
 
 	class ParseCharacterList extends DefaultHandler
     {
@@ -157,6 +219,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 		private boolean iswillpower = false;
 		private CharacterInfo data = new CharacterInfo();
 		private ArrayList<SkillInfo> Skills = new ArrayList<SkillInfo>();
+        private double totalSP = 0;
 	    
 		public CharacterInfo getParse(){ return data; }
 		
@@ -202,6 +265,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 	        		SkillInfo Skill = new SkillInfo();
 	        		Skill.setTypeID(attribute1);
 	        		Skill.setSkillPoints(attribute2);
+                    totalSP += Double.parseDouble(attribute2);
 	        		Skill.setLevel(attribute3);
 	        		Skill.setPublished(attribute4);
 	        		Skills.add(Skill);
@@ -330,7 +394,124 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
             }
         }
     }
-	
+
+    class ParseCharacterInfo extends DefaultHandler
+    {
+        private boolean isRace = false;
+        private boolean isbloodLine = false;
+        private boolean isaccountBalance = false;
+        private boolean isskillPoints = false;
+        private boolean isshipName = false;
+        private boolean isshipTypeID = false;
+        private boolean isshipTypeName = false;
+        private boolean iscorporationID = false;
+        private boolean iscorporation = false;
+        private boolean iscorporationDate = false;
+        private boolean isallianceID = false;
+        private boolean isalliance = false;
+        private boolean isallianceDate = false;
+        private boolean islastKnownLocation = false;
+        private boolean issecurityStatus = false;
+        private boolean isnextTrainingEnds = false;
+        private CharacterInfo data = new CharacterInfo();
+
+        @Override
+        public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException
+        {
+            if (localName.equals("race"))
+                isRace = true;
+            else if (localName.equals("bloodLine"))
+                isbloodLine = true;
+            else if (localName.equals("accountBalance"))
+                isaccountBalance = true;
+            else if (localName.equals("skillPoints"))
+                isskillPoints = true;
+            else if (localName.equals("shipName"))
+                isshipName = true;
+            else if (localName.equals("shipTypeID"))
+                isshipTypeID = true;
+            else if (localName.equals("shipTypeName"))
+                isshipTypeName = true;
+            else if (localName.equals("corporationID"))
+                iscorporationID = true;
+            else if (localName.equals("corporation"))
+                iscorporation = true;
+            else if (localName.equals("corporationDate"))
+                iscorporationDate = true;
+            else if (localName.equals("allianceID"))
+                isallianceID = true;
+            else if (localName.equals("alliance"))
+                isalliance = true;
+            else if (localName.equals("allianceDate"))
+                isallianceDate = true;
+            else if (localName.equals("lastKnownLocation"))
+                islastKnownLocation = true;
+            else if (localName.equals("securityStatus"))
+                issecurityStatus = true;
+            else if (localName.equals("nextTrainingEnds"))
+                isnextTrainingEnds = true;
+        }
+
+        @Override
+        public void endElement(String uri, String localName, String qName) throws SAXException
+        {
+            if (localName.equals("race"))
+                isRace = false;
+            else if (localName.equals("bloodLine"))
+                isbloodLine = false;
+            else if (localName.equals("accountBalance"))
+                isaccountBalance = false;
+            else if (localName.equals("skillPoints"))
+                isskillPoints = false;
+            else if (localName.equals("shipName"))
+                isshipName = false;
+            else if (localName.equals("shipTypeID"))
+                isshipTypeID = false;
+            else if (localName.equals("shipTypeName"))
+                isshipTypeName = false;
+            else if (localName.equals("corporationID"))
+                iscorporationID = false;
+            else if (localName.equals("corporation"))
+                iscorporation = false;
+            else if (localName.equals("corporationDate"))
+                iscorporationDate = false;
+            else if (localName.equals("allianceID"))
+                isallianceID = false;
+            else if (localName.equals("alliance"))
+                isalliance = false;
+            else if (localName.equals("allianceDate"))
+                isallianceDate = false;
+            else if (localName.equals("lastKnownLocation"))
+                islastKnownLocation = false;
+            else if (localName.equals("securityStatus"))
+                issecurityStatus = false;
+            else if (localName.equals("nextTrainingEnds"))
+                isnextTrainingEnds = false;
+        }
+
+        @Override
+        public void characters(char ch[], int start, int length)
+        {
+            String chars = new String(ch, start, length);
+            if(isRace) data.setRace(chars);
+            else if(isbloodLine) data.setBloodLine(chars);
+            else if(isaccountBalance) data.setWalletBalance(chars);
+            else if(isskillPoints) data.setSkillPoints(Double.parseDouble(chars));
+            else if(isalliance) data.setAllianceName(chars);
+            else if(isallianceID) data.setAllianceID(chars);
+            else if(isallianceDate) data.setAllianceDate(chars);
+            else if(islastKnownLocation) data.setLastKnownLocation(chars);
+            else if(issecurityStatus) data.setSecStatus(chars);
+            else if(isshipName) data.setShipName(chars);
+            else if(isshipTypeID) data.setShipTypeID(chars);
+            else if(isshipTypeName) data.setShipTypeName(chars);
+            else if(iscorporationID) data.setCorporationID(chars);
+            else if(iscorporation) data.setCorporationName(chars);
+            else if(iscorporationDate) data.setCorporationDate(chars);
+            else if(isnextTrainingEnds) data.setnextTrainingEnds(chars);
+        }
+    }
+
 	class asyncClass
     {
 		public byte[] ApiImageCall(String uri, String toonID, String size)
@@ -424,7 +605,6 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 		    return responseString;
 		}
 	}
-
 	
 	protected void onPostExecute(ArrayList<CharacterInfo> result)
 	{
