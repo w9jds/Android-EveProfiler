@@ -130,10 +130,16 @@ public class CharacterInfo implements Serializable {
     public void setCorporationDate(String corporationDate) { this.corporationDate = corporationDate; }
 
     public String getSkillPoints() { return SkillPoints; }
-    public void setSkillPoints(double SkillPoints)
+    public void setSkillPoints(String SkillPoints)
     {
-        DecimalFormat formatter = new DecimalFormat("#,###");
-        this.SkillPoints = formatter.format(SkillPoints);
+        try
+        {
+            DecimalFormat formatter = new DecimalFormat("#,###");
+            this.SkillPoints = formatter.format(Double.parseDouble(SkillPoints));
+        }
+        catch(Exception e)
+        { this.SkillPoints = SkillPoints; }
+
     }
 
     public String getLastKnownLocation() { return this.LastKnownLocation; }
@@ -157,8 +163,14 @@ public class CharacterInfo implements Serializable {
     public String getSecStatus() { return SecStatus; }
     public void setSecStatus(String SecStatus)
     {
-        DecimalFormat Formatter = new DecimalFormat("#.###");
-        this.SecStatus = Formatter.format(Double.parseDouble(SecStatus));
+        try
+        {
+            DecimalFormat Formatter = new DecimalFormat("#.###");
+            this.SecStatus = Formatter.format(Double.parseDouble(SecStatus));
+        }
+        catch(Exception e)
+        { this.SecStatus = SecStatus; }
+
     }
 
     public ArrayList<StandingInfo> getagentStandings() { return agentStandings; }
@@ -205,16 +217,27 @@ public class CharacterInfo implements Serializable {
 	
 	public String getCloneSkillPoints() { return CloneSkillPoints; }
 	public void setCloneSkillPoints(String CloneSkillPoints) 
-	{ 
-		DecimalFormat formatter = new DecimalFormat("#,###");
-		this.CloneSkillPoints = formatter.format(Double.parseDouble(CloneSkillPoints)); 
+	{
+        try
+        {
+            DecimalFormat formatter = new DecimalFormat("#,###");
+            this.CloneSkillPoints = formatter.format(Double.parseDouble(CloneSkillPoints));
+        }
+        catch(Exception e)
+        { this.CloneSkillPoints = CloneSkillPoints; }
 	}
 	
 	public String getWalletBalance() { return WalletBalance; }
 	public void setWalletBalance(String WalletBalance) 
-	{ 
-		DecimalFormat formatter = new DecimalFormat("#,###.00");
-		this.WalletBalance = formatter.format(Double.parseDouble(WalletBalance)); 
+	{
+        try
+        {
+            DecimalFormat formatter = new DecimalFormat("#,###.00");
+            this.WalletBalance = formatter.format(Double.parseDouble(WalletBalance));
+        }
+        catch (Exception e)
+        { this.WalletBalance = WalletBalance; }
+
 	}
 	
 	public String getIntelligence() { return Intelligence; }

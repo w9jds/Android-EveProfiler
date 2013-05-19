@@ -56,6 +56,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 
 			}
 		}
+
 		return Characters;
 	}
 
@@ -146,7 +147,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
                 xr.parse(inputSource);
                 Characters.get(i).CombineSheet(Handler.data);
                 Characters.get(i).setSkills(Handler.Skills);
-                Characters.get(i).setSkillPoints(Handler.totalSP);
+                Characters.get(i).setSkillPoints(Double.toString(Handler.totalSP));
             }
             catch(Exception e){}
         }
@@ -496,7 +497,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
             if(isRace) data.setRace(chars);
             else if(isbloodLine) data.setBloodLine(chars);
             else if(isaccountBalance) data.setWalletBalance(chars);
-            else if(isskillPoints) data.setSkillPoints(Double.parseDouble(chars));
+            else if(isskillPoints) data.setSkillPoints(chars);
             else if(isalliance) data.setAllianceName(chars);
             else if(isallianceID) data.setAllianceID(chars);
             else if(isallianceDate) data.setAllianceDate(chars);

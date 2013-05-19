@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.annotation.TargetApi;
 import android.os.Build;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.w9jds.eveprofiler.Classes.Account;
 import com.w9jds.eveprofiler.R;
 import com.w9jds.eveprofiler.Classes.CallApi;
 import com.w9jds.eveprofiler.Classes.CharacterInfo;
@@ -38,7 +39,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	private SectionsPagerAdapter mSectionsPagerAdapter;
 	private ViewPager mViewPager;
 	private PrevSettings prevSettings = new PrevSettings();
-	private static ArrayList<CharacterInfo> Characters = new ArrayList<CharacterInfo>();
+	private static Account ThisAccount = new Account();
 	private static final int RESULT_SETTINGS = 1;
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -55,8 +56,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	
 	private void LoadDrawer()
 	{
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-		
         menu = new SlidingMenu(this);
         menu.setMode(SlidingMenu.LEFT);
         menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
@@ -64,17 +63,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         //menu.setShadowDrawable(R.drawable.shadow);
         menu.setFadeDegree(0.35f);
         menu.attachToActivity(this, SlidingMenu.SLIDING_WINDOW);
-        
-        if (sharedPrefs.getBoolean("drawerSize", true) == false)
-        {
-	        menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
-	        menu.setMenu(R.layout.drawerview);
-        }
-        else 
-        {
-	        menu.setMenu(R.layout.smalldrawerview);
-	        menu.setBehindWidthRes(R.dimen.slidingmenu_small);
-        }
+
+        menu.setMenu(R.layout.smalldrawerview);
+        menu.setBehindWidthRes(R.dimen.slidingmenu_small);
 
 	}
 
@@ -91,7 +82,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public void ApiResponse(ArrayList<CharacterInfo> apiCharacters)
 	{
 		ProgressBar pb = (ProgressBar)getWindow().getDecorView().findViewById(R.id.progressBar);
-		Characters = apiCharacters;
+        ThisAccount.setCharacters(apiCharacters);
 		CreateTabItems();
 		pb.setVisibility(View.GONE);
 	}
@@ -122,7 +113,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) 
 		{
 			actionBar.addTab(actionBar.newTab().setText(mSectionsPagerAdapter.getPageTitle(i)).setTabListener(this));
-
 		}
 	}
 	
@@ -160,7 +150,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     }
 	
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
         case RESULT_SETTINGS:
@@ -181,7 +172,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     	switch(v.getId()){
     		case R.id.MailButton:
                 menu.toggle();
-    			this.startActivity(new Intent(this, MailActivity.class));
+                Intent i = new Intent(this, MailActivity.class);
+                i.putExtra("Characters", ThisAccount);
+    			this.startActivity(i);
     			break;
     		default:
     			break;
@@ -196,7 +189,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 		// When the given tab is selected, switch to the corresponding page in
 		// the ViewPager.
-		mViewPager.setCurrentItem(Position);		
+		mViewPager.setCurrentItem(Position);
+        ThisAccount.setCurrentCharacter(Position);
 	}
 
 	@Override
@@ -236,13 +230,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		@Override
 		public int getCount() 
 		{
-			return Characters.size();
+			return ThisAccount.getCharacters().size();
 		}
 		
 		@Override
 		public CharSequence getPageTitle(int position) 
 		{
-			return Characters.get(position).getName();
+			return ThisAccount.getCharacters().get(position).getName();
 		}
 	}
 
@@ -260,47 +254,40 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		{
 			View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
 
-//			TextView Clone = (TextView) rootView.findViewById(R.id.Clone);
-//			Clone.setText(Characters.get(container.getChildCount()).getCloneName() + " (" + Characters.get(container.getChildCount()).getCloneSkillPoints() + ")");
-//			TextView DOB = (TextView) rootView.findViewById(R.id.DateOBirth);
-//			DOB.setText(Characters.get(container.getChildCount()).getDateOfBirth());
-//			TextView Background = (TextView) rootView.findViewById(R.id.Background);
-//			Background.setText(Characters.get(container.getChildCount()).getRace() + " - " + Characters.get(container.getChildCount()).getBloodLine() + " - " + Characters.get(container.getChildCount()).getAncestry());
-			
 			ImageView image = (ImageView) rootView.findViewById(R.id.CapsuleerPortrait);
-			Bitmap bMap = BitmapFactory.decodeByteArray(Characters.get(container.getChildCount()).getCharacterPortrait(), 0, Characters.get(container.getChildCount()).getCharacterPortrait().length);
+			Bitmap bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterPortrait(), 0, ThisAccount.getCharacters().get(container.getChildCount()).getCharacterPortrait().length);
 			image.setImageBitmap(bMap);
 			
 			image = (ImageView) rootView.findViewById(R.id.corpPic);
-			bMap = BitmapFactory.decodeByteArray(Characters.get(container.getChildCount()).getCorporationPortrait(), 0, Characters.get(container.getChildCount()).getCorporationPortrait().length);
+			bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(container.getChildCount()).getCorporationPortrait(), 0, ThisAccount.getCharacters().get(container.getChildCount()).getCorporationPortrait().length);
 			image.setImageBitmap(bMap);
 
             TextView ActiveShipType = (TextView) rootView.findViewById(R.id.ActiveShipType);
-            ActiveShipType.setText(Characters.get(container.getChildCount()).getShipTypeName());
+            ActiveShipType.setText(ThisAccount.getCharacters().get(container.getChildCount()).getShipTypeName());
 
             TextView ActiveShipName = (TextView) rootView.findViewById(R.id.ActiveShipName);
-            ActiveShipName.setText("[" + Characters.get(container.getChildCount()).getShipName() + "]");
+            ActiveShipName.setText("[" + ThisAccount.getCharacters().get(container.getChildCount()).getShipName() + "]");
 
             TextView LastKnownLocation = (TextView) rootView.findViewById(R.id.Location);
-            LastKnownLocation.setText(Characters.get(container.getChildCount()).getLastKnownLocation());
+            LastKnownLocation.setText(ThisAccount.getCharacters().get(container.getChildCount()).getLastKnownLocation());
 
             TextView SkillPoints = (TextView) rootView.findViewById(R.id.SkillPoints);
-            SkillPoints.setText(Characters.get(container.getChildCount()).getSkillPoints());
+            SkillPoints.setText(ThisAccount.getCharacters().get(container.getChildCount()).getSkillPoints());
 
             TextView SecStatus = (TextView) rootView.findViewById(R.id.SecStatus);
-            SecStatus.setText(Characters.get(container.getChildCount()).getSecStatus());
+            SecStatus.setText(ThisAccount.getCharacters().get(container.getChildCount()).getSecStatus());
 
 			TextView Corporation = (TextView) rootView.findViewById(R.id.CorpName);
-			Corporation.setText(Characters.get(container.getChildCount()).getCorporationName());
+			Corporation.setText(ThisAccount.getCharacters().get(container.getChildCount()).getCorporationName());
 
 			TextView IskWealth = (TextView) rootView.findViewById(R.id.WealthIsk);
-			IskWealth.setText(Characters.get(container.getChildCount()).getWalletBalance() + " ISK");
+			IskWealth.setText(ThisAccount.getCharacters().get(container.getChildCount()).getWalletBalance() + " ISK");
 
-			if (Characters.get(container.getChildCount()).getAlliancePortrait() != null){
+			if (ThisAccount.getCharacters().get(container.getChildCount()).getAlliancePortrait() != null){
 				TextView Alliance = (TextView) rootView.findViewById(R.id.allianceName);
-				Alliance.setText(Characters.get(container.getChildCount()).getAllianceName());
+				Alliance.setText(ThisAccount.getCharacters().get(container.getChildCount()).getAllianceName());
 				image = (ImageView) rootView.findViewById(R.id.alliancePic);
-				bMap = BitmapFactory.decodeByteArray(Characters.get(container.getChildCount()).getAlliancePortrait(), 0, Characters.get(container.getChildCount()).getAlliancePortrait().length);
+				bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(container.getChildCount()).getAlliancePortrait(), 0, ThisAccount.getCharacters().get(container.getChildCount()).getAlliancePortrait().length);
 				image.setImageBitmap(bMap);	
 			}
 			

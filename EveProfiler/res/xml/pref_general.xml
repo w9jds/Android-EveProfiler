@@ -23,11 +23,11 @@
         android:singleLine="true"
         android:title="@string/pref_title_vCode" />
     
-    <CheckBoxPreference
-        android:capitalize="words"
-        android:defaultValue="true"
-        android:key="drawerSize"
-        android:title="@string/pref_title_drawerSize"/>
+    <!--<CheckBoxPreference-->
+        <!--android:capitalize="words"-->
+        <!--android:defaultValue="true"-->
+        <!--android:key="drawerSize"-->
+        <!--android:title="@string/pref_title_drawerSize"/>-->
 
 
 </PreferenceScreen>
