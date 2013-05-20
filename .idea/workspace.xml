@@ -39,11 +39,11 @@
     <file path="/CallApi.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369024523004" ignored="false" />
     <file path="/fragment_main_dummy.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1368850959189" ignored="false" />
     <file path="/Account.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1368916179533" ignored="false" />
-    <file path="/MailActivity.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369025098805" ignored="false" />
+    <file path="/MailActivity.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369026458567" ignored="false" />
     <file path="/mail_header_fragment.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369011992635" ignored="false" />
     <file path="/mail_activity.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1368981534752" ignored="false" />
     <file path="/MailInfo.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369017695014" ignored="false" />
-    <file path="/mail_header.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369024809440" ignored="false" />
+    <file path="/mail_header.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369026362937" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,67 +131,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java" line="70" class="com.w9jds.eveprofiler.Activities.MailActivity" package="com.w9jds.eveprofiler.Activities">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java" line="66" class="com.w9jds.eveprofiler.Activities.MailActivity" package="com.w9jds.eveprofiler.Activities">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java" line="67" class="com.w9jds.eveprofiler.Activities.MailActivity" package="com.w9jds.eveprofiler.Activities">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java" line="68" class="com.w9jds.eveprofiler.Activities.MailActivity" package="com.w9jds.eveprofiler.Activities">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java" line="65" class="com.w9jds.eveprofiler.Activities.MailActivity" package="com.w9jds.eveprofiler.Activities">
+      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java" line="72" class="com.w9jds.eveprofiler.Activities.MailActivity" package="com.w9jds.eveprofiler.Activities">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -281,11 +221,23 @@
       <file leaf-file-name="MailActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="8" selection-start="1787" selection-end="1787" vertical-scroll-proportion="0.071428575">
+            <state line="52" column="0" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.33163264">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1282#1290#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mail_activity.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EveProfiler/res/layout/mail_activity.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -296,7 +248,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="35" selection-start="148" selection-end="148" vertical-scroll-proportion="0.04">
+            <state line="25" column="46" selection-start="801" selection-end="801" vertical-scroll-proportion="-7.74">
               <folding />
             </state>
           </provider>
@@ -726,12 +678,12 @@
       <workItem from="1368673497221" duration="7314000" />
       <workItem from="1368680829553" duration="2158000" />
       <workItem from="1368748653282" duration="39601000" />
-      <workItem from="1368896824621" duration="59526000" />
+      <workItem from="1368896824621" duration="60271000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109446000" />
+    <option name="totallyTimeSpent" value="110191000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -754,15 +706,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32818532" sideWeight="0.60027856" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3273196" sideWeight="0.60027856" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.60027856" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.67270195" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21868916" sideWeight="0.2869081" order="3" side_tool="true" content_ui="tabs" />
@@ -870,13 +822,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/content/ContextWrapper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="19" selection-start="307" selection-end="307" vertical-scroll-proportion="0.33163264">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/os/AsyncTask.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -902,46 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="258" column="12" selection-start="8072" selection-end="8078" vertical-scroll-proportion="1.3418367">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/CallApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="8" selection-start="6058" selection-end="6058" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1360#1375#0" expanded="true" />
-            <element signature="e#1423#1431#0" expanded="true" />
-            <element signature="e#1477#1485#0" expanded="true" />
-            <element signature="method#CharactersList#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
-            <element signature="e#3314#3354#0" expanded="true" />
-            <element signature="method#CharacterInfo#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
-            <element signature="e#4204#4243#0" expanded="true" />
-            <element signature="method#CharacterPortrait#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
-            <element signature="e#5273#5316#0" expanded="true" />
-            <element signature="e#5412#5455#0" expanded="true" />
-            <element signature="method#AlliancePortrait#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
-            <element signature="e#5733#5771#0" expanded="true" />
-            <element signature="method#CorporationPortrait#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
-            <element signature="e#6187#6221#0" expanded="true" />
-            <element signature="e#6318#6352#0" expanded="true" />
-            <element signature="method#CharacterMailHeaders#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
-            <element signature="method#CharacterSheet#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
-            <element signature="e#7511#7551#0" expanded="true" />
-            <element signature="method#CharacterStandings#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
-            <element signature="class#ParseCharacterList#0;class#CallApi#0" expanded="false" />
-            <element signature="e#9672#9687#0" expanded="true" />
-            <element signature="class#ParseCharacterSheet#0;class#CallApi#0" expanded="false" />
-            <element signature="e#11026#11037#0" expanded="true" />
-            <element signature="method#startElement#0;class#ParseCharacterSheet#0;class#CallApi#0" expanded="false" />
-            <element signature="class#ParseCharacterStandings#0;class#CallApi#0" expanded="false" />
-            <element signature="e#15567#15581#0" expanded="true" />
-            <element signature="e#15643#15657#0" expanded="true" />
-            <element signature="e#15723#15737#0" expanded="true" />
-            <element signature="class#ParseCharacterInfo#0;class#CallApi#0" expanded="false" />
-            <element signature="class#ParseCharacterMailHeaders#0;class#CallApi#0" expanded="false" />
-            <element signature="e#23200#23210#0" expanded="true" />
-            <element signature="e#25138#25170#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1005,19 +910,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/CallApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="8" selection-start="6058" selection-end="6058" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#1360#1375#0" expanded="true" />
+            <element signature="e#1423#1431#0" expanded="true" />
+            <element signature="e#1477#1485#0" expanded="true" />
+            <element signature="method#CharactersList#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="e#3314#3354#0" expanded="true" />
+            <element signature="method#CharacterInfo#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="e#4204#4243#0" expanded="true" />
+            <element signature="method#CharacterPortrait#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="e#5273#5316#0" expanded="true" />
+            <element signature="e#5412#5455#0" expanded="true" />
+            <element signature="method#AlliancePortrait#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="e#5733#5771#0" expanded="true" />
+            <element signature="method#CorporationPortrait#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="e#6187#6221#0" expanded="true" />
+            <element signature="e#6318#6352#0" expanded="true" />
+            <element signature="method#CharacterMailHeaders#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="method#CharacterSheet#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="e#7511#7551#0" expanded="true" />
+            <element signature="method#CharacterStandings#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="class#ParseCharacterList#0;class#CallApi#0" expanded="false" />
+            <element signature="e#9672#9687#0" expanded="true" />
+            <element signature="class#ParseCharacterSheet#0;class#CallApi#0" expanded="false" />
+            <element signature="e#11026#11037#0" expanded="true" />
+            <element signature="method#startElement#0;class#ParseCharacterSheet#0;class#CallApi#0" expanded="false" />
+            <element signature="class#ParseCharacterStandings#0;class#CallApi#0" expanded="false" />
+            <element signature="e#15567#15581#0" expanded="true" />
+            <element signature="e#15643#15657#0" expanded="true" />
+            <element signature="e#15723#15737#0" expanded="true" />
+            <element signature="class#ParseCharacterInfo#0;class#CallApi#0" expanded="false" />
+            <element signature="class#ParseCharacterMailHeaders#0;class#CallApi#0" expanded="false" />
+            <element signature="e#23200#23210#0" expanded="true" />
+            <element signature="e#25138#25170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/res/layout/mail_activity.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/EveProfiler/res/layout/mail_header.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="35" selection-start="148" selection-end="148" vertical-scroll-proportion="0.04">
+        <state line="25" column="46" selection-start="801" selection-end="801" vertical-scroll-proportion="-7.74">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="8" selection-start="1787" selection-end="1787" vertical-scroll-proportion="0.071428575">
+        <state line="52" column="0" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.33163264">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1282#1290#0" expanded="true" />

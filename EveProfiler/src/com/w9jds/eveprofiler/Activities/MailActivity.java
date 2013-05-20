@@ -62,8 +62,10 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
             {
                 LayoutInflater inflater = getLayoutInflater();
                 View headerView = inflater.inflate(R.layout.mail_header, null);
-                LinearLayout MailList = (LinearLayout)this.findViewById(R.id.MailLayout);
-                ImageView image = (ImageView)MailList.findViewById(R.id.SenderPortrait);
+                LinearLayout MailList = (LinearLayout)this.findViewById(R.id.container);
+                TextView titleview = (TextView)headerView.findViewById(R.id.titleView);
+                titleview.setText(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getTitle());
+                ImageView image = (ImageView)headerView.findViewById(R.id.SenderPortrait);
                 Bitmap bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait(), 0, ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait().length);
                 image.setImageBitmap(bMap);
                 MailList.addView(headerView);
