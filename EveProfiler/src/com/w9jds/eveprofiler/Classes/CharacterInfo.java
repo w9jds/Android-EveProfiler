@@ -44,6 +44,7 @@ public class CharacterInfo implements Serializable {
 	private byte[] CharacterPortrait;
 	private byte[] corporationPortrait;
 	private byte[] alliancePortrait;
+    private ArrayList<MailInfo> Mail;
 			
 	public void CombineSheet(CharacterInfo Info2) {
 
@@ -119,6 +120,9 @@ public class CharacterInfo implements Serializable {
         if((this.nextTrainingEnds == null || this.nextTrainingEnds != Info2.getnextTrainingEnds()) || Info2.nextTrainingEnds != null)
             this.setnextTrainingEnds(Info2.getnextTrainingEnds());
 	}
+
+    public ArrayList<MailInfo> getMail() { return Mail; }
+    public void setMail(ArrayList<MailInfo> Mail) { this.Mail = Mail; }
 
     public String getnextTrainingEnds() { return nextTrainingEnds; }
     public void setnextTrainingEnds(String nextTrainingEnds) { this.nextTrainingEnds = nextTrainingEnds; }

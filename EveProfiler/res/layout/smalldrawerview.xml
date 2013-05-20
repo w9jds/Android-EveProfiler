@@ -12,35 +12,38 @@
         android:layout_height="fill_parent"
         android:orientation="vertical">
 
-        <Button
+        <ImageButton
             android:id="@+id/MailButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:background="@drawable/drawer_mail"
-            android:onClick="onDrawerButtonClicked" android:enabled="true" android:clickable="true"
-            android:foreground="?android:selectableItemBackground"/>
+            android:onClick="onDrawerButtonClicked"
+            android:enabled="true"
+            android:clickable="true"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/AssetsButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:background="@drawable/drawer_assets"
-            android:onClick="onDrawerButtonClicked" android:enabled="true" android:clickable="true"
-            android:foreground="?android:selectableItemBackground"/>
+            android:onClick="onDrawerButtonClicked"
+            android:enabled="true"
+            android:clickable="true"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/WalletButton"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:background="@drawable/drawer_wallet"
-            android:onClick="onDrawerButtonClicked" android:enabled="true" android:clickable="true"
-            android:foreground="?android:selectableItemBackground"/>
+            android:onClick="onDrawerButtonClicked"
+            android:enabled="true"
+            android:clickable="true"/>
 
     </LinearLayout>
 

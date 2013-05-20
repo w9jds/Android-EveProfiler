@@ -1,10 +1,8 @@
 package com.w9jds.eveprofiler.Classes;
 
-import android.os.Debug;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-
 import java.util.ArrayList;
 
 /**

@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="12"
+        android:minSdkVersion="14"
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -31,6 +31,7 @@
             android:name="com.w9jds.eveprofiler.Activities.MailActivity"
             android:label="@string/title_activity_mail" >
         </activity>
+        <service android:name=".Services.UpdatingService"/>
     </application>
 
 </manifest>

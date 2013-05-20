@@ -2,20 +2,22 @@ package com.w9jds.eveprofiler.Activities;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.widget.ArrayAdapter;
-import android.widget.SpinnerAdapter;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.*;
 import com.w9jds.eveprofiler.Classes.Account;
+import com.w9jds.eveprofiler.Classes.CallApi;
+import com.w9jds.eveprofiler.Classes.CharacterInfo;
 import com.w9jds.eveprofiler.R;
 import android.app.ActionBar;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import java.util.ArrayList;
 
 public class MailActivity extends FragmentActivity implements ActionBar.OnNavigationListener
 {
@@ -34,7 +36,43 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
 		setContentView(R.layout.mail_activity);
 
         FillDropDown();
+        getMail();
 	}
+
+    private void getMail()
+    {
+        ArrayList<Object> get = new ArrayList<Object>();
+        get.add("getMail");
+        get.add(this);
+        get.add(ThisAccount.getCharacters());
+        new CallApi().execute(get);
+    }
+
+    public void ApiResponse(ArrayList<CharacterInfo> CharactersIn)
+    {
+        ThisAccount.setCharacters(CharactersIn);
+        FillLayout();
+    }
+
+    private void FillLayout()
+    {
+        for (int i = 0; i < ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().size(); i++)
+        {
+            try
+            {
+                LayoutInflater inflater = getLayoutInflater();
+                View headerView = inflater.inflate(R.layout.mail_header, null);
+                LinearLayout MailList = (LinearLayout)this.findViewById(R.id.MailLayout);
+                ImageView image = (ImageView)MailList.findViewById(R.id.SenderPortrait);
+                Bitmap bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait(), 0, ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait().length);
+                image.setImageBitmap(bMap);
+                MailList.addView(headerView);
+            }
+            catch(Exception e)
+            { Log.d("Exception", e.toString()); }
+        }
+
+    }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void FillDropDown()
@@ -57,21 +95,6 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
         actionBar.setListNavigationCallbacks(CharacterAdapter, this);
         actionBar.setSelectedNavigationItem(ThisAccount.getCurrentCharacter());
     }
-
-
-	/**
-	 * Backward-compatible version of {@link ActionBar#getThemedContext()} that
-	 * simply returns the {@link android.app.Activity} if
-	 * <code>getThemedContext</code> is unavailable.
-	 **/
-//	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-//	private Context getActionBarThemedContextCompat() {
-//		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-//			return getActionBar().getThemedContext();
-//		} else {
-//			return this;
-//		}
-//	}
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
@@ -102,38 +125,31 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
     {
 		// When the given dropdown item is selected, show its contents in the
 		// container view.
-		Fragment fragment = new DummySectionFragment();
-		Bundle args = new Bundle();
-		args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-		fragment.setArguments(args);
-		getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+//		Fragment fragment = new DummySectionFragment();
+//		Bundle args = new Bundle();
+//		args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
+//		fragment.setArguments(args);
+//		getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
 		return true;
 	}
 
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 **/
-	public static class DummySectionFragment extends Fragment
-    {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 **/
-		public static final String ARG_SECTION_NUMBER = "section_number";
-
-		public DummySectionFragment()
-        {
-
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-        {
-			View rootView = inflater.inflate(R.layout.fragment_mail_dummy, container, false);
-			TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
-			dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
-			return rootView;
-		}
-	}
+//    public static class MailHeaderFragment extends Fragment
+//    {
+//
+//        MailHeaderFragment()
+//        {
+//
+//        }
+//
+//        @Override
+//        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+//        {
+//            View rootView = inflater.inflate(R.layout.mail_header_fragment, container, false);
+//
+//            return rootView;
+//        }
+//
+//
+//
+//    }
 }

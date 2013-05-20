@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
+import com.w9jds.eveprofiler.Activities.MailActivity;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -20,18 +22,17 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
-
 import com.w9jds.eveprofiler.R;
 import com.w9jds.eveprofiler.Activities.MainActivity;
 import com.w9jds.eveprofiler.R.string;
-
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 
 public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<CharacterInfo>>{
-		
-	MainActivity Main = new MainActivity();
+
+	public MainActivity Main = new MainActivity();
+    public MailActivity Mail = new MailActivity();
 	ArrayList<CharacterInfo> Characters = new ArrayList<CharacterInfo>();
     ArrayList<String> params = new ArrayList<String>();
     ArrayList<String> keys = new ArrayList<String>();
@@ -39,7 +40,16 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 	
 	protected ArrayList<CharacterInfo> doInBackground(ArrayList<Object>... Info)
 	{
-		Main = (MainActivity)Info[0].get(1);
+        if(Info[0].get(1).getClass() == Main.getClass())
+        {
+		    Main = (MainActivity)Info[0].get(1);
+            Mail = null;
+        }
+        else if(Info[0].get(1).getClass() == Mail.getClass())
+        {
+            Mail = (MailActivity)Info[0].get(1);
+            Main = null;
+        }
 		
 		if (Info[0].get(0) == "getCharacters")
 		{
@@ -49,14 +59,28 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 			for (int i = 0; i < Characters.size(); i++)
 			{
                 Calls.CharacterInfo(i);
-                Calls.CharacterPortrait(i, "128");
-                Calls.CorporationPortrait(i, "64");
+                Characters.get(i).setCharacterPortrait(Calls.CharacterPortrait(Characters.get(i).getCharacterID(), "128"));
+                Characters.get(i).setCorporationPortrait(Calls.CorporationPortrait(Characters.get(i).getCorporationID(), "64"));
                 if(Characters.get(i).getAllianceID() != null)
-                    Calls.AlliancePortrait(i, "64");
-
+                    Characters.get(i).setAlliancePortrait(Calls.AlliancePortrait(Characters.get(i).getAllianceID(), "64"));
 			}
 		}
+        else if (Info[0].get(0) == "getMail")
+        {
+            Characters = (ArrayList<CharacterInfo>)Info[0].get(2);
+            CallMethods Calls = new CallMethods();
 
+            for (int i = 0; i < Characters.size(); i++)
+            {
+                Calls.CharacterMailHeaders(i);
+
+                for (int j = 0; j < Characters.get(i).getMail().size(); j++)
+                {
+                    Characters.get(i).getMail().get(j).setSenderPortrait(Calls.CharacterPortrait(Characters.get(i).getMail().get(j).getSenderID(), "64"));
+                }
+            }
+
+        }
 		return Characters;
 	}
 
@@ -67,7 +91,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
             params.clear();
             params.add(Main.getString(R.string.List_Characters));
             keys.clear();
-            Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+            Response = new CallApi.asyncClass().ApiCall(params, keys);
 
             try
             {
@@ -91,7 +115,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
             params.add(Main.getString(R.string.Character_Info));
             keys.clear();
             keys.add(Characters.get(i).getCharacterID());
-            Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+            Response = new CallApi.asyncClass().ApiCall(params, keys);
 
             try
             {
@@ -109,22 +133,62 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
             catch(Exception e){}
         }
 
-        public void CharacterPortrait(int i, String size)
+        public byte[] CharacterPortrait(String CharID, String size)
         {
             asyncClass portrait = new asyncClass();
-            Characters.get(i).setCharacterPortrait(portrait.ApiImageCall(Main.getString(R.string.Character_Portrait), Characters.get(i).getCharacterID(), size));
+            if (Main != null)
+                return portrait.ApiImageCall(Main.getString(R.string.Character_Portrait), CharID, size);
+            else if(Mail != null)
+                return portrait.ApiImageCall(Mail.getString(R.string.Character_Portrait), CharID, size);
+            else
+                return null;
         }
 
-        public void AlliancePortrait(int i, String size)
+        public byte[] AlliancePortrait(String AllyID, String size)
         {
             asyncClass portrait = new asyncClass();
-            Characters.get(i).setAlliancePortrait(portrait.ApiImageCall(Main.getString(R.string.Alliance_Logo), Characters.get(i).getAllianceID(), size));
+            if (Main != null)
+                return portrait.ApiImageCall(Main.getString(R.string.Alliance_Logo), AllyID, size);
+            else if (Mail != null)
+                return portrait.ApiImageCall(Mail.getString(R.string.Alliance_Logo), AllyID, size);
+            else
+                return null;
         }
 
-        public void CorporationPortrait(int i, String size)
+        public byte[] CorporationPortrait(String CorpID, String size)
         {
             asyncClass portrait = new asyncClass();
-            Characters.get(i).setCorporationPortrait(portrait.ApiImageCall(Main.getString(R.string.Corp_Logo), Characters.get(i).getCorporationID(), size));
+            if (Main != null)
+                return portrait.ApiImageCall(Main.getString(R.string.Corp_Logo), CorpID, size);
+            else if (Mail != null)
+                return portrait.ApiImageCall(Mail.getString(R.string.Corp_Logo), CorpID, size);
+            else
+                return null;
+        }
+
+        public void CharacterMailHeaders(int i)
+        {
+            params.clear();
+            params.add(Mail.getString(string.MailMessHeaders));
+            keys.clear();
+            keys.add(Characters.get(i).getCharacterID());
+            Response = new CallApi.asyncClass().ApiCall(params, keys);
+
+            try
+            {
+                SAXParserFactory spf = SAXParserFactory.newInstance();
+                SAXParser sp = spf.newSAXParser();
+                XMLReader xr = sp.getXMLReader();
+                ParseCharacterMailHeaders Handler = new ParseCharacterMailHeaders();
+                xr.setContentHandler(Handler);
+                InputSource inputSource = new InputSource();
+                inputSource.setEncoding("UTF-8");
+                inputSource.setCharacterStream(new StringReader(Response));
+                xr.parse(inputSource);
+                Characters.get(i).setMail(Handler.data);
+            }
+            catch(Exception e){}
+
         }
 
         public void CharacterSheet(int i)
@@ -133,7 +197,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
             params.add(Main.getString(R.string.Character_Sheet));
             keys.clear();
             keys.add(Characters.get(i).getCharacterID());
-            Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+            Response = new CallApi.asyncClass().ApiCall(params, keys);
             try
             {
                 SAXParserFactory spf = SAXParserFactory.newInstance();
@@ -147,7 +211,6 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
                 xr.parse(inputSource);
                 Characters.get(i).CombineSheet(Handler.data);
                 Characters.get(i).setSkills(Handler.Skills);
-                Characters.get(i).setSkillPoints(Double.toString(Handler.totalSP));
             }
             catch(Exception e){}
         }
@@ -158,7 +221,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
             params.add(Main.getString(string.NPC_Standings));
             keys.clear();
             keys.add(Characters.get(i).getCharacterID());
-            Response = new CallApi.asyncClass().ApiCall(params, keys, Main);
+            Response = new CallApi.asyncClass().ApiCall(params, keys);
             try
             {
                 SAXParserFactory spf = SAXParserFactory.newInstance();
@@ -173,7 +236,6 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
                 Characters.get(i).setagentStandings(Handler.agent);
                 Characters.get(i).setNPCStandings(Handler.NPC);
                 Characters.get(i).setfactionStandings(Handler.faction);
-                Characters.get(i).setSecStatus(Handler.SecurityStatus);
             }
             catch(Exception e){}
         }
@@ -188,15 +250,12 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
         {
 	        if (localName.equals("row"))
 	        {
-	        	data.add(new CharacterInfo());
-	        	String attributeValue = attributes.getValue("name");
-	        	data.get(data.size()-1).setName(attributeValue);
-	        	attributeValue = attributes.getValue("characterID");
-	        	data.get(data.size()-1).setCharacterID(attributeValue);
-	        	attributeValue = attributes.getValue("corporationName");
-	        	data.get(data.size()-1).setCorporationName(attributeValue);
-	        	attributeValue = attributes.getValue("corporationID");
-	        	data.get(data.size()-1).setCorporationID(attributeValue);
+	        	CharacterInfo charinfo = new CharacterInfo();
+	        	charinfo.setName(attributes.getValue("name"));
+	        	charinfo.setCharacterID(attributes.getValue("characterID"));
+	        	charinfo.setCorporationName(attributes.getValue("corporationName"));
+	        	charinfo.setCorporationID(attributes.getValue("corporationID"));
+	        	data.add(charinfo);
 	        }
 	    }
 	}
@@ -220,7 +279,6 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 		private boolean iswillpower = false;
 		private CharacterInfo data = new CharacterInfo();
 		private ArrayList<SkillInfo> Skills = new ArrayList<SkillInfo>();
-        private double totalSP = 0;
 	    
 		public CharacterInfo getParse(){ return data; }
 		
@@ -266,7 +324,6 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 	        		SkillInfo Skill = new SkillInfo();
 	        		Skill.setTypeID(attribute1);
 	        		Skill.setSkillPoints(attribute2);
-                    totalSP += Double.parseDouble(attribute2);
 	        		Skill.setLevel(attribute3);
 	        		Skill.setPublished(attribute4);
 	        		Skills.add(Skill);
@@ -339,7 +396,6 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
         public ArrayList<StandingInfo> agent = new ArrayList<StandingInfo>();
         public ArrayList<StandingInfo> NPC = new ArrayList<StandingInfo>();
         public ArrayList<StandingInfo> faction = new ArrayList<StandingInfo>();
-        public String SecurityStatus = null;
 
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException
@@ -352,35 +408,27 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
                 factiondesc = true;
             else if(agentsdesc == true)
             {
-                agent.add(new StandingInfo());
-                String attributeValue = attributes.getValue("fromID");
-                agent.get(agent.size()-1).setfromID(attributeValue);
-                attributeValue = attributes.getValue("fromName");
-                agent.get(agent.size()-1).setfromName(attributeValue);
-                attributeValue = attributes.getValue("standing");
-                agent.get(agent.size()-1).setStranding(attributeValue);
+                StandingInfo standing = new StandingInfo();
+                standing.setfromID(attributes.getValue("fromID"));
+                standing.setfromName(attributes.getValue("fromName"));
+                standing.setStranding(attributes.getValue("standing"));
+                agent.add(standing);
             }
             else if(npcdesc == true)
             {
-                NPC.add(new StandingInfo());
-                String attributeValue = attributes.getValue("fromID");
-                NPC.get(NPC.size()-1).setfromID(attributeValue);
-                attributeValue = attributes.getValue("fromName");
-                NPC.get(NPC.size()-1).setfromName(attributeValue);
-                attributeValue = attributes.getValue("standing");
-                if(attributes.getValue("fromName").equals("CONCORD"))
-                    SecurityStatus = attributeValue;
-                NPC.get(NPC.size()-1).setStranding(attributeValue);
+                StandingInfo standing = new StandingInfo();
+                standing.setfromID(attributes.getValue("fromID"));
+                standing.setfromName(attributes.getValue("fromName"));
+                standing.setStranding(attributes.getValue("standing"));
+                NPC.add(standing);
             }
             else if(factiondesc == true)
             {
-                faction.add(new StandingInfo());
-                String attributeValue = attributes.getValue("fromID");
-                faction.get(faction.size()-1).setfromID(attributeValue);
-                attributeValue = attributes.getValue("fromName");
-                faction.get(faction.size()-1).setfromName(attributeValue);
-                attributeValue = attributes.getValue("standing");
-                faction.get(faction.size()-1).setStranding(attributeValue);
+                StandingInfo standing = new StandingInfo();
+                standing.setfromID(attributes.getValue("fromID"));
+                standing.setfromName(attributes.getValue("fromName"));
+                standing.setStranding(attributes.getValue("standing"));
+                faction.add(standing);
             }
         }
 
@@ -513,6 +561,30 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
         }
     }
 
+    class ParseCharacterMailHeaders extends DefaultHandler
+    {
+        public ArrayList<MailInfo> data = new ArrayList<MailInfo>();
+
+        @Override
+        public void startElement(String uri, String localName, String qName, org.xml.sax.Attributes attributes) throws SAXException
+        {
+            if (localName.equals("row"))
+            {
+                MailInfo newmail = new MailInfo();
+                newmail.setMessageID(attributes.getValue("messageID"));
+                newmail.setSenderID(attributes.getValue("senderID"));
+                newmail.setSentDate(attributes.getValue("sentDate"));
+                newmail.setTitle(attributes.getValue("title"));
+                newmail.setToCorpOrAllianceID(attributes.getValue("toCorpOrAllianceID"));
+                newmail.setToCharacterIDs(attributes.getValue("toCharacterIDs"));
+                newmail.setToListID(attributes.getValue("toListID"));
+                data.add(newmail);
+            }
+        }
+
+
+    }
+
 	class asyncClass
     {
 		public byte[] ApiImageCall(String uri, String toonID, String size)
@@ -522,7 +594,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 			try {
 				// Create a new HttpClient and Get Header
 				HttpClient httpclient = new DefaultHttpClient();
-				HttpGet httpget = new HttpGet();
+				HttpGet httpget;
 				
 				if (uri.equals("http://image.eveonline.com/Character/") == true){
 					httpget = new HttpGet(uri + toonID + "_" + size + ".jpg");
@@ -543,44 +615,50 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 		
 		}
 
-		public String ApiCall(ArrayList<String> Params, ArrayList<String> Keys, MainActivity Main)
+		public String ApiCall(ArrayList<String> Params, ArrayList<String> Keys)
         {
+            SharedPreferences settings = null;
 			String responseString = "";
-			
+            String URL = "";
+
+            if(Main != null)
+            {
+                URL = Main.getString(R.string.Api_Uri);
+                settings =  PreferenceManager.getDefaultSharedPreferences(Main);
+            }
+            else if(Mail != null)
+            {
+                URL = Mail.getString(string.Api_Uri);
+                settings =  PreferenceManager.getDefaultSharedPreferences(Mail);
+            }
+
 			try {
 					
 				// Create a new HttpClient and Post Header
 				HttpClient httpclient = new DefaultHttpClient();
 				HttpPost httppost = new HttpPost();
-				
+
 				switch(Params.size())
 				{
 	//				case 1:
 	//					httppost = new HttpPost();
 	//					break;
 					case 1:
-						httppost = new HttpPost(Main.getString(R.string.Api_Uri) + Params.get(0));
+						httppost = new HttpPost(URL + Params.get(0));
 						break;
 					case 2:
-						httppost = new HttpPost(Main.getString(R.string.Api_Uri) + Params.get(0) + Params.get(0));
+						httppost = new HttpPost(URL + Params.get(0) + Params.get(0));
 						break;
 				}
 				
 			    // Add your data
 			    List<NameValuePair> nameValuePairs;
 			    //pull api keys
-			    SharedPreferences settings =  PreferenceManager.getDefaultSharedPreferences(Main);
 		        String keyid = settings.getString("keyid", null);
 		        String vCode = settings.getString("vCode", null);
 			    
 			    switch(Keys.size())
 			    {
-	//			    case 2:
-	//		    		nameValuePairs = new ArrayList<NameValuePair>(1);
-	//		    		nameValuePairs.add(new BasicNameValuePair(ApiInfo.get(1).get(0).toString(), ApiInfo.get(1).get(1).toString()));
-	//		    		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-	//		    		break;
-			    
 			    	case 0:
 			    		nameValuePairs = new ArrayList<NameValuePair>(2);
 			    		nameValuePairs.add(new BasicNameValuePair("keyID", keyid));
@@ -609,6 +687,9 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 	
 	protected void onPostExecute(ArrayList<CharacterInfo> result)
 	{
-		Main.ApiResponse(result);
+        if(Main != null)
+		    Main.ApiResponse(result);
+        else if(Mail != null)
+            Mail.ApiResponse(result);
 	}
 }
