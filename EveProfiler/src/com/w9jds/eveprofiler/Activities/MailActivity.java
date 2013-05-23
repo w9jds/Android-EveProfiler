@@ -1,6 +1,7 @@
 package com.w9jds.eveprofiler.Activities;
 
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -56,24 +57,35 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
 
     private void FillLayout()
     {
+        View[] Views = new View[ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().size()];
+
         for (int i = 0; i < ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().size(); i++)
         {
             try
             {
                 LayoutInflater inflater = getLayoutInflater();
                 View headerView = inflater.inflate(R.layout.mail_header, null);
-                LinearLayout MailList = (LinearLayout)this.findViewById(R.id.container);
+
                 TextView titleview = (TextView)headerView.findViewById(R.id.titleView);
                 titleview.setText(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getTitle());
                 ImageView image = (ImageView)headerView.findViewById(R.id.SenderPortrait);
                 Bitmap bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait(), 0, ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait().length);
                 image.setImageBitmap(bMap);
-                MailList.addView(headerView);
+
+                Views[i] = headerView;
             }
             catch(Exception e)
             { Log.d("Exception", e.toString()); }
         }
 
+        try
+        {
+            ListView MailList = (ListView)this.findViewById(R.id.MailList);
+            ArrayAdapter<View> modeAdapter = new ArrayAdapter<View>(this, android.R.layout.simple_selectable_list_item, android.R.id.button1, Views);
+            MailList.setAdapter(modeAdapter);
+        }
+        catch (Exception e)
+        { Log.d("Exception", e.toString()); }
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)

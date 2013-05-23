@@ -79,7 +79,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		get.add(this);
 		new CallApi().execute(get);
 	}
-	
+
 	public void ApiResponse(ArrayList<CharacterInfo> apiCharacters)
 	{
 		ProgressBar pb = (ProgressBar)getWindow().getDecorView().findViewById(R.id.progressBar);
@@ -111,10 +111,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		});
 
 		// For each character create a tab and use the characters name as the title
-		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) 
-		{
+		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++)
 			actionBar.addTab(actionBar.newTab().setText(mSectionsPagerAdapter.getPageTitle(i)).setTabListener(this));
-		}
+
 	}
 	
 	@Override
