@@ -9,10 +9,19 @@
     android:orientation="vertical"
     android:background="@drawable/backgroundtoon" >
 
-    <ListView
-        android:id="@+id/MailList"
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent"/>
 
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:isScrollContainer="true">
 
+        <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/HeaderLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>

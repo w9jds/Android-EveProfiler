@@ -1,7 +1,6 @@
 package com.w9jds.eveprofiler.Activities;
 
 import android.annotation.TargetApi;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -57,7 +56,8 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
 
     private void FillLayout()
     {
-        View[] Views = new View[ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().size()];
+        ArrayList<View> HeaderViews = new ArrayList<View>();
+        LinearLayout MailList = (LinearLayout)this.findViewById(R.id.HeaderLayout);
 
         for (int i = 0; i < ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().size(); i++)
         {
@@ -72,23 +72,25 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
                 Bitmap bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait(), 0, ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait().length);
                 image.setImageBitmap(bMap);
 
-                Views[i] = headerView;
+                HeaderViews.add(headerView);
             }
             catch(Exception e)
             { Log.d("Exception", e.toString()); }
         }
 
-        try
-        {
-            ListView MailList = (ListView)this.findViewById(R.id.MailList);
-            ArrayAdapter<View> modeAdapter = new ArrayAdapter<View>(this, android.R.layout.simple_selectable_list_item, android.R.id.button1, Views);
-            MailList.setAdapter(modeAdapter);
-        }
-        catch (Exception e)
-        { Log.d("Exception", e.toString()); }
+        MailList.addTouchables(HeaderViews);
+
+//        try
+//        {
+//            ListView MailList = (ListView)this.findViewById(R.id.MailList);
+//            ArrayAdapter<View> modeAdapter = new ArrayAdapter<View>(this, android.R.layout.simple_selectable_list_item, Views);
+//            MailList.setAdapter(modeAdapter);
+//
+//        }
+//        catch (Exception e)
+//        { Log.d("Exception", e.toString()); }
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void FillDropDown()
     {
         final ActionBar actionBar = getActionBar();
