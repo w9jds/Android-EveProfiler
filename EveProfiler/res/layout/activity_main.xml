@@ -1,25 +1,45 @@
-<RelativeLayout 
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LayoutMain"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-	android:background="@drawable/backgroundtoon">
+    android:layout_height="match_parent">
 
-	<android.support.v4.view.ViewPager 
-	    android:id="@+id/pager"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
-	    tools:context=".MainActivity"/>
+    <!-- The main content view -->
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/LayoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:background="@drawable/backgroundtoon">
 
-	<ProgressBar
-	    android:id="@+id/progressBar"
-	    style="?android:attr/progressBarStyleLarge"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_centerHorizontal="true"
-	    android:layout_centerVertical="true"
-	    android:visibility="gone" />
-	
-</RelativeLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <!-- The navigation drawer -->
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="64dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="2dp"
+        android:background="#111"
+            />
+
+</android.support.v4.widget.DrawerLayout>

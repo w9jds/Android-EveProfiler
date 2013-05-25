@@ -57,7 +57,7 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
     private void FillLayout()
     {
         ArrayList<View> HeaderViews = new ArrayList<View>();
-        LinearLayout MailList = (LinearLayout)this.findViewById(R.id.HeaderLayout);
+        LinearLayout MailList = (LinearLayout)this.findViewById(R.id.container);
 
         for (int i = 0; i < ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().size(); i++)
         {
@@ -72,7 +72,7 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
                 Bitmap bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait(), 0, ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait().length);
                 image.setImageBitmap(bMap);
 
-                HeaderViews.add(headerView);
+//                MailList.addView();
             }
             catch(Exception e)
             { Log.d("Exception", e.toString()); }

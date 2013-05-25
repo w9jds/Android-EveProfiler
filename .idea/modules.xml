@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EveProfiler/EveProfiler.iml" filepath="$PROJECT_DIR$/EveProfiler/EveProfiler.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SlideMenu/SlideMenu.iml" filepath="$PROJECT_DIR$/SlideMenu/SlideMenu.iml" />
     </modules>
   </component>
 </project>

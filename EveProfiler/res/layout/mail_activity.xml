@@ -10,18 +10,19 @@
     android:background="@drawable/backgroundtoon" >
 
 
-    <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center"
-            android:isScrollContainer="true">
+    <!--<ScrollView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:isScrollContainer="true">-->
 
-        <LinearLayout
-                android:orientation="vertical"
-                android:id="@+id/HeaderLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-        </LinearLayout>
+        <!--<LinearLayout-->
+                <!--android:orientation="vertical"-->
+                <!--android:id="@+id/HeaderLayout"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content">-->
+        <!--</LinearLayout>-->
 
-    </ScrollView>
+    <!--</ScrollView>-->
+
 </LinearLayout>

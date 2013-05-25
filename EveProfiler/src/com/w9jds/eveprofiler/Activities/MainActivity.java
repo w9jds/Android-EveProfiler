@@ -2,15 +2,12 @@ package com.w9jds.eveprofiler.Activities;
 
 import java.util.ArrayList;
 
-import android.annotation.TargetApi;
-import android.os.Build;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.w9jds.eveprofiler.Classes.Account;
+import android.support.v4.app.*;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.widget.*;
+import com.w9jds.eveprofiler.Classes.*;
 import com.w9jds.eveprofiler.R;
-import com.w9jds.eveprofiler.Classes.CallApi;
-import com.w9jds.eveprofiler.Classes.CharacterInfo;
-import com.w9jds.eveprofiler.Classes.PrevSettings;
-
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -19,30 +16,25 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener 
 {
-	private SlidingMenu menu;
 	private SectionsPagerAdapter mSectionsPagerAdapter;
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
+    private ActionBarDrawerToggle mDrawerToggle;
+
 	private ViewPager mViewPager;
 	private PrevSettings prevSettings = new PrevSettings();
 	private static Account ThisAccount = new Account();
 	private static final int RESULT_SETTINGS = 1;
 
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
@@ -50,23 +42,54 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		setContentView(R.layout.activity_main);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
+
+
+
         LoadDrawer();
         getCharacters();
 
 	}
 	
 	private void LoadDrawer()
-	{
-        menu = new SlidingMenu(this);
-        menu.setMode(SlidingMenu.LEFT);
-        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
-        menu.setShadowWidthRes(R.dimen.shadow_width);
-        //menu.setShadowDrawable(R.drawable.shadow);
-        menu.setFadeDegree(0.35f);
-        menu.attachToActivity(this, SlidingMenu.SLIDING_WINDOW);
+    {
+        ArrayList<Bitmap> images = new ArrayList<Bitmap>();
+        images.add(BitmapFactory.decodeResource(getResources(), R.drawable.drawer_mail));
 
-        menu.setMenu(R.layout.smalldrawerview);
-        menu.setBehindWidthRes(R.dimen.slidingmenu_small);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        // set a custom shadow that overlays the main content when the drawer opens
+        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+        // set up the drawer's list view with items and click listener
+//        mDrawerList.setAdapter(new ArrayAdapter<Bitmap>(this, R.layout.drawer_button_item, images));
+        mDrawerList.setAdapter(new DrawerAdapter(this, images));
+
+        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+        // enable ActionBar app icon to behave as action to toggle nav drawer
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
+
+        // ActionBarDrawerToggle ties together the the proper interactions
+        // between the sliding drawer and the action bar app icon
+        mDrawerToggle = new ActionBarDrawerToggle(
+                this,                  /* host Activity */
+                mDrawerLayout,         /* DrawerLayout object */
+                R.drawable.ic_drawer,  /* nav drawer image to replace 'Up' caret */
+                R.string.drawer_open,  /* "open drawer" description for accessibility */
+                R.string.drawer_close  /* "close drawer" description for accessibility */
+        ) {
+            public void onDrawerClosed(View view)
+            {
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+
+            public void onDrawerOpened(View drawerView)
+            {
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+        };
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
 
 	}
 
@@ -113,9 +136,16 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		// For each character create a tab and use the characters name as the title
 		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++)
 			actionBar.addTab(actionBar.newTab().setText(mSectionsPagerAdapter.getPageTitle(i)).setTabListener(this));
-
 	}
-	
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState)
+    {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        mDrawerToggle.syncState();
+    }
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) 
 	{
@@ -125,11 +155,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	}
 	
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if (mDrawerToggle.onOptionsItemSelected(item))
+        {
+            return true;
+        }
+
 	    switch (item.getItemId()) 
 	    {
 	        case android.R.id.home:
-	        	menu.toggle();
+	        	//menu.toggle();
 	        	break;
 	        case R.id.action_settings:
 	        	SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -166,20 +202,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             break;
         }
     }
-	
-    public void onDrawerButtonClicked(View v)
-    {
-    	switch(v.getId()){
-    		case R.id.MailButton:
-                menu.toggle();
-                Intent i = new Intent(this, MailActivity.class);
-                i.putExtra("Characters", ThisAccount);
-    			this.startActivity(i);
-    			break;
-    		default:
-    			break;
-    	}
-    	
+
+    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//            selectItem(position);
+        }
     }
 
 	@Override
