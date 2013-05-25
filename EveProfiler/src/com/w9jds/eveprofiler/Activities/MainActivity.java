@@ -1,7 +1,7 @@
 package com.w9jds.eveprofiler.Activities;
 
 import java.util.ArrayList;
-
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.*;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -42,29 +42,22 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		setContentView(R.layout.activity_main);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-
-
-
-
         LoadDrawer();
         getCharacters();
-
 	}
 	
 	private void LoadDrawer()
     {
-        ArrayList<Bitmap> images = new ArrayList<Bitmap>();
-        images.add(BitmapFactory.decodeResource(getResources(), R.drawable.drawer_mail));
+        ArrayList<Drawable> images = new ArrayList<Drawable>();
+        images.add(getResources().getDrawable(R.drawable.drawer_mail));
+        images.add(getResources().getDrawable(R.drawable.drawer_wallet));
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         // set up the drawer's list view with items and click listener
-//        mDrawerList.setAdapter(new ArrayAdapter<Bitmap>(this, R.layout.drawer_button_item, images));
-        mDrawerList.setAdapter(new DrawerAdapter(this, images));
-
+        mDrawerList.setAdapter(new DrawerListAdapter(this, images));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -95,8 +88,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 	private void getCharacters()
 	{
-		ProgressBar pb = (ProgressBar)getWindow().getDecorView().findViewById(R.id.progressBar);
-		pb.setVisibility(View.VISIBLE);
+//		ProgressBar pb = (ProgressBar)getWindow().getDecorView().findViewById(R.id.progressBar);
+//		pb.setVisibility(View.VISIBLE);
 		ArrayList<Object> get = new ArrayList<Object>();
 		get.add("getCharacters");
 		get.add(this);
@@ -105,10 +98,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 	public void ApiResponse(ArrayList<CharacterInfo> apiCharacters)
 	{
-		ProgressBar pb = (ProgressBar)getWindow().getDecorView().findViewById(R.id.progressBar);
+//		ProgressBar pb = (ProgressBar)getWindow().getDecorView().findViewById(R.id.progressBar);
         ThisAccount.setCharacters(apiCharacters);
 		CreateTabItems();
-		pb.setVisibility(View.GONE);
+//		pb.setVisibility(View.GONE);
 	}
 
     public void CreateTabItems()
@@ -205,7 +198,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+        {
+
 //            selectItem(position);
         }
     }

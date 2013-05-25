@@ -1,11 +1,12 @@
 package com.w9jds.eveprofiler.Classes;
 
 import android.content.Context;
-import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import com.w9jds.eveprofiler.R;
 
 import java.util.ArrayList;
@@ -13,12 +14,12 @@ import java.util.ArrayList;
 /**
  * Created by Jeremy on 5/24/13.
  */
-public class DrawerAdapter extends ArrayAdapter<Bitmap>
+public class DrawerListAdapter extends ArrayAdapter<Drawable>
 {
     private final Context context;
-    private final ArrayList<Bitmap> values;
+    private final ArrayList<Drawable> values;
 
-    public DrawerAdapter(Context context, ArrayList<Bitmap> values)
+    public DrawerListAdapter(Context context, ArrayList<Drawable> values)
     {
         super(context, R.layout.drawer_button_item, values);
         this.context = context;
@@ -31,7 +32,8 @@ public class DrawerAdapter extends ArrayAdapter<Bitmap>
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.drawer_button_item, parent, false);
 
-//          ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.DrawerListItem);
+        ImageButton imageButton = (ImageButton) rowView.findViewById(R.id.DrawerListItem);
+        imageButton.setImageDrawable(values.get(position));
 
         return rowView;
     }

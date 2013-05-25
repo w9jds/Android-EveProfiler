@@ -51,7 +51,7 @@
     <string name="Render">http://image.eveonline.com/Render/</string>
 
     <color name="white">#FFFFFF</color>
-    <color name="grey">#333333</color>
+    <color name="darkgrey">#1A1A1A</color>
     <color name="lightgrey">#424243</color>
     <color name="black">#000000</color>
 
