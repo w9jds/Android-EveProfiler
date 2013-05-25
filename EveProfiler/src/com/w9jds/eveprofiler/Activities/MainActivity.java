@@ -57,7 +57,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         // set up the drawer's list view with items and click listener
+//        mDrawerList.setAdapter(new ArrayAdapter<Bitmap>(this, R.layout.drawer_button_item, images));
         mDrawerList.setAdapter(new DrawerListAdapter(this, images));
+
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -200,7 +202,16 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id)
         {
+            switch(position)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
 
+
+
+            }
 //            selectItem(position);
         }
     }

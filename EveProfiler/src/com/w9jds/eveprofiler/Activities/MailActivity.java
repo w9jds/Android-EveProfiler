@@ -63,14 +63,14 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
         {
             try
             {
-                LayoutInflater inflater = getLayoutInflater();
-                View headerView = inflater.inflate(R.layout.mail_header, null);
-
-                TextView titleview = (TextView)headerView.findViewById(R.id.titleView);
-                titleview.setText(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getTitle());
-                ImageView image = (ImageView)headerView.findViewById(R.id.SenderPortrait);
-                Bitmap bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait(), 0, ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait().length);
-                image.setImageBitmap(bMap);
+//                LayoutInflater inflater = getLayoutInflater();
+//                View headerView = inflater.inflate(R.layout.mail_header, null);
+//
+//                TextView titleview = (TextView)headerView.findViewById(R.id.titleView);
+//                titleview.setText(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getTitle());
+//                ImageView image = (ImageView)headerView.findViewById(R.id.SenderPortrait);
+//                Bitmap bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait(), 0, ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait().length);
+//                image.setImageBitmap(bMap);
 
 //                MailList.addView();
             }
