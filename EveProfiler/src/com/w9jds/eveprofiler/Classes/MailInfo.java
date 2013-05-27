@@ -8,12 +8,16 @@ public class MailInfo
 
     private String messageID;
     private String senderID;
+    private String senderName;
     private byte[] senderPortrait;
     private String sentDate;
     private String title;
     private String toCorpOrAllianceID;
     private String toCharacterIDs;
     private String toListID;
+
+    public String getSenderName() { return senderName; }
+    public void setSenderName(String senderName) { this.senderName = senderName; }
 
     public String getMessageID() { return messageID; }
     public void setMessageID(String messageID) { this.messageID = messageID; }

@@ -7,7 +7,6 @@
     <string name="pref_keyid">1996957</string>
     <string name="pref_title_vCode">Verification Code</string>
     <string name="pref_vCode">I6YLp1vVB0KYAir2B3Z4mDIPtZrFHlpeysYYSaxGkjV4rO820NpTOBustmNsoEA4</string>
-    <string name="pref_title_drawerSize">Use Small Drawer</string>
 
     <string name="app_name">Top Hat</string>
     <string name="action_settings">Settings</string>
@@ -50,17 +49,19 @@
     <string name="Type_Icon">http://image.eveonline.com/InventoryType/</string>
     <string name="Render">http://image.eveonline.com/Render/</string>
 
-    <color name="white">#FFFFFF</color>
+    <!--<color name="white">#FFFFFF</color>-->
     <color name="darkgrey">#1A1A1A</color>
-    <color name="lightgrey">#424243</color>
-    <color name="black">#000000</color>
+    <!--<color name="lightgrey">#424243</color>-->
+    <!--<color name="black">#000000</color>-->
 
     <string name="title_activity_mail">MailActivity</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
 
     <string name="drawer_open">Drawer Opened</string>
     <string name="drawer_close">Drawer Closed</string>
+    <string name="SecStatus">Security Status</string>
+    <string name="WealthLabel">Wealth</string>
+    <string name="SkillsLabel">Skills</string>
+    <string name="ShipLabel">Active Ship</string>
+    <string name="LocationLabel">Location</string>
 
 </resources>

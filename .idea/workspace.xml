@@ -20,38 +20,50 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/EveProfiler/res/layout/drawer_button_item.xml">
+        <config>
+          <device>Nexus 4</device>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
     </layouts>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="INFO" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="074cc4f0-7245-4414-a55f-24c80e2df0b6" name="Default" comment="" />
     <ignored path="Android-EveProfiler.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/a.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1368680843270" ignored="false" />
+    <file path="/a.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369545861026" ignored="false" />
     <file path="/fragment.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369436474765" ignored="false" />
     <file path="/strings.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369500810871" ignored="false" />
     <file path="/smalldrawerview.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1368939155482" ignored="false" />
-    <file path="/MainActivity.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369515169538" ignored="false" />
+    <file path="/MainActivity.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369617980339" ignored="false" />
     <file path="/CharacterInfo.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369023246485" ignored="false" />
     <file path="/StandingInfo.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1368757550124" ignored="false" />
     <file path="/a.groovy" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1368680686632" ignored="false" />
     <file path="/a.html" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1368680689665" ignored="false" />
     <file path="/a.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1368680748444" ignored="false" />
     <file path="/sample.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1368680733393" ignored="false" />
-    <file path="/Dummy.txt" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369449239578" ignored="false" />
-    <file path="/CallApi.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369368537216" ignored="false" />
-    <file path="/fragment_main_dummy.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1368850959189" ignored="false" />
+    <file path="/Dummy.txt" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369618998196" ignored="false" />
+    <file path="/CallApi.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369634339547" ignored="false" />
+    <file path="/fragment_main_dummy.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369628702432" ignored="false" />
     <file path="/Account.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1368916179533" ignored="false" />
-    <file path="/MailActivity.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369372091219" ignored="false" />
+    <file path="/MailActivity.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369629542498" ignored="false" />
     <file path="/mail_header_fragment.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369011992635" ignored="false" />
-    <file path="/mail_activity.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369371295547" ignored="false" />
-    <file path="/MailInfo.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369276250875" ignored="false" />
+    <file path="/mail_activity.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369628864262" ignored="false" />
+    <file path="/MailInfo.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369627912648" ignored="false" />
     <file path="/mail_header.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369108228134" ignored="false" />
     <file path="/KeysInfo.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369364397001" ignored="false" />
     <file path="$USER_HOME$/Desktop/NavigationDrawer/src/com/example/android/navigationdrawerexample/MainActivity.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369440388791" ignored="false" />
-    <file path="/activity_main.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369513409760" ignored="false" />
+    <file path="/activity_main.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369628593174" ignored="false" />
     <file path="$USER_HOME$/Desktop/NavigationDrawer/res/layout/drawer_list_item.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369448534108" ignored="false" />
-    <file path="/drawer_button_item.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369502284883" ignored="false" />
+    <file path="/drawer_button_item.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369616735931" ignored="false" />
     <file path="/DrawerAdapter.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369501957089" ignored="false" />
+    <file path="/DrawerListAdapter.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369618232141" ignored="false" />
+    <file path="/mail_header_item.xml" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369634515207" ignored="false" />
+    <file path="/MailHeaderListAdapter.java" changelist="074cc4f0-7245-4414-a55f-24c80e2df0b6" time="1369627823995" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +83,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -123,22 +136,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/CallApi.java" line="626" class="com.w9jds.eveprofiler.Classes.CallApi.asyncClass" package="com.w9jds.eveprofiler.Classes">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java" line="80" class="com.w9jds.eveprofiler.Activities.MailActivity" package="com.w9jds.eveprofiler.Activities">
+      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/CallApi.java" line="655" class="com.w9jds.eveprofiler.Classes.CallApi.asyncClass" package="com.w9jds.eveprofiler.Classes">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -154,7 +152,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </line_breakpoints>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -164,48 +161,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java">
+      <file leaf-file-name="MailActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="24" selection-start="1514" selection-end="1514" vertical-scroll-proportion="0.67160493">
+            <state line="110" column="0" selection-start="3649" selection-end="3756" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1603#1613#0" expanded="true" />
-                <element signature="e#3770#3778#0" expanded="true" />
-                <element signature="method#CreateTabItems#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onPostCreate#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-                <element signature="class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#SectionsPagerAdapter#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#getItem#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#getCount#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#getPageTitle#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-                <element signature="class#DummySectionFragment#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onCreateView#0;class#DummySectionFragment#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#getMail#0;class#MailActivity#0" expanded="false" />
+                <element signature="e#1342#1350#0" expanded="true" />
+                <element signature="method#FillDropDown#0;class#MailActivity#0" expanded="false" />
+                <element signature="method#onRestoreInstanceState#0;class#MailActivity#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EveProfiler/res/layout/activity_main.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="50" selection-start="796" selection-end="796" vertical-scroll-proportion="-6.46">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EveProfiler/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="21" selection-start="3322" selection-end="3322" vertical-scroll-proportion="-5.76">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -213,10 +178,61 @@
       <file leaf-file-name="CallApi.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/CallApi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="0" selection-start="1907" selection-end="1907" vertical-scroll-proportion="0.0">
+            <state line="80" column="0" selection-start="3217" selection-end="3217" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#3264#3274#0" expanded="true" />
+                <element signature="e#1243#1258#0" expanded="true" />
+                <element signature="method#CharactersList#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+                <element signature="e#4597#4637#0" expanded="true" />
+                <element signature="e#5491#5501#0" expanded="true" />
+                <element signature="e#6061#6100#0" expanded="true" />
+                <element signature="e#6208#6247#0" expanded="true" />
+                <element signature="method#CharacterPortrait#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+                <element signature="e#7069#7112#0" expanded="true" />
+                <element signature="e#7208#7251#0" expanded="true" />
+                <element signature="method#AlliancePortrait#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+                <element signature="e#7529#7567#0" expanded="true" />
+                <element signature="e#7664#7702#0" expanded="true" />
+                <element signature="method#CorporationPortrait#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+                <element signature="e#7983#8017#0" expanded="true" />
+                <element signature="e#8114#8148#0" expanded="true" />
+                <element signature="e#8370#8380#0" expanded="true" />
+                <element signature="method#CharacterSheet#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+                <element signature="e#10043#10083#0" expanded="true" />
+                <element signature="method#CharacterStandings#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+                <element signature="class#ParseCharacterList#0;class#CallApi#0" expanded="false" />
+                <element signature="class#ParseCharacterSheet#0;class#CallApi#0" expanded="false" />
+                <element signature="class#ParseCharacterStandings#0;class#CallApi#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mail_header_item.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/EveProfiler/res/layout/mail_header_item.xml">
+          <provider editor-type-id="text-editor">
+            <state line="21" column="28" selection-start="714" selection-end="714" vertical-scroll-proportion="-6.12">
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MailInfo.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/MailInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="0" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CharacterInfo.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/CharacterInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="123" column="0" selection-start="7309" selection-end="7309" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -235,22 +251,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/EveProfiler/project.properties" />
-        <option value="$PROJECT_DIR$/EveProfiler/res/layout/mail_header_fragment.xml" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/Account.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/CharacterInfo.java" />
         <option value="$PROJECT_DIR$/EveProfiler/res/layout/mail_header.xml" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/MailInfo.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/KeysInfo.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/res/layout/mail_activity.xml" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/CallApi.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/DrawerAdapter.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/DrawerListAdapter.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/EveProfiler/res/layout/drawer_button_item.xml" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/DrawerListAdapter.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/MailInfo.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/MailHeaderListAdapter.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/EveProfiler/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/EveProfiler/res/layout/mail_activity.xml" />
+        <option value="$PROJECT_DIR$/EveProfiler/res/layout/fragment_main_dummy.xml" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/CallApi.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/res/layout/mail_header_item.xml" />
       </list>
     </option>
   </component>
@@ -294,12 +310,135 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Android-EveProfiler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eveprofiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eveprofiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eveprofiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Activities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -392,7 +531,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -408,7 +546,7 @@
     <property name="recentsLimit" value="5" />
     <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
     <property name="ExportedModule" value="EveProfiler" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/EveProfiler/libs/android-support-v4.jar!/" />
+    <property name="last_opened_file_path" value="$APPLICATION_HOME_DIR$/sdk/docs" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="android-eveprofiler" />
     <property name="DEBUGGABLE_DEVICE" value="FA33JS500792" />
@@ -422,7 +560,7 @@
     <property name="Downloaded.Files.Path" value="C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\lib" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="options.lastSelected" value="preferences.externalTools" />
+    <property name="options.lastSelected" value="preferences.sourceCode.XML" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -440,9 +578,9 @@
       <recent name="com.w9jds.eveprofiler.Classes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\res\drawable-hdpi" />
       <recent name="C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\res\drawable-xhdpi" />
       <recent name="C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\res\drawable-mdpi" />
-      <recent name="C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\res\drawable-hdpi" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.EveProfiler">
@@ -631,12 +769,14 @@
       <workItem from="1368896824621" duration="71658000" />
       <workItem from="1369352531427" duration="15620000" />
       <workItem from="1369434650403" duration="4083000" />
-      <workItem from="1369439763307" duration="26053000" />
+      <workItem from="1369439763307" duration="37949000" />
+      <workItem from="1369534864631" duration="17964000" />
+      <workItem from="1369611611030" duration="19149000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167334000" />
+    <option name="totallyTimeSpent" value="216343000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -660,57 +800,59 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32561132" sideWeight="0.60027856" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32496783" sideWeight="0.60027856" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32561132" sideWeight="0.60027856" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32496783" sideWeight="0.60027856" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.60027856" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21868916" sideWeight="0.2869081" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32561132" sideWeight="0.19359331" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24903475" sideWeight="0.60027856" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32882884" sideWeight="0.60027856" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15057915" sideWeight="0.60027856" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19587629" sideWeight="0.60027856" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="92" y="92" width="1416" height="676" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32818532" sideWeight="0.60027856" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3273196" sideWeight="0.60027856" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32561132" sideWeight="0.60027856" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="92" y="92" width="1416" height="676" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.67270195" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21868916" sideWeight="0.2869081" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24935567" sideWeight="0.60027856" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.60027856" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21106821" sideWeight="0.60027856" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16301547" sideWeight="0.60027856" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32496783" sideWeight="0.60027856" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.60027856" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39972144" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24903475" sideWeight="0.60027856" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32882884" sideWeight="0.60027856" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -775,143 +917,163 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/EveProfiler/res/drawable-xhdpi/ic_drawer.png">
-      <provider selected="true" editor-type-id="images">
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/MailHeaderListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="32" selection-start="569" selection-end="590" vertical-scroll-proportion="0.491358">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="5" selection-start="1517" selection-end="1517" vertical-scroll-proportion="0.5037037">
+          <folding>
+            <element signature="e#1602#1611#0" expanded="true" />
+            <element signature="method#ApiResponse#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#CreateTabItems#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#DummySectionFragment#0;class#MainActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="11" selection-start="268" selection-end="268" vertical-scroll-proportion="0.1915493">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/res/layout/mail_activity.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="38" selection-start="997" selection-end="997" vertical-scroll-proportion="0.67042255">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/res/layout/fragment_main_dummy.xml">
+      <provider editor-type-id="text-editor">
+        <state line="25" column="46" selection-start="1082" selection-end="1082" vertical-scroll-proportion="1.36">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/content/ContextWrapper.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="41" selection-start="579" selection-end="579" vertical-scroll-proportion="0.0">
+        <state line="37" column="28" selection-start="1439" selection-end="1439" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/util/TypedValue.class">
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/CharacterInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="11" selection-start="2320" selection-end="2320" vertical-scroll-proportion="0.0">
+        <state line="123" column="0" selection-start="7309" selection-end="7309" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/graphics/BitmapFactory.class">
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/MailInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="42" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0">
+        <state line="18" column="0" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/content/res/Resources.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="31" selection-start="3958" selection-end="3958" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/content/res/AssetManager.class">
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/os/AsyncTask.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/res/drawable-xhdpi/drawer_shadow.9.png">
-      <provider editor-type-id="images">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="ninepatcheditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/widget/AdapterView.class">
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/util/Log.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="13" selection-start="5470" selection-end="5470" vertical-scroll-proportion="0.6641975">
+        <state line="46" column="35" selection-start="2002" selection-end="2002" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/AndroidManifest.xml">
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/app/ApplicationErrorReport.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="36" selection-start="290" selection-end="290" vertical-scroll-proportion="0.33580247">
+        <state line="89" column="15" selection-start="3495" selection-end="3495" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/res/layout/drawer_button_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/os/Parcel.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="33" selection-start="213" selection-end="213" vertical-scroll-proportion="-1.7">
+        <state line="55" column="22" selection-start="1942" selection-end="1942" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/res/values/strings.xml">
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/preference/PreferenceManager.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="21" selection-start="3322" selection-end="3322" vertical-scroll-proportion="-5.76">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="40" selection-start="2335" selection-end="2335" vertical-scroll-proportion="-0.09948979">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1282#1290#0" expanded="true" />
-            <element signature="e#1672#1678#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/CallApi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="0" selection-start="1907" selection-end="1907" vertical-scroll-proportion="0.0">
+        <state line="80" column="0" selection-start="3217" selection-end="3217" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#3264#3274#0" expanded="true" />
+            <element signature="e#1243#1258#0" expanded="true" />
+            <element signature="method#CharactersList#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="e#4597#4637#0" expanded="true" />
+            <element signature="e#5491#5501#0" expanded="true" />
+            <element signature="e#6061#6100#0" expanded="true" />
+            <element signature="e#6208#6247#0" expanded="true" />
+            <element signature="method#CharacterPortrait#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="e#7069#7112#0" expanded="true" />
+            <element signature="e#7208#7251#0" expanded="true" />
+            <element signature="method#AlliancePortrait#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="e#7529#7567#0" expanded="true" />
+            <element signature="e#7664#7702#0" expanded="true" />
+            <element signature="method#CorporationPortrait#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="e#7983#8017#0" expanded="true" />
+            <element signature="e#8114#8148#0" expanded="true" />
+            <element signature="e#8370#8380#0" expanded="true" />
+            <element signature="method#CharacterSheet#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="e#10043#10083#0" expanded="true" />
+            <element signature="method#CharacterStandings#0;class#CallMethods#0;class#CallApi#0" expanded="false" />
+            <element signature="class#ParseCharacterList#0;class#CallApi#0" expanded="false" />
+            <element signature="class#ParseCharacterSheet#0;class#CallApi#0" expanded="false" />
+            <element signature="class#ParseCharacterStandings#0;class#CallApi#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Classes/DrawerListAdapter.java">
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="31" selection-start="71" selection-end="71" vertical-scroll-proportion="0.08395062">
-          <folding />
+        <state line="110" column="0" selection-start="3649" selection-end="3756" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="method#getMail#0;class#MailActivity#0" expanded="false" />
+            <element signature="e#1342#1350#0" expanded="true" />
+            <element signature="method#FillDropDown#0;class#MailActivity#0" expanded="false" />
+            <element signature="method#onRestoreInstanceState#0;class#MailActivity#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
+    <entry file="file://$PROJECT_DIR$/EveProfiler/res/layout/mail_header_item.xml">
+      <provider editor-type-id="text-editor">
+        <state line="21" column="28" selection-start="714" selection-end="714" vertical-scroll-proportion="-6.12">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="50" selection-start="796" selection-end="796" vertical-scroll-proportion="-6.46">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="24" selection-start="1514" selection-end="1514" vertical-scroll-proportion="0.67160493">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1603#1613#0" expanded="true" />
-            <element signature="e#3770#3778#0" expanded="true" />
-            <element signature="method#CreateTabItems#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onPostCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#SectionsPagerAdapter#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#getItem#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#getCount#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#getPageTitle#0;class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#DummySectionFragment#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#DummySectionFragment#0;class#MainActivity#0" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
   </component>
@@ -931,7 +1093,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Detection</last-edited>
+          <last-edited>Android (EveProfiler)|Android</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -971,6 +1133,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

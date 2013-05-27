@@ -32,10 +32,8 @@ import android.preference.PreferenceManager;
 public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<CharacterInfo>>{
 
     public ArrayList<CharacterInfo> Characters = new ArrayList<CharacterInfo>();
-
     public MainActivity Main = new MainActivity();
     public MailActivity Mail = new MailActivity();
-
 
     protected ArrayList<CharacterInfo> doInBackground(ArrayList<Object>... Info)
     {
@@ -57,7 +55,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 
             for (int i = 0; i < Characters.size(); i++)
             {
-                Calls.CharacterInfo(i);
+                Characters.get(i).CombineSheet(Calls.CharacterInfo(Characters.get(i).getCharacterID()));
                 Characters.get(i).setCharacterPortrait(Calls.CharacterPortrait(Characters.get(i).getCharacterID(), "128"));
                 Characters.get(i).setCorporationPortrait(Calls.CorporationPortrait(Characters.get(i).getCorporationID(), "64"));
                 if(Characters.get(i).getAllianceID() != null)
@@ -75,7 +73,22 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 
                 for (int j = 0; j < Characters.get(i).getMail().size(); j++)
                 {
-                    Characters.get(i).getMail().get(j).setSenderPortrait(Calls.CharacterPortrait(Characters.get(i).getMail().get(j).getSenderID(), "64"));
+                    boolean duplicate = false;
+                    for (int k = 0; k < j; k++)
+                    {
+                        if (Characters.get(i).getMail().get(k).getSenderID().equals(Characters.get(i).getMail().get(j).getSenderID()) == true)
+                        {
+                            Characters.get(i).getMail().get(j).setSenderName(Characters.get(i).getMail().get(k).getSenderName());
+                            Characters.get(i).getMail().get(j).setSenderPortrait(Characters.get(i).getMail().get(k).getSenderPortrait());
+                            duplicate = true;
+                            break;
+                        }
+                    }
+                    if (duplicate == false)
+                    {
+                        Characters.get(i).getMail().get(j).setSenderPortrait(Calls.CharacterPortrait(Characters.get(i).getMail().get(j).getSenderID(), "64"));
+                        Characters.get(i).getMail().get(j).setSenderName(Calls.CharacterInfo(Characters.get(i).getMail().get(j).getSenderID()).getName());
+                    }
                 }
             }
         }
@@ -88,7 +101,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
         {
             String Response = null;
             ArrayList<KeysInfo> params = new ArrayList<KeysInfo>();
-            SharedPreferences settings = settings =  PreferenceManager.getDefaultSharedPreferences(Main);
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(Main);
             params.add(new KeysInfo("keyid", settings.getString("keyid", null)));
             params.add(new KeysInfo("vCode", settings.getString("vCode", null)));
 
@@ -107,16 +120,24 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
             catch(Exception e){}
         }
 
-        public void CharacterInfo(int i)
+        public CharacterInfo CharacterInfo(String characterid)
         {
+            CharacterInfo returnpeeps = new CharacterInfo();
             String Response = null;
+            SharedPreferences settings = null;
             ArrayList<KeysInfo> params = new ArrayList<KeysInfo>();
-            SharedPreferences settings = settings =  PreferenceManager.getDefaultSharedPreferences(Main);
+            if (Main != null)
+                settings = PreferenceManager.getDefaultSharedPreferences(Main);
+            else if(Mail != null)
+                settings = PreferenceManager.getDefaultSharedPreferences(Mail);
             params.add(new KeysInfo("keyid", settings.getString("keyid", null)));
             params.add(new KeysInfo("vCode", settings.getString("vCode", null)));
-            params.add(new KeysInfo("characterID", Characters.get(i).getCharacterID()));
+            params.add(new KeysInfo("characterID", characterid));
 
-            Response = new CallApi.asyncClass().ApiGetCall(params, Main.getString(R.string.Character_Info));
+            if (Main != null)
+                Response = new CallApi.asyncClass().ApiGetCall(params, Main.getString(R.string.Character_Info));
+            else if(Mail != null)
+                Response = new CallApi.asyncClass().ApiGetCall(params, Mail.getString(R.string.Character_Info));
             try
             {
                 XMLReader reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
@@ -126,9 +147,11 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
                 inputSource.setEncoding("UTF-8");
                 inputSource.setCharacterStream(new StringReader(Response));
                 reader.parse(inputSource);
-                Characters.get(i).CombineSheet(Handler.data);
+                returnpeeps = Handler.data;
             }
             catch(Exception e){}
+
+            return returnpeeps;
         }
 
         public byte[] CharacterPortrait(String CharID, String size)
@@ -459,6 +482,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
         private boolean islastKnownLocation = false;
         private boolean issecurityStatus = false;
         private boolean isnextTrainingEnds = false;
+        private boolean isCharacterName = false;
         private CharacterInfo data = new CharacterInfo();
 
         @Override
@@ -466,6 +490,8 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
         {
             if (localName.equals("race"))
                 isRace = true;
+            else if (localName.equals("characterName"))
+                isCharacterName = true;
             else if (localName.equals("bloodLine"))
                 isbloodLine = true;
             else if (localName.equals("accountBalance"))
@@ -503,6 +529,8 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
         {
             if (localName.equals("race"))
                 isRace = false;
+            else if (localName.equals("characterName"))
+                isCharacterName = false;
             else if (localName.equals("bloodLine"))
                 isbloodLine = false;
             else if (localName.equals("accountBalance"))
@@ -540,6 +568,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
         {
             String chars = new String(ch, start, length);
             if(isRace) data.setRace(chars);
+            else if(isCharacterName) data.setName(chars);
             else if(isbloodLine) data.setBloodLine(chars);
             else if(isaccountBalance) data.setWalletBalance(chars);
             else if(isskillPoints) data.setSkillPoints(chars);

@@ -17,28 +17,19 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-            <!--tools:context=".MainActivity"/>-->
+            android:layout_height="match_parent"
+            tools:context=".MainActivity"/>
 
-        <!--<ProgressBar-->
-            <!--android:id="@+id/progressBar"-->
-            <!--style="?android:attr/progressBarStyleLarge"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:visibility="gone" />-->
     </RelativeLayout>
 
     <!-- The navigation drawer -->
     <ListView
         android:id="@+id/left_drawer"
-        android:layout_width="64dp"
-        android:layout_height="match_parent"
+        android:layout_width="58dp"
+        android:layout_height="fill_parent"
         android:layout_gravity="start"
-        android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="1dp"
+        android:choiceMode="none"
+        android:dividerHeight="0dp"
         android:background="@color/darkgrey"/>
 
 </android.support.v4.widget.DrawerLayout>

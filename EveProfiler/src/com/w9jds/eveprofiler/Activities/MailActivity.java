@@ -12,6 +12,7 @@ import android.widget.*;
 import com.w9jds.eveprofiler.Classes.Account;
 import com.w9jds.eveprofiler.Classes.CallApi;
 import com.w9jds.eveprofiler.Classes.CharacterInfo;
+import com.w9jds.eveprofiler.Classes.MailHeaderListAdapter;
 import com.w9jds.eveprofiler.R;
 import android.app.ActionBar;
 import android.os.Bundle;
@@ -51,44 +52,13 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
     public void ApiResponse(ArrayList<CharacterInfo> CharactersIn)
     {
         ThisAccount.setCharacters(CharactersIn);
-        FillLayout();
+        FillList();
     }
 
-    private void FillLayout()
+    private void FillList()
     {
-        ArrayList<View> HeaderViews = new ArrayList<View>();
-        LinearLayout MailList = (LinearLayout)this.findViewById(R.id.container);
-
-        for (int i = 0; i < ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().size(); i++)
-        {
-            try
-            {
-//                LayoutInflater inflater = getLayoutInflater();
-//                View headerView = inflater.inflate(R.layout.mail_header, null);
-//
-//                TextView titleview = (TextView)headerView.findViewById(R.id.titleView);
-//                titleview.setText(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getTitle());
-//                ImageView image = (ImageView)headerView.findViewById(R.id.SenderPortrait);
-//                Bitmap bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait(), 0, ThisAccount.getCharacters().get(ThisAccount.getCurrentCharacter()).getMail().get(i).getSenderPortrait().length);
-//                image.setImageBitmap(bMap);
-
-//                MailList.addView();
-            }
-            catch(Exception e)
-            { Log.d("Exception", e.toString()); }
-        }
-
-        MailList.addTouchables(HeaderViews);
-
-//        try
-//        {
-//            ListView MailList = (ListView)this.findViewById(R.id.MailList);
-//            ArrayAdapter<View> modeAdapter = new ArrayAdapter<View>(this, android.R.layout.simple_selectable_list_item, Views);
-//            MailList.setAdapter(modeAdapter);
-//
-//        }
-//        catch (Exception e)
-//        { Log.d("Exception", e.toString()); }
+        ListView headerList = (ListView) this.findViewById(R.id.mail_headers);
+        headerList.setAdapter(new MailHeaderListAdapter(this, ThisAccount.getCharacters().get(getActionBar().getSelectedNavigationIndex()).getMail()));
     }
 
     private void FillDropDown()
@@ -112,7 +82,6 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
         actionBar.setSelectedNavigationItem(ThisAccount.getCurrentCharacter());
     }
 
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
 	public void onRestoreInstanceState(Bundle savedInstanceState)
     {
@@ -139,33 +108,9 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
 	@Override
 	public boolean onNavigationItemSelected(int position, long id)
     {
-		// When the given dropdown item is selected, show its contents in the
-		// container view.
-//		Fragment fragment = new DummySectionFragment();
-//		Bundle args = new Bundle();
-//		args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-//		fragment.setArguments(args);
-//		getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+//        ThisAccount.setCurrentCharacter(getActionBar().getSelectedNavigationIndex());
+//        fileList();
 		return true;
 	}
 
-//    public static class MailHeaderFragment extends Fragment
-//    {
-//
-//        MailHeaderFragment()
-//        {
-//
-//        }
-//
-//        @Override
-//        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-//        {
-//            View rootView = inflater.inflate(R.layout.mail_header_fragment, container, false);
-//
-//            return rootView;
-//        }
-//
-//
-//
-//    }
 }

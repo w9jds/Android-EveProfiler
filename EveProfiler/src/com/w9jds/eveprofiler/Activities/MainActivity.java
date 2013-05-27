@@ -48,19 +48,22 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	
 	private void LoadDrawer()
     {
-        ArrayList<Drawable> images = new ArrayList<Drawable>();
-        images.add(getResources().getDrawable(R.drawable.drawer_mail));
-        images.add(getResources().getDrawable(R.drawable.drawer_wallet));
+        ArrayList<Integer> images = new ArrayList<Integer>();
+        images.add(R.drawable.drawer_mail);
+        images.add(R.drawable.drawer_wallet);
+        images.add(R.drawable.drawer_assets);
+
+        images.add(R.drawable.drawer_server);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         // set up the drawer's list view with items and click listener
-//        mDrawerList.setAdapter(new ArrayAdapter<Bitmap>(this, R.layout.drawer_button_item, images));
         mDrawerList.setAdapter(new DrawerListAdapter(this, images));
 
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
@@ -85,13 +88,35 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-
 	}
+
+    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView parent, View view, int position, long id)
+        {
+            switch(position)
+            {
+                case 0:
+                    Intent i = new Intent(MainActivity.this, MailActivity.class);
+                    i.putExtra("Characters", ThisAccount);
+                    startActivity(i);
+                    break;
+                case 1:
+
+                    break;
+                case 2:
+
+                    break;
+
+
+
+            }
+//            selectItem(position);
+        }
+    }
 
 	private void getCharacters()
 	{
-//		ProgressBar pb = (ProgressBar)getWindow().getDecorView().findViewById(R.id.progressBar);
-//		pb.setVisibility(View.VISIBLE);
 		ArrayList<Object> get = new ArrayList<Object>();
 		get.add("getCharacters");
 		get.add(this);
@@ -100,10 +125,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 	public void ApiResponse(ArrayList<CharacterInfo> apiCharacters)
 	{
-//		ProgressBar pb = (ProgressBar)getWindow().getDecorView().findViewById(R.id.progressBar);
         ThisAccount.setCharacters(apiCharacters);
 		CreateTabItems();
-//		pb.setVisibility(View.GONE);
 	}
 
     public void CreateTabItems()
@@ -159,9 +182,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 	    switch (item.getItemId()) 
 	    {
-	        case android.R.id.home:
-	        	//menu.toggle();
-	        	break;
 	        case R.id.action_settings:
 	        	SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 	        	prevSettings.setsmallDrawer(sharedPrefs.getBoolean("drawerSize", true));
@@ -195,24 +215,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         	if (prevSettings.getsmallDrawer() != sharedPrefs.getBoolean("drawerSize", true))
         		LoadDrawer();
             break;
-        }
-    }
-
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-        {
-            switch(position)
-            {
-                case 0:
-                    break;
-                case 1:
-                    break;
-
-
-
-            }
-//            selectItem(position);
         }
     }
 
@@ -289,12 +291,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
 
 			ImageView image = (ImageView) rootView.findViewById(R.id.CapsuleerPortrait);
-			Bitmap bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterPortrait(), 0, ThisAccount.getCharacters().get(container.getChildCount()).getCharacterPortrait().length);
-			image.setImageBitmap(bMap);
+			image.setImageBitmap(BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterPortrait(), 0, ThisAccount.getCharacters().get(container.getChildCount()).getCharacterPortrait().length));
 			
 			image = (ImageView) rootView.findViewById(R.id.corpPic);
-			bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(container.getChildCount()).getCorporationPortrait(), 0, ThisAccount.getCharacters().get(container.getChildCount()).getCorporationPortrait().length);
-			image.setImageBitmap(bMap);
+			image.setImageBitmap(BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(container.getChildCount()).getCorporationPortrait(), 0, ThisAccount.getCharacters().get(container.getChildCount()).getCorporationPortrait().length));
 
             TextView ActiveShipType = (TextView) rootView.findViewById(R.id.ActiveShipType);
             ActiveShipType.setText(ThisAccount.getCharacters().get(container.getChildCount()).getShipTypeName());
@@ -320,9 +320,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			if (ThisAccount.getCharacters().get(container.getChildCount()).getAlliancePortrait() != null){
 				TextView Alliance = (TextView) rootView.findViewById(R.id.allianceName);
 				Alliance.setText(ThisAccount.getCharacters().get(container.getChildCount()).getAllianceName());
+
 				image = (ImageView) rootView.findViewById(R.id.alliancePic);
-				bMap = BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(container.getChildCount()).getAlliancePortrait(), 0, ThisAccount.getCharacters().get(container.getChildCount()).getAlliancePortrait().length);
-				image.setImageBitmap(bMap);	
+				image.setImageBitmap(BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(container.getChildCount()).getAlliancePortrait(), 0, ThisAccount.getCharacters().get(container.getChildCount()).getAlliancePortrait().length));
 			}
 			
 			return rootView;

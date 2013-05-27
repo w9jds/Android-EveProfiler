@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@android:color/darker_gray"
+    android:dividerPadding="5dp"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/senderPortrait"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginRight="10dp" android:scaleType="fitCenter"/>
+
+    <GridLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:rowCount="2"
+        android:orientation="vertical"
+        android:rowOrderPreserved="true" android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/senderName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textColor="@android:color/primary_text_dark"
+            android:layout_row="0"
+            android:textStyle="bold" android:gravity="center_vertical|left"/>
+
+        <TextView
+            android:id="@+id/MailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textColor="@android:color/primary_text_dark"
+            android:layout_row="1" android:gravity="left"/>
+
+    </GridLayout>
+
+</LinearLayout>

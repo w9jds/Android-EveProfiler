@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:orientation="vertical"
-        android:divider="@color/white">
+        android:textColor="@android:color/primary_text_dark">
         
         <ImageView
             android:id="@+id/CapsuleerPortrait"
@@ -24,7 +24,7 @@
             android:layout_height="128dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp" android:scaleType="fitCenter"/>
 
         <GridLayout
             android:id="@+id/alliancecorp"
@@ -42,7 +42,7 @@
                 android:layout_height="64dp"
                 android:layout_rowSpan="2"
                 android:layout_column="0"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" android:scaleType="fitCenter"/>
 
             <ImageView
                 android:id="@+id/alliancePic"
@@ -50,7 +50,7 @@
                 android:layout_height="64dp"
                 android:layout_column="2"
                 android:layout_gravity="center"
-                android:layout_rowSpan="2" />
+                android:layout_rowSpan="2" android:scaleType="fitCenter"/>
 
             <TextView
                 android:id="@+id/CorpName"
@@ -60,7 +60,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_row="0"
-                android:textColor="@color/white"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp" android:textStyle="bold"/>
 
             <TextView
@@ -71,8 +71,9 @@
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_row="1"
-                android:textColor="@color/white"
-                android:textSize="15sp" android:textStyle="bold"/>
+                android:textColor="@android:color/primary_text_dark"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
 
 		</GridLayout>
@@ -95,8 +96,8 @@
                 android:layout_column="0"
                 android:layout_gravity="left"
                 android:layout_marginRight="15dp"
-                android:text="Location"
-                android:textColor="@color/white"
+                android:text="@string/LocationLabel"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -108,7 +109,7 @@
                 android:layout_gravity="left"
                 android:layout_margin="5dp"
                 android:layout_row="0"
-                android:textColor="@color/white"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp" />
 
             <TextView
@@ -119,8 +120,8 @@
                 android:layout_row="1"
                 android:layout_gravity="left"
                 android:layout_marginRight="15dp"
-                android:text="Active Ship"
-                android:textColor="@color/white"
+                android:text="@string/ShipLabel"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -132,7 +133,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="5dp"
                 android:layout_row="1"
-                android:textColor="@color/white"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp" />
 
             <TextView
@@ -143,7 +144,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="5dp"
                 android:layout_row="2"
-                android:textColor="@color/white"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp" />
 
             <TextView
@@ -154,8 +155,8 @@
                 android:layout_row="3"
                 android:layout_gravity="left"
                 android:layout_marginRight="15dp"
-                android:text="Skills"
-                android:textColor="@color/white"
+                android:text="@string/SkillsLabel"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -168,7 +169,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_row="3"
-                android:textColor="@color/white"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp" />
 
             <TextView
@@ -179,7 +180,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="5dp"
                 android:layout_row="4"
-                android:textColor="@color/white"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp" />
 
             <TextView
@@ -190,8 +191,8 @@
                 android:layout_row="5"
                 android:layout_gravity="left"
                 android:layout_marginRight="15dp"
-                android:text="Wealth"
-                android:textColor="@color/white"
+                android:text="@string/WealthLabel"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -203,7 +204,7 @@
                 android:layout_gravity="left"
                 android:layout_margin="5dp"
                 android:layout_row="5"
-                android:textColor="@color/white"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp" />
 
             <TextView
@@ -215,8 +216,8 @@
                 android:layout_marginRight="15dp"
                 android:layout_row="6"
                 android:singleLine="false"
-                android:text="Security Status"
-                android:textColor="@color/white"
+                android:text="@string/SecStatus"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -228,7 +229,7 @@
                 android:layout_gravity="left"
                 android:layout_margin="5dp"
                 android:layout_row="6"
-                android:textColor="@color/white"
+                android:textColor="@android:color/primary_text_dark"
                 android:textSize="15sp" />
 
         </GridLayout>
