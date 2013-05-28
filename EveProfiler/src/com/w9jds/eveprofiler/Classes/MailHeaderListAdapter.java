@@ -33,12 +33,14 @@ public class MailHeaderListAdapter extends ArrayAdapter<MailInfo>
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.mail_header_item, parent, false);
 
-        ImageView senderpic = (ImageView) rowView.findViewById(R.id.senderPortrait);
-        senderpic.setImageBitmap(BitmapFactory.decodeByteArray(values.get(position).getSenderPortrait(), 0, values.get(position).getSenderPortrait().length));
+        ImageView senderPic = (ImageView) rowView.findViewById(R.id.senderPortrait);
+        senderPic.setImageBitmap(BitmapFactory.decodeByteArray(values.get(position).getSenderPortrait(), 0, values.get(position).getSenderPortrait().length));
         TextView senderName = (TextView) rowView.findViewById(R.id.senderName);
         senderName.setText(values.get(position).getSenderName());
         TextView mailTitle = (TextView) rowView.findViewById(R.id.MailTitle);
         mailTitle.setText(values.get(position).getTitle());
+        TextView sentDate = (TextView) rowView.findViewById(R.id.Sent);
+        sentDate.setText(values.get(position).getSentDate());
 
         return rowView;
     }

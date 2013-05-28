@@ -59,6 +59,15 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
     {
         ListView headerList = (ListView) this.findViewById(R.id.mail_headers);
         headerList.setAdapter(new MailHeaderListAdapter(this, ThisAccount.getCharacters().get(getActionBar().getSelectedNavigationIndex()).getMail()));
+        headerList.setOnItemClickListener(new MailHeaderClicked());
+    }
+
+    private class MailHeaderClicked implements ListView.OnItemClickListener{
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+        {
+
+        }
     }
 
     private void FillDropDown()
