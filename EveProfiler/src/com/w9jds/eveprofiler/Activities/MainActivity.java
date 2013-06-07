@@ -122,6 +122,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		ArrayList<Object> get = new ArrayList<Object>();
 		get.add("getCharacters");
 		get.add(this);
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        get.add(settings.getString("keyid", null));
+        get.add(settings.getString("vCode", null));
 		new CallApi().execute(get);
 	}
 
@@ -317,7 +320,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			Corporation.setText(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterInfo().getCorporation());
 
 			TextView IskWealth = (TextView) rootView.findViewById(R.id.WealthIsk);
-			IskWealth.setText(new DecimalFormat("#,###.00").format(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterInfo().getAccountBalance() + " ISK"));
+			IskWealth.setText(new DecimalFormat("#,###.00").format(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterInfo().getAccountBalance()) + " ISK");
 
 			if (ThisAccount.getCharacters().get(container.getChildCount()).getAlliancePortrait() != null){
 				TextView Alliance = (TextView) rootView.findViewById(R.id.allianceName);

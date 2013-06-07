@@ -11,10 +11,15 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
     private ArrayList<CharacterMain> Characters = new ArrayList<CharacterMain>();
     private MainActivity Main = new MainActivity();
     private MailActivity Mail = new MailActivity();
+    private String keyid;
+    private String vCode;
 
     @Override
     protected ArrayList<CharacterMain> doInBackground(ArrayList<Object>... Info)
     {
+        keyid = Info[0].get(2).toString();
+        vCode = Info[0].get(3).toString();
+
         if(Info[0].get(1).getClass() == Main.getClass())
         {
             Main = (MainActivity)Info[0].get(1);
@@ -29,10 +34,10 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
         if (Info[0].get(0) == "getCharacters")
         {
             CallMethods Calls = new CallMethods();
-            Calls.CharactersList();
+            Characters = Calls.CharactersList(vCode, keyid);
 
             for (CharacterMain Character : Characters) {
-                Character.setCharacterInfo(Calls.CharacterInfo(Character.getCharacterID()));
+                Character.setCharacterInfo(Calls.CharacterInfo(Character.getCharacterID(), vCode, keyid));
                 Character.setCharacterPortrait(Calls.CharacterPortrait(Character.getCharacterID(), "1024"));
                 Character.setCorporationPortrait(Calls.CorporationPortrait(Character.getCharacterInfo().getCorporationID(), "128"));
                 if (Character.getCharacterInfo().getAllianceID() != null)
@@ -47,7 +52,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 
             for (int i = 0; i < Characters.size(); i++)
             {
-                Calls.CharacterMailHeaders(Characters.get(i).getCharacterID());
+                Calls.CharacterMailHeaders(Characters.get(i).getCharacterID(), vCode, keyid);
 
                 for (int j = 0; j < Characters.get(i).getMail().size(); j++)
                 {
@@ -65,7 +70,7 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
                     if (!duplicate)
                     {
                         Characters.get(i).getMail().get(j).setSenderPortrait(Calls.CharacterPortrait(Characters.get(i).getMail().get(j).getSenderID(), "128"));
-                        Characters.get(i).getMail().get(j).setSenderName(Calls.CharacterInfo(Characters.get(i).getMail().get(j).getSenderID()).getName());
+                        Characters.get(i).getMail().get(j).setSenderName(Calls.CharacterInfo(Characters.get(i).getMail().get(j).getSenderID(), keyid, vCode).getName());
                     }
                 }
             }

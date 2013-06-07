@@ -33,7 +33,7 @@ class ParseCharacterInfo extends DefaultHandler
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException
     {
-        if (localName.equals("name"))
+        if (localName.equals("characterName"))
             isname = true;
         else if (localName.equals("race"))
             israce = true;
@@ -72,7 +72,7 @@ class ParseCharacterInfo extends DefaultHandler
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException
     {
-        if (localName.equals("name"))
+        if (localName.equals("characterName"))
             isname = false;
         else if (localName.equals("race"))
             israce = false;

@@ -14,12 +14,11 @@
     <string name="Api_Uri">https://api.eveonline.com</string>
     <string name="Account_Status">/account/AccountStatus.xml.aspx</string>
     <string name="API_Key_Info">/account/APIKeyInfo.xml.aspx</string>
-    <string name="List_Characters">/account/Characters.xml.aspx</string>
     <string name="Account_Balance">/char/AccountBalance.xml.aspx</string>
     <string name="Asset_List">/char/AssetList.xml.aspx</string>
     <string name="Cal_Event_Attendees">/char/CalendarEventAttendees.xml.aspx</string>
     <string name="Character_Sheet">/char/CharacterSheet.xml.aspx</string>
-    <string name="Character_Info">/eve/CharacterInfo.xml.aspx</string>
+
     <string name="Contact_List">/char/ContactList.xml.aspx</string>
     <string name="Contact_Notif">/char/ContactNotifications.xml.aspx</string>
     <string name="Contacts">/char/Contracts.xml.aspx</string>
@@ -31,7 +30,7 @@
     <string name="Locations">/char/Locations.xml.aspx</string>
     <string name="Mail_Bodies">/char/MailBodies.xml.aspx</string>
     <string name="Mailing_Lists">/char/MailingLists.xml.aspx</string>
-    <string name="MailMessHeaders">/char/MailMessages.xml.aspx</string>
+
     <string name="Market_Orders">/char/MarketOrders.xml.aspx</string>
     <string name="Medals">/char/Medals.xml.aspx</string>
     <string name="Notifications">/char/Notifications.xml.aspx</string>
@@ -43,9 +42,7 @@
     <string name="Upcoming_Cal_Events">/char/UpcomingCalendarEvents.xml.aspx</string>
     <string name="Wallet_Journal">/char/WalletJournal.xml.aspx</string>
     <string name="Wallet_Transactions">/char/WalletTransactions.xml.aspx</string>
-    <string name="Character_Portrait">http://image.eveonline.com/Character/</string>
-    <string name="Corp_Logo">http://image.eveonline.com/Corporation/</string>
-    <string name="Alliance_Logo">http://image.eveonline.com/Alliance/</string>
+
     <string name="Type_Icon">http://image.eveonline.com/InventoryType/</string>
     <string name="Render">http://image.eveonline.com/Render/</string>
 

@@ -112,36 +112,6 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Core/getXml.java" line="71" class="com.w9jds.eveprofiler.Core.getXml" package="com.w9jds.eveprofiler.Core">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallApi.java" line="33" class="com.w9jds.eveprofiler.DataAccess.CallApi" package="com.w9jds.eveprofiler.DataAccess">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
       <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallMethods.java" line="26" class="com.w9jds.eveprofiler.DataAccess.CallMethods" package="com.w9jds.eveprofiler.DataAccess">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
@@ -168,10 +138,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4250">
+            <state line="132" column="0" selection-start="4655" selection-end="4655" vertical-scroll-proportion="0.2015306" vertical-offset="720" max-vertical-offset="4301">
               <folding>
                 <element signature="method#LoadDrawer#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onItemClick#0;class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
@@ -184,7 +154,7 @@
       <file leaf-file-name="CallApi.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallApi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="1017" selection-end="1017" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1496">
+            <state line="36" column="25" selection-start="1232" selection-end="1232" vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="1581">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#427#442#0" expanded="true" />
@@ -196,7 +166,7 @@
       <file leaf-file-name="getXml.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Core/getXml.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="13" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0" vertical-offset="790" max-vertical-offset="1887">
+            <state line="81" column="0" selection-start="2748" selection-end="2748" vertical-scroll-proportion="0.0" vertical-offset="987" max-vertical-offset="1887">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1673#1688#0" expanded="true" />
@@ -205,21 +175,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CallMethods.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CallMethods.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallMethods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="1" selection-start="640" selection-end="640" vertical-scroll-proportion="0.17894737" vertical-offset="289" max-vertical-offset="2975">
+            <state line="60" column="0" selection-start="2008" selection-end="2008" vertical-scroll-proportion="-5.04" vertical-offset="894" max-vertical-offset="2975">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#775#785#0" expanded="true" />
-                <element signature="e#1087#1127#0" expanded="true" />
-                <element signature="e#1826#1836#0" expanded="true" />
-                <element signature="e#2200#2239#0" expanded="true" />
-                <element signature="e#2918#2961#0" expanded="true" />
-                <element signature="e#3095#3133#0" expanded="true" />
-                <element signature="e#3270#3304#0" expanded="true" />
-                <element signature="e#3511#3521#0" expanded="true" />
-                <element signature="e#3885#3925#0" expanded="true" />
+                <element signature="e#801#811#0" expanded="true" />
+                <element signature="e#1725#1735#0" expanded="true" />
+                <element signature="e#3286#3296#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -228,7 +192,7 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EveProfiler/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
+            <state line="32" column="0" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="1190">
               <folding />
             </state>
           </provider>
@@ -248,22 +212,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/MailInfo.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/Parsers.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Core/getXml.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterStandings.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterMailHeaders.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/CharacterInfo.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/Info.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterInfo.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/Character.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterList.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Account.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallApi.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterSheet.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallMethods.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallApi.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterInfo.java" />
       </list>
     </option>
   </component>
@@ -517,24 +481,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="res">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EveProfiler">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="res">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="values">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -1041,13 +987,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/Info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="22" selection-start="1825" selection-end="1825" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Account.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="0" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4250">
@@ -1125,20 +1064,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/EveProfiler/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4250">
+        <state line="32" column="0" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="1190">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="43" selection-start="2786" selection-end="2786" vertical-scroll-proportion="-1.1358025" vertical-offset="1718" max-vertical-offset="2363">
           <folding>
-            <element signature="method#LoadDrawer#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onItemClick#0;class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#4302#4310#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallMethods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="0" selection-start="2008" selection-end="2008" vertical-scroll-proportion="-5.04" vertical-offset="894" max-vertical-offset="2975">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#801#811#0" expanded="true" />
+            <element signature="e#1725#1735#0" expanded="true" />
+            <element signature="e#3286#3296#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Core/getXml.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0" vertical-offset="790" max-vertical-offset="1887">
+        <state line="81" column="0" selection-start="2748" selection-end="2748" vertical-scroll-proportion="0.0" vertical-offset="987" max-vertical-offset="1887">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1673#1688#0" expanded="true" />
@@ -1148,7 +1104,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallApi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="1017" selection-end="1017" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1496">
+        <state line="36" column="25" selection-start="1232" selection-end="1232" vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="1581">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#427#442#0" expanded="true" />
@@ -1156,27 +1112,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="1" selection-start="640" selection-end="640" vertical-scroll-proportion="0.17894737" vertical-offset="289" max-vertical-offset="2975">
+        <state line="132" column="0" selection-start="4655" selection-end="4655" vertical-scroll-proportion="0.2015306" vertical-offset="720" max-vertical-offset="4301">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#775#785#0" expanded="true" />
-            <element signature="e#1087#1127#0" expanded="true" />
-            <element signature="e#1826#1836#0" expanded="true" />
-            <element signature="e#2200#2239#0" expanded="true" />
-            <element signature="e#2918#2961#0" expanded="true" />
-            <element signature="e#3095#3133#0" expanded="true" />
-            <element signature="e#3270#3304#0" expanded="true" />
-            <element signature="e#3511#3521#0" expanded="true" />
-            <element signature="e#3885#3925#0" expanded="true" />
+            <element signature="method#LoadDrawer#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onItemClick#0;class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#4302#4310#0" expanded="true" />
           </folding>
         </state>
       </provider>

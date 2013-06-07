@@ -20,15 +20,15 @@ import javax.xml.parsers.SAXParserFactory;
  */
 class CallMethods
 {
-    public ArrayList<CharacterMain> CharactersList()
+    public ArrayList<CharacterMain> CharactersList(String vCode, String keyid)
     {
         String Response;
         ArrayList<KeysInfo> params = new ArrayList<KeysInfo>();
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(Main);
-        params.add(new KeysInfo("keyid", settings.getString("keyid", null)));
-        params.add(new KeysInfo("vCode", settings.getString("vCode", null)));
 
-        Response = new getXml().ApiGetCall(params, Main.getString(R.string.List_Characters));
+        params.add(new KeysInfo("keyid", keyid));
+        params.add(new KeysInfo("vCode", vCode));
+
+        Response = new getXml().ApiGetCall(params, "/account/Characters.xml.aspx");
         try
         {
             XMLReader reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
@@ -46,16 +46,16 @@ class CallMethods
         }
     }
 
-    public Info CharacterInfo(String characterid)
+    public Info CharacterInfo(String characterid, String vCode, String keyid)
     {
         String Response;
         ArrayList<KeysInfo> params = new ArrayList<KeysInfo>();
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(Main);
-        params.add(new KeysInfo("keyid", settings.getString("keyid", null)));
-        params.add(new KeysInfo("vCode", settings.getString("vCode", null)));
+
+        params.add(new KeysInfo("keyid", keyid));
+        params.add(new KeysInfo("vCode", vCode));
         params.add(new KeysInfo("characterID", characterid));
 
-        Response = new getXml().ApiGetCall(params, Main.getString(R.string.Character_Info));
+        Response = new getXml().ApiGetCall(params, "/eve/CharacterInfo.xml.aspx");
         try
         {
             XMLReader reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
@@ -75,29 +75,29 @@ class CallMethods
 
     public byte[] CharacterPortrait(String CharID, String size)
     {
-        return new getXml().ApiImageCall(Main.getString(R.string.Character_Portrait), CharID, size);
+        return new getXml().ApiImageCall("http://image.eveonline.com/Character/", CharID, size);
     }
 
     public byte[] AlliancePortrait(String AllyID, String size)
     {
-        return new getXml().ApiImageCall(Main.getString(R.string.Alliance_Logo), AllyID, size);
+        return new getXml().ApiImageCall("http://image.eveonline.com/Alliance/", AllyID, size);
     }
 
     public byte[] CorporationPortrait(String CorpID, String size)
     {
-        return new getXml().ApiImageCall(Main.getString(R.string.Corp_Logo), CorpID, size);
+        return new getXml().ApiImageCall("http://image.eveonline.com/Corporation/", CorpID, size);
     }
 
-    public ArrayList<com.w9jds.eveprofiler.Objects.MailInfo> CharacterMailHeaders(String CharacterID)
+    public ArrayList<com.w9jds.eveprofiler.Objects.MailInfo> CharacterMailHeaders(String CharacterID, String vCode, String keyid)
     {
         String Response;
         ArrayList<KeysInfo> params = new ArrayList<KeysInfo>();
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(Main);
-        params.add(new KeysInfo("keyid", settings.getString("keyid", null)));
-        params.add(new KeysInfo("vCode", settings.getString("vCode", null)));
+
+        params.add(new KeysInfo("keyid", keyid));
+        params.add(new KeysInfo("vCode", vCode));
         params.add(new KeysInfo("characterID", CharacterID));
 
-        Response = new getXml().ApiGetCall(params, Main.getString(R.string.MailMessHeaders));
+        Response = new getXml().ApiGetCall(params, "/char/MailMessages.xml.aspx");
         try
         {
             XMLReader reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
