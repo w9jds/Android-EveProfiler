@@ -49,9 +49,13 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:textColor="@android:color/primary_text_dark"
-            android:inputType="datetime" android:singleLine="true" android:textStyle="normal"
-            android:typeface="normal" android:visibility="visible" android:layout_row="0"
-            android:layout_gravity="right" android:textAlignment="gravity"/>
+            android:singleLine="true"
+            android:textStyle="normal"
+            android:typeface="normal"
+            android:visibility="visible"
+            android:layout_row="0"
+            android:layout_gravity="right"
+            android:textAlignment="gravity"/>
 
     </GridLayout>
 

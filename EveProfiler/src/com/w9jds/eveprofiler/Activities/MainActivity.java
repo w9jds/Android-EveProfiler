@@ -1,18 +1,22 @@
 package com.w9jds.eveprofiler.Activities;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
-import android.graphics.drawable.Drawable;
+
 import android.support.v4.app.*;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.*;
 import com.w9jds.eveprofiler.Classes.*;
+import com.w9jds.eveprofiler.ListAdapters.DrawerListAdapter;
+import com.w9jds.eveprofiler.DataAccess.CallApi;
+import com.w9jds.eveprofiler.Objects.Account;
+import com.w9jds.eveprofiler.Objects.Character.CharacterMain;
 import com.w9jds.eveprofiler.R;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -25,14 +29,11 @@ import android.view.ViewGroup;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener 
 {
-	private SectionsPagerAdapter mSectionsPagerAdapter;
-    private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
 
 	private ViewPager mViewPager;
-	private PrevSettings prevSettings = new PrevSettings();
-	private static Account ThisAccount = new Account();
+	private final PrevSettings prevSettings = new PrevSettings();
+	private static final Account ThisAccount = new Account();
 	private static final int RESULT_SETTINGS = 1;
 
     @Override
@@ -42,8 +43,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		setContentView(R.layout.activity_main);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        LoadDrawer();
+
         getCharacters();
+        LoadDrawer();
 	}
 	
 	private void LoadDrawer()
@@ -55,8 +57,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         images.add(R.drawable.drawer_server);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ListView mDrawerList = (ListView) findViewById(R.id.left_drawer);
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         // set up the drawer's list view with items and click listener
@@ -123,20 +125,20 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		new CallApi().execute(get);
 	}
 
-	public void ApiResponse(ArrayList<CharacterInfo> apiCharacters)
+	public void ApiResponse(ArrayList<CharacterMain> apiCharacters)
 	{
         ThisAccount.setCharacters(apiCharacters);
 		CreateTabItems();
 	}
 
-    public void CreateTabItems()
+    void CreateTabItems()
 	{
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
-		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -207,7 +209,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         switch (requestCode) {
         case RESULT_SETTINGS:
         	SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        	if (prevSettings.getapiKey() != sharedPrefs.getString("keyid", null) || prevSettings.getvCode() != sharedPrefs.getString("vCode", null)){
+        	if (prevSettings.getapiKey().equals(sharedPrefs.getString("keyid", null)) == false || prevSettings.getvCode().equals(sharedPrefs.getString("vCode", null)) == false){
 	        	ActionBar actionBar = getActionBar();
 	        	actionBar.removeAllTabs();
 	        	getCharacters();
@@ -272,7 +274,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		@Override
 		public CharSequence getPageTitle(int position) 
 		{
-			return ThisAccount.getCharacters().get(position).getName();
+			return ThisAccount.getCharacters().get(position).getCharacterInfo().getName();
 		}
 	}
 
@@ -297,29 +299,29 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			image.setImageBitmap(BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(container.getChildCount()).getCorporationPortrait(), 0, ThisAccount.getCharacters().get(container.getChildCount()).getCorporationPortrait().length));
 
             TextView ActiveShipType = (TextView) rootView.findViewById(R.id.ActiveShipType);
-            ActiveShipType.setText(ThisAccount.getCharacters().get(container.getChildCount()).getShipTypeName());
+            ActiveShipType.setText(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterInfo().getShipTypeName());
 
             TextView ActiveShipName = (TextView) rootView.findViewById(R.id.ActiveShipName);
-            ActiveShipName.setText("[" + ThisAccount.getCharacters().get(container.getChildCount()).getShipName() + "]");
+            ActiveShipName.setText("[" + ThisAccount.getCharacters().get(container.getChildCount()).getCharacterInfo().getShipName() + "]");
 
             TextView LastKnownLocation = (TextView) rootView.findViewById(R.id.Location);
-            LastKnownLocation.setText(ThisAccount.getCharacters().get(container.getChildCount()).getLastKnownLocation());
+            LastKnownLocation.setText(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterInfo().getLastKnownLocation());
 
             TextView SkillPoints = (TextView) rootView.findViewById(R.id.SkillPoints);
-            SkillPoints.setText(ThisAccount.getCharacters().get(container.getChildCount()).getSkillPoints());
+            SkillPoints.setText(new DecimalFormat("#,###").format(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterInfo().getSkillPoints()));
 
             TextView SecStatus = (TextView) rootView.findViewById(R.id.SecStatus);
-            SecStatus.setText(ThisAccount.getCharacters().get(container.getChildCount()).getSecStatus());
+            SecStatus.setText(new DecimalFormat("#.###").format(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterInfo().getSecurityStatus()));
 
 			TextView Corporation = (TextView) rootView.findViewById(R.id.CorpName);
-			Corporation.setText(ThisAccount.getCharacters().get(container.getChildCount()).getCorporationName());
+			Corporation.setText(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterInfo().getCorporation());
 
 			TextView IskWealth = (TextView) rootView.findViewById(R.id.WealthIsk);
-			IskWealth.setText(ThisAccount.getCharacters().get(container.getChildCount()).getWalletBalance() + " ISK");
+			IskWealth.setText(new DecimalFormat("#,###.00").format(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterInfo().getAccountBalance() + " ISK"));
 
 			if (ThisAccount.getCharacters().get(container.getChildCount()).getAlliancePortrait() != null){
 				TextView Alliance = (TextView) rootView.findViewById(R.id.allianceName);
-				Alliance.setText(ThisAccount.getCharacters().get(container.getChildCount()).getAllianceName());
+				Alliance.setText(ThisAccount.getCharacters().get(container.getChildCount()).getCharacterInfo().getAlliance());
 
 				image = (ImageView) rootView.findViewById(R.id.alliancePic);
 				image.setImageBitmap(BitmapFactory.decodeByteArray(ThisAccount.getCharacters().get(container.getChildCount()).getAlliancePortrait(), 0, ThisAccount.getCharacters().get(container.getChildCount()).getAlliancePortrait().length));

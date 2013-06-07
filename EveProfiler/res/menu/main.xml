@@ -5,7 +5,7 @@
         android:orderInCategory="100"
         android:showAsAction="always"
         android:icon="@drawable/ic_menu_refresh"
-        android:title="Refresh"/>
+        android:title="@string/refreshtitle"/>
 
     <item
         android:id="@+id/action_settings"

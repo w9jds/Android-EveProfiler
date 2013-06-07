@@ -1,18 +1,12 @@
 package com.w9jds.eveprofiler.Activities;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Build;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
-import com.w9jds.eveprofiler.Classes.Account;
-import com.w9jds.eveprofiler.Classes.CallApi;
-import com.w9jds.eveprofiler.Classes.CharacterInfo;
-import com.w9jds.eveprofiler.Classes.MailHeaderListAdapter;
+import com.w9jds.eveprofiler.Objects.Account;
+import com.w9jds.eveprofiler.DataAccess.CallApi;
+import com.w9jds.eveprofiler.ListAdapters.MailHeaderListAdapter;
+import com.w9jds.eveprofiler.Objects.Character.CharacterMain;
 import com.w9jds.eveprofiler.R;
 import android.app.ActionBar;
 import android.os.Bundle;
@@ -49,7 +43,7 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
         new CallApi().execute(get);
     }
 
-    public void ApiResponse(ArrayList<CharacterInfo> CharactersIn)
+    public void ApiResponse(ArrayList<CharacterMain> CharactersIn)
     {
         ThisAccount.setCharacters(CharactersIn);
         FillList();
@@ -83,7 +77,7 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
         String[] characterList = new String[ThisAccount.getCharacters().size()];
 
         for (int j = 0; j < ThisAccount.getCharacters().size(); j++)
-            characterList[j] = ThisAccount.getCharacters().get(j).getName();
+            characterList[j] = ThisAccount.getCharacters().get(j).getCharacterInfo().getName();
 
         SpinnerAdapter CharacterAdapter = new ArrayAdapter<String>(actionBar.getThemedContext(), android.R.layout.simple_spinner_dropdown_item, characterList);
 

@@ -63,5 +63,6 @@
     <string name="SkillsLabel">Skills</string>
     <string name="ShipLabel">Active Ship</string>
     <string name="LocationLabel">Location</string>
+    <string name="refreshtitle">Refresh</string>
 
 </resources>
