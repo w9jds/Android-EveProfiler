@@ -24,7 +24,6 @@ class CallMethods
     {
         String Response;
         ArrayList<KeysInfo> params = new ArrayList<KeysInfo>();
-
         params.add(new KeysInfo("keyid", keyid));
         params.add(new KeysInfo("vCode", vCode));
 

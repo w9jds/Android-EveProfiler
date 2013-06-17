@@ -8,9 +8,8 @@ import com.w9jds.eveprofiler.Objects.Character.CharacterMain;
 
 public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<CharacterMain>> {
 
-    private ArrayList<CharacterMain> Characters = new ArrayList<CharacterMain>();
-    private MainActivity Main = new MainActivity();
-    private MailActivity Mail = new MailActivity();
+    private ArrayList<CharacterMain> Characters;
+    Object Main;
     private String keyid;
     private String vCode;
 
@@ -19,24 +18,15 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
     {
         keyid = Info[0].get(2).toString();
         vCode = Info[0].get(3).toString();
-
-        if(Info[0].get(1).getClass() == Main.getClass())
-        {
-            Main = (MainActivity)Info[0].get(1);
-            Mail = null;
-        }
-        else if(Info[0].get(1).getClass() == Mail.getClass())
-        {
-            Mail = (MailActivity)Info[0].get(1);
-            Main = null;
-        }
+        Main = Info[0].get(1).getClass().cast(Info[0].get(1));
 
         if (Info[0].get(0) == "getCharacters")
         {
             CallMethods Calls = new CallMethods();
             Characters = Calls.CharactersList(vCode, keyid);
 
-            for (CharacterMain Character : Characters) {
+            for (CharacterMain Character : Characters)
+            {
                 Character.setCharacterInfo(Calls.CharacterInfo(Character.getCharacterID(), vCode, keyid));
                 Character.setCharacterPortrait(Calls.CharacterPortrait(Character.getCharacterID(), "1024"));
                 Character.setCorporationPortrait(Calls.CorporationPortrait(Character.getCharacterInfo().getCorporationID(), "128"));
@@ -80,9 +70,10 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 
     protected void onPostExecute(ArrayList<CharacterMain> result)
     {
-        if(Main != null)
-            Main.ApiResponse(result);
-//        else if(Mail != null)
-//            Mail.ApiResponse(result);
+        if(Main.getClass().getName().equals("com.w9jds.eveprofiler.Activities.MainActivity"))
+        {
+            MainActivity returncall = (MainActivity)Main;
+            returncall.ApiResponse(result);
+        }
     }
 }
