@@ -1,14 +1,9 @@
 package com.w9jds.eveprofiler.DataAccess;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
-import com.w9jds.eveprofiler.Activities.MainActivity;
 import com.w9jds.eveprofiler.Core.KeysInfo;
 import com.w9jds.eveprofiler.Core.getXml;
 import com.w9jds.eveprofiler.Objects.Character.CharacterMain;
 import com.w9jds.eveprofiler.Objects.Character.Info;
-import com.w9jds.eveprofiler.R;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import java.io.StringReader;
@@ -20,22 +15,22 @@ import javax.xml.parsers.SAXParserFactory;
  */
 class CallMethods
 {
+    private XMLReader reader;
+
     public ArrayList<CharacterMain> CharactersList(String vCode, String keyid)
     {
-        String Response;
         ArrayList<KeysInfo> params = new ArrayList<KeysInfo>();
         params.add(new KeysInfo("keyid", keyid));
         params.add(new KeysInfo("vCode", vCode));
 
-        Response = new getXml().ApiGetCall(params, "/account/Characters.xml.aspx");
         try
         {
-            XMLReader reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
+            reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
             ParseCharacterList Handler = new ParseCharacterList();
             reader.setContentHandler(Handler);
             InputSource inputSource = new InputSource();
             inputSource.setEncoding("UTF-8");
-            inputSource.setCharacterStream(new StringReader(Response));
+            inputSource.setCharacterStream(new StringReader(new getXml().ApiGetCall(params, "/account/Characters.xml.aspx")));
             reader.parse(inputSource);
             return Handler.data;
         }
@@ -47,22 +42,19 @@ class CallMethods
 
     public Info CharacterInfo(String characterid, String vCode, String keyid)
     {
-        String Response;
         ArrayList<KeysInfo> params = new ArrayList<KeysInfo>();
-
         params.add(new KeysInfo("keyid", keyid));
         params.add(new KeysInfo("vCode", vCode));
         params.add(new KeysInfo("characterID", characterid));
 
-        Response = new getXml().ApiGetCall(params, "/eve/CharacterInfo.xml.aspx");
         try
         {
-            XMLReader reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
+            reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
             ParseCharacterInfo Handler = new ParseCharacterInfo();
             reader.setContentHandler(Handler);
             InputSource inputSource = new InputSource();
             inputSource.setEncoding("UTF-8");
-            inputSource.setCharacterStream(new StringReader(Response));
+            inputSource.setCharacterStream(new StringReader(new getXml().ApiGetCall(params, "/eve/CharacterInfo.xml.aspx")));
             reader.parse(inputSource);
             return Handler.data;
         }
@@ -89,22 +81,19 @@ class CallMethods
 
     public ArrayList<com.w9jds.eveprofiler.Objects.MailInfo> CharacterMailHeaders(String CharacterID, String vCode, String keyid)
     {
-        String Response;
         ArrayList<KeysInfo> params = new ArrayList<KeysInfo>();
-
         params.add(new KeysInfo("keyid", keyid));
         params.add(new KeysInfo("vCode", vCode));
         params.add(new KeysInfo("characterID", CharacterID));
 
-        Response = new getXml().ApiGetCall(params, "/char/MailMessages.xml.aspx");
         try
         {
-            XMLReader reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
+            reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
             ParseCharacterMailHeaders Handler = new ParseCharacterMailHeaders();
             reader.setContentHandler(Handler);
             InputSource inputSource = new InputSource();
             inputSource.setEncoding("UTF-8");
-            inputSource.setCharacterStream(new StringReader(Response));
+            inputSource.setCharacterStream(new StringReader(new getXml().ApiGetCall(params, "/char/MailMessages.xml.aspx")));
             reader.parse(inputSource);
             return Handler.data;
         }

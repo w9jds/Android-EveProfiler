@@ -51,7 +51,7 @@ class ParseCharacterInfo extends DefaultHandler
             isshipTypeName = true;
         else if (localName.equals("corporationID"))
             iscorporationID = true;
-        else if (localName.equals("corporation "))
+        else if (localName.equals("corporation"))
             iscorporation = true;
         else if (localName.equals("corporationDate"))
             iscorporationDate = true;
@@ -90,7 +90,7 @@ class ParseCharacterInfo extends DefaultHandler
             isshipTypeName = false;
         else if (localName.equals("corporationID"))
             iscorporationID = false;
-        else if (localName.equals("corporation "))
+        else if (localName.equals("corporation"))
             iscorporation = false;
         else if (localName.equals("corporationDate"))
             iscorporationDate = false;

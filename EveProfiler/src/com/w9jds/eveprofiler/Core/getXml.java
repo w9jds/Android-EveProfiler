@@ -41,27 +41,27 @@ public class getXml
         return responseArray;
     }
 
-    public String ApiPostCall(ArrayList<KeysInfo> Params, String pathurl)
-    {
-        String responseString = null;
-
-        try
-        {
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost("https://api.eveonline.com" + pathurl);
-
-            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(Params.size());
-            for (int i = 0; i < Params.size(); i++)
-                nameValuePairs.add(new BasicNameValuePair(Params.get(i).getKeyName(), Params.get(i).getKeyValue()));
-
-            HttpResponse response = httpclient.execute(httppost);
-            HttpEntity entity = response.getEntity();
-            responseString = EntityUtils.toString(entity);
-        }
-        catch(Exception e){}
-
-        return responseString;
-    }
+//    public String ApiPostCall(ArrayList<KeysInfo> Params, String pathurl)
+//    {
+//        String responseString = null;
+//
+//        try
+//        {
+//            HttpClient httpclient = new DefaultHttpClient();
+//            HttpPost httppost = new HttpPost("https://api.eveonline.com" + pathurl);
+//
+//            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(Params.size());
+//            for (int i = 0; i < Params.size(); i++)
+//                nameValuePairs.add(new BasicNameValuePair(Params.get(i).getKeyName(), Params.get(i).getKeyValue()));
+//
+//            HttpResponse response = httpclient.execute(httppost);
+//            HttpEntity entity = response.getEntity();
+//            responseString = EntityUtils.toString(entity);
+//        }
+//        catch(Exception e){}
+//
+//        return responseString;
+//    }
 
     public String ApiGetCall(ArrayList<KeysInfo> Params, String pathurl)
     {
@@ -93,7 +93,6 @@ public class getXml
                 url += baseurl + "?" + Parms.get(i).getKeyName() + "=" + Parms.get(i).getKeyValue();
             else
                 url += Parms.get(i).getKeyName() + "=" + Parms.get(i).getKeyValue();
-
             if(i != Parms.size()-1)
                 url += "&";
         }

@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="app_name">Top Hat</string>
+
     <string name="title_activity_settings">Settings</string>
+    <string name="action_settings">Settings</string>
     <string name="pref_header_general">General</string>
+
     <string name="pref_title_keyid">Key ID</string>
     <string name="pref_keyid">1996957</string>
     <string name="pref_title_vCode">Verification Code</string>
     <string name="pref_vCode">I6YLp1vVB0KYAir2B3Z4mDIPtZrFHlpeysYYSaxGkjV4rO820NpTOBustmNsoEA4</string>
 
-    <string name="app_name">Top Hat</string>
-    <string name="action_settings">Settings</string>
-
     <string name="Api_Uri">https://api.eveonline.com</string>
+
     <string name="Account_Status">/account/AccountStatus.xml.aspx</string>
     <string name="API_Key_Info">/account/APIKeyInfo.xml.aspx</string>
     <string name="Account_Balance">/char/AccountBalance.xml.aspx</string>
     <string name="Asset_List">/char/AssetList.xml.aspx</string>
     <string name="Cal_Event_Attendees">/char/CalendarEventAttendees.xml.aspx</string>
     <string name="Character_Sheet">/char/CharacterSheet.xml.aspx</string>
-
     <string name="Contact_List">/char/ContactList.xml.aspx</string>
     <string name="Contact_Notif">/char/ContactNotifications.xml.aspx</string>
     <string name="Contacts">/char/Contracts.xml.aspx</string>
@@ -30,7 +31,6 @@
     <string name="Locations">/char/Locations.xml.aspx</string>
     <string name="Mail_Bodies">/char/MailBodies.xml.aspx</string>
     <string name="Mailing_Lists">/char/MailingLists.xml.aspx</string>
-
     <string name="Market_Orders">/char/MarketOrders.xml.aspx</string>
     <string name="Medals">/char/Medals.xml.aspx</string>
     <string name="Notifications">/char/Notifications.xml.aspx</string>
@@ -46,10 +46,7 @@
     <string name="Type_Icon">http://image.eveonline.com/InventoryType/</string>
     <string name="Render">http://image.eveonline.com/Render/</string>
 
-    <!--<color name="white">#FFFFFF</color>-->
     <color name="darkgrey">#1A1A1A</color>
-    <!--<color name="lightgrey">#424243</color>-->
-    <!--<color name="black">#000000</color>-->
 
     <string name="title_activity_mail">MailActivity</string>
 

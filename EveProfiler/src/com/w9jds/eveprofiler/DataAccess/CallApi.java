@@ -2,7 +2,6 @@ package com.w9jds.eveprofiler.DataAccess;
 
 import android.os.AsyncTask;
 import java.util.ArrayList;
-import com.w9jds.eveprofiler.Activities.MailActivity;
 import com.w9jds.eveprofiler.Activities.MainActivity;
 import com.w9jds.eveprofiler.Objects.Character.CharacterMain;
 
@@ -16,9 +15,10 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
     @Override
     protected ArrayList<CharacterMain> doInBackground(ArrayList<Object>... Info)
     {
+        Main = Info[0].get(1);
         keyid = Info[0].get(2).toString();
         vCode = Info[0].get(3).toString();
-        Main = Info[0].get(1).getClass().cast(Info[0].get(1));
+
 
         if (Info[0].get(0) == "getCharacters")
         {
@@ -70,6 +70,8 @@ public class CallApi extends AsyncTask<ArrayList<Object>, Void, ArrayList<Charac
 
     protected void onPostExecute(ArrayList<CharacterMain> result)
     {
+        Object x = Main.getClass().getName();
+
         if(Main.getClass().getName().equals("com.w9jds.eveprofiler.Activities.MainActivity"))
         {
             MainActivity returncall = (MainActivity)Main;

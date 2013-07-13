@@ -2,18 +2,19 @@ package com.w9jds.eveprofiler.Objects;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
+
 import com.w9jds.eveprofiler.Objects.Character.CharacterMain;
+import com.w9jds.eveprofiler.Objects.Character.Info;
+
 import java.util.ArrayList;
 
 /**
  * Created by Jeremy on 5/18/13.
- */
+ **/
 public class Account implements Parcelable {
 
-    public Account()
-    {
-
-    }
+    public Account() { };
 
     private ArrayList<CharacterMain> Characters = new ArrayList<CharacterMain>();
     private int CurrentCharcter;
@@ -33,22 +34,22 @@ public class Account implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i)
     {
-//        try
-//        {
-//            parcel.writeInt(this.getCurrentCharacter());
-//
-//            parcel.writeInt(this.getCharacters().size());
-//            for (int j = 0; j < this.Characters.size(); j++)
-//            {
-//                parcel.writeString(this.getCharacters().get(j).getName());
-//                parcel.writeString(this.getCharacters().get(j).getCharacterID());
-//                parcel.writeString(this.getCharacters().get(j).getCorporationName());
-//                parcel.writeString(this.getCharacters().get(j).getCorporationDate());
-//                parcel.writeString(this.getCharacters().get(j).getCorporationID());
-//                parcel.writeString(this.getCharacters().get(j).getAllianceName());
-//                parcel.writeString(this.getCharacters().get(j).getAllianceDate());
-//                parcel.writeString(this.getCharacters().get(j).getAllianceID());
-//                parcel.writeString(this.getCharacters().get(j).getDateOfBirth());
+        try
+        {
+            parcel.writeInt(this.getCurrentCharacter());
+
+            parcel.writeInt(this.getCharacters().size());
+            for (int j = 0; j < this.Characters.size(); j++)
+            {
+                parcel.writeString(this.getCharacters().get(j).getCharacterID());
+                parcel.writeString(this.getCharacters().get(j).getCharacterInfo().getName());
+                parcel.writeString(this.getCharacters().get(j).getCharacterInfo().getCorporation());
+                parcel.writeString(this.getCharacters().get(j).getCharacterInfo().getCorporationDate());
+                parcel.writeString(this.getCharacters().get(j).getCharacterInfo().getCorporationID());
+                parcel.writeString(this.getCharacters().get(j).getCharacterInfo().getAlliance());
+                parcel.writeString(this.getCharacters().get(j).getCharacterInfo().getAllianceDate());
+                parcel.writeString(this.getCharacters().get(j).getCharacterInfo().getAllianceID());
+ //                parcel.writeString(this.getCharacters().get(j).getDateOfBirth());
 //                parcel.writeString(this.getCharacters().get(j).getRace());
 //                parcel.writeString(this.getCharacters().get(j).getBloodLine());
 //                parcel.writeString(this.getCharacters().get(j).getAncestry());
@@ -128,12 +129,12 @@ public class Account implements Parcelable {
 //    //            parcel.writeByteArray(this.getCharacters().get(j).getCharacterPortrait());
 //    //            parcel.writeByteArray(this.getCharacters().get(j).getCorporationPortrait());
 //    //            parcel.writeByteArray(this.getCharacters().get(j).getAlliancePortrait());
-//            }
-//        }
-//        catch(Exception e)
-//        {
-//            Log.d("Exception", e.toString());
-//        }
+            }
+        }
+        catch(Exception e)
+        {
+            Log.d("Exception", e.toString());
+        }
     }
 
     public static final Parcelable.Creator<Account> CREATOR = new Parcelable.Creator<Account>()
@@ -151,22 +152,23 @@ public class Account implements Parcelable {
 
     private Account(Parcel in)
     {
-//        try
-//        {
-//            this.setCurrentCharacter(in.readInt());
-//
-//            int charactercount = in.readInt();
-//            for (int j = 0; j < charactercount; j++)
-//            {
-//                CharacterInfo Character = new CharacterInfo();
-//                Character.setName(in.readString());
-//                Character.setCharacterID(in.readString());
-//                Character.setCorporationName(in.readString());
-//                Character.setCorporationDate(in.readString());
-//                Character.setCorporationID(in.readString());
-//                Character.setAllianceName(in.readString());
-//                Character.setAllianceDate(in.readString());
-//                Character.setAllianceID(in.readString());
+        try
+        {
+            this.setCurrentCharacter(in.readInt());
+
+            int charactercount = in.readInt();
+            for (int j = 0; j < charactercount; j++)
+            {
+                CharacterMain Character = new CharacterMain();
+                Info CharacterInfo = new Info();
+                Character.setCharacterID(in.readString());
+                CharacterInfo.setName(in.readString());
+                CharacterInfo.setCorporation(in.readString());
+                CharacterInfo.setCorporationDate(in.readString());
+                CharacterInfo.setCorporationID(in.readString());
+                CharacterInfo.setAlliance(in.readString());
+                CharacterInfo.setAllianceDate(in.readString());
+                CharacterInfo.setAllianceID(in.readString());
 //                Character.setDateOfBirth(in.readString());
 //                Character.setRace(in.readString());
 //                Character.setBloodLine(in.readString());
@@ -233,12 +235,13 @@ public class Account implements Parcelable {
 //    //            parcel.writeByteArray(this.getCharacters().get(j).getCharacterPortrait());
 //    //            parcel.writeByteArray(this.getCharacters().get(j).getCorporationPortrait());
 //    //            parcel.writeByteArray(this.getCharacters().get(j).getAlliancePortrait());
-//                this.Characters.add(Character);
-//            }
-//        }
-//        catch(Exception e)
-//        {
-//            Log.d("Exception", e.toString());
-//        }
+                Character.setCharacterInfo(CharacterInfo);
+                this.Characters.add(Character);
+            }
+        }
+        catch(Exception e)
+        {
+            Log.d("Exception", e.toString());
+        }
     }
 }

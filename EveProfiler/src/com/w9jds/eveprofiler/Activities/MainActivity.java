@@ -30,7 +30,6 @@ import android.view.ViewGroup;
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener 
 {
     private ActionBarDrawerToggle mDrawerToggle;
-
 	private ViewPager mViewPager;
 	private final PrevSettings prevSettings = new PrevSettings();
 	private static final Account ThisAccount = new Account();
@@ -43,8 +42,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		setContentView(R.layout.activity_main);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        if (settings.contains("keyid") == false || settings.contains("vCode") == false)
+            startActivityForResult(new Intent(this, SettingsActivity.class), RESULT_SETTINGS);
+        else
+            getCharacters();
 
-        getCharacters();
         LoadDrawer();
 	}
 	
@@ -54,41 +57,31 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         images.add(R.drawable.drawer_mail);
         images.add(R.drawable.drawer_wallet);
         images.add(R.drawable.drawer_assets);
-
         images.add(R.drawable.drawer_server);
 
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ListView mDrawerList = (ListView) findViewById(R.id.left_drawer);
-        // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        // set up the drawer's list view with items and click listener
         mDrawerList.setAdapter(new DrawerListAdapter(this, images));
 
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
-        // enable ActionBar app icon to behave as action to toggle nav drawer
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
-        // ActionBarDrawerToggle ties together the the proper interactions
-        // between the sliding drawer and the action bar app icon
-        mDrawerToggle = new ActionBarDrawerToggle(
-                this,                  /* host Activity */
-                mDrawerLayout,         /* DrawerLayout object */
-                R.drawable.ic_drawer,  /* nav drawer image to replace 'Up' caret */
-                R.string.drawer_open,  /* "open drawer" description for accessibility */
-                R.string.drawer_close  /* "close drawer" description for accessibility */
-        ) {
+        mDrawerToggle = new ActionBarDrawerToggle( this, mDrawerLayout, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close )
+        {
             public void onDrawerClosed(View view)
             {
-                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+                invalidateOptionsMenu();
             }
 
             public void onDrawerOpened(View drawerView)
             {
-                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+                invalidateOptionsMenu();
             }
         };
+
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 	}
 
@@ -104,16 +97,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                     startActivity(i);
                     break;
                 case 1:
-
                     break;
                 case 2:
-
                     break;
-
-
-
             }
-//            selectItem(position);
         }
     }
 
@@ -139,24 +126,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-		// Create the adapter that will return a fragment for each of the three
-		// primary sections of the app.
         SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 
-		// When swiping between different sections, select the corresponding
-		// tab. We can also use ActionBar.Tab#select() to do this if we have
-		// a reference to the Tab.
 		mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() 
 		{
 			@Override
 			public void onPageSelected(int position) { actionBar.setSelectedNavigationItem(position); }
 		});
 
-		// For each character create a tab and use the characters name as the title
 		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++)
 			actionBar.addTab(actionBar.newTab().setText(mSectionsPagerAdapter.getPageTitle(i)).setTabListener(this));
 	}
@@ -165,14 +145,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     protected void onPostCreate(Bundle savedInstanceState)
     {
         super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
         mDrawerToggle.syncState();
     }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) 
 	{
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -228,8 +206,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	{
 		int Position = tab.getPosition();
 
-		// When the given tab is selected, switch to the corresponding page in
-		// the ViewPager.
 		mViewPager.setCurrentItem(Position);
         ThisAccount.setCurrentCharacter(Position);
 	}
@@ -256,9 +232,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		@Override
 		public Fragment getItem(int position) 
 		{
-			// getItem is called to instantiate the fragment for the given page.
-			// Return a DummySectionFragment (defined as a static inner class
-			// below) with the page number as its lone argument.
 			Fragment fragment = new DummySectionFragment();
 			
 			Bundle args = new Bundle();
