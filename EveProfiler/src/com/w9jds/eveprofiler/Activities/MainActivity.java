@@ -1,13 +1,21 @@
 package com.w9jds.eveprofiler.Activities;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OptionalDataException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import android.content.Context;
 import android.support.v4.app.*;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.*;
 import com.w9jds.eveprofiler.Classes.*;
+import com.w9jds.eveprofiler.DataAccess.CallMethods;
 import com.w9jds.eveprofiler.ListAdapters.DrawerListAdapter;
 import com.w9jds.eveprofiler.DataAccess.CallApi;
 import com.w9jds.eveprofiler.Objects.Account;
@@ -42,14 +50,32 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		setContentView(R.layout.activity_main);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
+        LoadDrawer();
+        LoadInfo();
+	}
+
+    private void LoadInfo()
+    {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         if (settings.contains("keyid") == false || settings.contains("vCode") == false)
             startActivityForResult(new Intent(this, SettingsActivity.class), RESULT_SETTINGS);
         else
-            getCharacters();
+        {
+            try
+            {
+                FileInputStream fis = this.getBaseContext().openFileInput("MainPage");
+                ObjectInputStream is = new ObjectInputStream(fis);
+                ThisAccount.setCharacters((ArrayList<CharacterMain>)is.readObject());
+                is.close();
 
-        LoadDrawer();
-	}
+                CreateTabItems();
+            }
+            catch (Exception x)
+            {
+                getCharacters();
+            }
+        }
+    }
 	
 	private void LoadDrawer()
     {
@@ -85,7 +111,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 	}
 
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+    private class DrawerItemClickListener implements ListView.OnItemClickListener
+    {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id)
         {
@@ -106,18 +133,38 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 	private void getCharacters()
 	{
-		ArrayList<Object> get = new ArrayList<Object>();
-		get.add("getCharacters");
-		get.add(this);
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        get.add(settings.getString("keyid", null));
-        get.add(settings.getString("vCode", null));
-		new CallApi().execute(get);
+//		ArrayList<Object> get = new ArrayList<Object>();
+//		get.add("getCharacters");
+//		get.add(this);
+//        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+//        get.add(settings.getString("keyid", null));
+//        get.add(settings.getString("vCode", null));
+//		new CallApi().execute(get);
+
+//        CallMethods Calls = new CallMethods();
+//        Characters = Calls.CharactersList(vCode, keyid);
+//
+//        for (CharacterMain Character : Characters)
+//        {
+//            Character.setCharacterInfo(Calls.CharacterInfo(Character.getCharacterID(), vCode, keyid));
+//            Character.setCharacterPortrait(Calls.CharacterPortrait(Character.getCharacterID(), "1024"));
+//            Character.setCorporationPortrait(Calls.CorporationPortrait(Character.getCharacterInfo().getCorporationID(), "128"));
+//            if (Character.getCharacterInfo().getAllianceID() != null)
+//                Character.setAlliancePortrait(Calls.AlliancePortrait(Character.getCharacterInfo().getAllianceID(), "128"));
+//        }
+
+
 	}
 
-	public void ApiResponse(ArrayList<CharacterMain> apiCharacters)
-	{
+	public void ApiResponse(ArrayList<CharacterMain> apiCharacters) throws IOException
+    {
         ThisAccount.setCharacters(apiCharacters);
+
+        FileOutputStream fos = this.getBaseContext().openFileOutput("MainPage", Context.MODE_PRIVATE);
+        ObjectOutputStream os = new ObjectOutputStream(fos);
+        os.writeObject(ThisAccount.getCharacters());
+        os.close();
+
 		CreateTabItems();
 	}
 
@@ -222,7 +269,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		
 	}
 
-	public class SectionsPagerAdapter extends FragmentPagerAdapter {
+	public class SectionsPagerAdapter extends FragmentPagerAdapter
+    {
 
 		public SectionsPagerAdapter(FragmentManager fm) 
 		{
@@ -254,8 +302,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		}
 	}
 
-	public static class DummySectionFragment extends Fragment {
-
+	public static class DummySectionFragment extends Fragment
+    {
 		public static final String ARG_SECTION_NUMBER = "section_number";
 		
 		public DummySectionFragment() 

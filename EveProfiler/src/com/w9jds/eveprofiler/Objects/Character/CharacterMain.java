@@ -1,14 +1,13 @@
 package com.w9jds.eveprofiler.Objects.Character;
 
 import com.w9jds.eveprofiler.Objects.MailInfo;
-import com.w9jds.eveprofiler.Objects.SkillInfo;
-import com.w9jds.eveprofiler.Objects.StandingInfo;
-
 import java.io.Serializable;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class CharacterMain implements Serializable {
+public class CharacterMain implements Serializable
+{
+
+    private static final long serialVersionUID = 0L;
 
 	private String characterID;
     private Info characterInfo;

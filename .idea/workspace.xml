@@ -39,19 +39,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="074cc4f0-7245-4414-a55f-24c80e2df0b6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseServerStatus.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/ReturnResult.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Server/ServerStatus.java" />
+      <change type="DELETED" beforePath="C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\src\com\w9jds\eveprofiler\Classes\WebCalls.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\EveProfiler\src\com\w9jds\eveprofiler\DataAccess\CallApi.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Account.java" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Account.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallApi.java" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallApi.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallMethods.java" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallMethods.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/CharacterMain.java" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/CharacterMain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/Info.java" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/Info.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterInfo.java" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/SettingsActivity.java" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/SettingsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterList.java" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Core/getXml.java" afterPath="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Core/getXml.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EveProfiler/res/values/strings.xml" afterPath="$PROJECT_DIR$/EveProfiler/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list id="c8f333bc-6bc0-42f7-b1ef-c783425fa90a" name="Got it working again" comment="" />
+    <list id="c8f333bc-6bc0-42f7-b1ef-c783425fa90a" name="Got it working again" comment="Got it working again" />
     <ignored path="Android-EveProfiler.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,9 +67,6 @@
     <leftPanel />
     <rightPanel />
     <splitter proportion="0.5" />
-  </component>
-  <component name="CompilerWorkspaceConfiguration">
-    <option name="USE_COMPILE_SERVER" value="false" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -114,7 +113,67 @@
       </breakpoint>
     </breakpoint_any>
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Account.java" line="243" class="com.w9jds.eveprofiler.Objects.Account" package="com.w9jds.eveprofiler.Objects">
+      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Account.java" line="83" class="com.w9jds.eveprofiler.Objects.Account" package="com.w9jds.eveprofiler.Objects">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java" line="11" class="MainActivity.java" package="">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Account.java" line="69" class="com.w9jds.eveprofiler.Objects.Account" package="com.w9jds.eveprofiler.Objects">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Account.java" line="38" class="com.w9jds.eveprofiler.Objects.Account" package="com.w9jds.eveprofiler.Objects">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java" line="70" class="com.w9jds.eveprofiler.Activities.MainActivity" package="com.w9jds.eveprofiler.Activities">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -142,39 +201,46 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="0" selection-start="1843" selection-end="1843" vertical-scroll-proportion="0.9189189" vertical-offset="0" max-vertical-offset="4862">
+            <state line="55" column="0" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.66741574" vertical-offset="638" max-vertical-offset="3876">
               <folding>
-                <element signature="e#1953#1962#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#LoadDrawer#0;class#MainActivity#0" expanded="false" />
+                <element signature="class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onPostCreate#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onTabSelected#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onTabUnselected#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onTabReselected#0;class#MainActivity#0" expanded="false" />
+                <element signature="class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EveProfiler/res/values/strings.xml">
+      <file leaf-file-name="CallMethods.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallMethods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="0" selection-start="2844" selection-end="2844" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1139">
-              <folding />
+            <state line="21" column="7" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0" vertical-offset="49" max-vertical-offset="2618">
+              <folding>
+                <element signature="method#GetDateTime#0;class#CallMethods#0" expanded="false" />
+                <element signature="e#1787#1797#0" expanded="true" />
+                <element signature="e#2964#2974#0" expanded="true" />
+                <element signature="method#CharacterMailHeaders#0;class#CallMethods#0" expanded="false" />
+                <element signature="e#4943#4953#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CallApi.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallApi.java">
+      <file leaf-file-name="getXml.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Core/getXml.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="0" selection-start="3282" selection-end="3282" vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="1462">
+            <state line="42" column="0" selection-start="1386" selection-end="1386" vertical-scroll-proportion="0.0" vertical-offset="481" max-vertical-offset="1700">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AsyncTask.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/os/AsyncTask.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="62" selection-start="1458" selection-end="1458" vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="952">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -191,6 +257,11 @@
     <option name="KEY_ALIAS" value="apkkey" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="xboxmusicn3rd@gmail.com" />
+      </list>
+    </option>
     <option name="SYNC_SETTING" value="DONT" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="AUTO_COMMIT_ON_CHERRY_PICK" value="true" />
@@ -203,22 +274,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterStandings.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterMailHeaders.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/CharacterInfo.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/Info.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/Character.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterList.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MailActivity.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterSheet.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallMethods.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Core/getXml.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Account.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/SettingsActivity.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterInfo.java" />
-        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallApi.java" />
         <option value="$PROJECT_DIR$/EveProfiler/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterList.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Account.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/Info.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Server/ServerStatus.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/CharacterMain.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Core/getXml.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/ReturnResult.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallMethods.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseServerStatus.java" />
         <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallApi.java" />
       </list>
     </option>
   </component>
@@ -250,7 +321,7 @@
     </ignored-problems>
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="All" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -331,7 +402,6 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
-        <subPane subId="Tests" />
         <subPane subId="Production">
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -344,6 +414,7 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
+        <subPane subId="Tests" />
         <subPane subId="Project Files">
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -573,6 +644,212 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eveprofiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eveprofiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Objects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eveprofiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Objects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eveprofiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Objects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Character" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eveprofiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ListAdapters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eveprofiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataAccess" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eveprofiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eveprofiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EveProfiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eveprofiler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Activities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane">
@@ -667,16 +944,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
-    <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="OverrideImplement.combined" value="true" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="ExportedApkPath" value="C:\Users\Jeremy\Desktop\TopHat" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="ExportedApkPath" value="C:\Users\Jeremy\Desktop\TopHat" />
     <property name="ExportedModule" value="EveProfiler" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
@@ -689,12 +966,12 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="Downloaded.Files.Path" value="C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\lib" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="Downloaded.Files.Path" value="C:\Users\Jeremy\Documents\GitHub\Android-EveProfiler\lib" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
-    <property name="project.structure.side.proportion" value="0.2" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="AndroidRunProguardForReleaseBuild" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -910,6 +1187,11 @@
       <workItem from="1370148798958" duration="7228000" />
       <workItem from="1370573828447" duration="35000" />
     </task>
+    <task id="LOCAL-00001" summary="Got it working again after back end rewrite.">
+      <created>1373697001408</created>
+      <updated>1373697001408</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -940,23 +1222,22 @@
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32561132" sideWeight="0.67270195" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32729805" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3259053" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32496783" sideWeight="0.67270195" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40529248" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3263889" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32561132" sideWeight="0.19359331" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259053" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24903475" sideWeight="0.60027856" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.60306406" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32882884" sideWeight="0.60027856" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19305019" sideWeight="0.67270195" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39972144" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19305019" sideWeight="0.67409474" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="92" y="92" width="1416" height="676" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -965,35 +1246,9 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.60027856" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32561132" sideWeight="0.67270195" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="92" y="92" width="1416" height="676" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32561132" sideWeight="0.19359331" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19354838" sideWeight="0.59470755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32496783" sideWeight="0.67270195" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925257" sideWeight="0.60027856" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40529248" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259053" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24903475" sideWeight="0.60027856" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.60306406" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32882884" sideWeight="0.60027856" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39972144" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myShow1" value="true" />
@@ -1038,7 +1293,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got it working again after back end rewrite." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1052,129 +1307,152 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="Got it working again after back end rewrite." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/app/ApplicationErrorReport.class">
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/app/Activity.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="20" selection-start="3646" selection-end="3646" vertical-scroll-proportion="0.5618557" vertical-offset="1346" max-vertical-offset="1734">
+        <state line="111" column="33" selection-start="4186" selection-end="4186" vertical-scroll-proportion="0.0" vertical-offset="1741" max-vertical-offset="7429">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/util/Log.class">
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Account.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="35" selection-start="2002" selection-end="2002" vertical-scroll-proportion="0.77890176" vertical-offset="226" max-vertical-offset="918">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/preference/PreferenceActivity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="41" selection-start="5377" selection-end="5377" vertical-scroll-proportion="0.16752577" vertical-offset="1890" max-vertical-offset="2686">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/SettingsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="2" selection-start="382" selection-end="642" vertical-scroll-proportion="-0.087628864" vertical-offset="255" max-vertical-offset="2227">
+        <state line="6" column="52" selection-start="235" selection-end="235" vertical-scroll-proportion="-0.5162095" vertical-offset="309" max-vertical-offset="799">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3259#3601#0" expanded="true" />
-            <element signature="e#3597#3598#0" expanded="true" />
+            <element signature="method#describeContents#0;class#Account#0" expanded="false" />
+            <element signature="method#writeToParcel#0;class#Account#0" expanded="false" />
+            <element signature="class#1583:1834" expanded="false" />
+            <element signature="method#Account#1;class#Account#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Core/KeysInfo.java">
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterStandings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="91" selection-end="91" vertical-scroll-proportion="0.21197008" vertical-offset="0" max-vertical-offset="493">
+        <state line="18" column="2" selection-start="447" selection-end="447" vertical-scroll-proportion="0.5087282" vertical-offset="0" max-vertical-offset="1156">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterSheet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="6" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0" vertical-offset="1928" max-vertical-offset="2329">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterMailHeaders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="6" selection-start="241" selection-end="241" vertical-scroll-proportion="-0.1446384" vertical-offset="177" max-vertical-offset="578">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2363">
+        <state line="29" column="0" selection-start="1021" selection-end="1021" vertical-scroll-proportion="1.2294264" vertical-offset="0" max-vertical-offset="850">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#startElement#0;class#ParseCharacterInfo#0" expanded="false" />
+            <element signature="method#endElement#0;class#ParseCharacterInfo#0" expanded="false" />
+            <element signature="method#characters#0;class#ParseCharacterInfo#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/Info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="5" selection-start="1488" selection-end="1488" vertical-scroll-proportion="1.7445415" vertical-offset="0" max-vertical-offset="1751">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/os/AsyncTask.class">
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Character/CharacterMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="62" selection-start="1458" selection-end="1458" vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="952">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/view/ViewGroup.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="264" column="29" selection-start="13608" selection-end="13608" vertical-scroll-proportion="0.33247423" vertical-offset="4342" max-vertical-offset="6392">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="920" column="35" selection-start="41281" selection-end="41281" vertical-scroll-proportion="0.33247423" vertical-offset="15494" max-vertical-offset="19482">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/view/Window.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="29" selection-start="3837" selection-end="3837" vertical-scroll-proportion="0.33247423" vertical-offset="1401" max-vertical-offset="3961">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/app/Activity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="29" selection-start="6767" selection-end="6767" vertical-scroll-proportion="0.33247423" vertical-offset="2727" max-vertical-offset="7429">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/content/ContextWrapper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="45" selection-start="1530" selection-end="1530" vertical-scroll-proportion="0.0" vertical-offset="517" max-vertical-offset="3179">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/preference/PreferenceManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="52" selection-start="1037" selection-end="1037" vertical-scroll-proportion="0.33247423" vertical-offset="262" max-vertical-offset="816">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="0" selection-start="3282" selection-end="3282" vertical-scroll-proportion="0.0" vertical-offset="1074" max-vertical-offset="1462">
+        <state line="7" column="0" selection-start="206" selection-end="206" vertical-scroll-proportion="-0.29694322" vertical-offset="255" max-vertical-offset="731">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EveProfiler/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/Server/ServerStatus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="2844" selection-end="2844" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1139">
+        <state line="40" column="0" selection-start="1423" selection-end="1423" vertical-scroll-proportion="0.66593885" vertical-offset="137" max-vertical-offset="595">
+          <folding>
+            <element signature="method#setCurrentTime#0;class#ServerStatus#0" expanded="false" />
+            <element signature="method#setCachedUntil#0;class#ServerStatus#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseCharacterList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="57" selection-start="634" selection-end="634" vertical-scroll-proportion="0.55458516" vertical-offset="18" max-vertical-offset="476">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Objects/ReturnResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.049132947" vertical-offset="0" max-vertical-offset="692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Core/getXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1386" selection-end="1386" vertical-scroll-proportion="0.0" vertical-offset="481" max-vertical-offset="1700">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/ParseServerStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="42" selection-start="471" selection-end="471" vertical-scroll-proportion="0.36127168" vertical-offset="5" max-vertical-offset="1054">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/DataAccess/CallMethods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="7" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0" vertical-offset="49" max-vertical-offset="2618">
+          <folding>
+            <element signature="method#GetDateTime#0;class#CallMethods#0" expanded="false" />
+            <element signature="e#1787#1797#0" expanded="true" />
+            <element signature="e#2964#2974#0" expanded="true" />
+            <element signature="method#CharacterMailHeaders#0;class#CallMethods#0" expanded="false" />
+            <element signature="e#4943#4953#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EveProfiler/src/com/w9jds/eveprofiler/Activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="1843" selection-end="1843" vertical-scroll-proportion="0.9189189" vertical-offset="0" max-vertical-offset="4862">
+        <state line="55" column="0" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.66741574" vertical-offset="638" max-vertical-offset="3876">
           <folding>
-            <element signature="e#1953#1962#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#LoadDrawer#0;class#MainActivity#0" expanded="false" />
+            <element signature="class#DrawerItemClickListener#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onPostCreate#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onTabSelected#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onTabUnselected#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onTabReselected#0;class#MainActivity#0" expanded="false" />
+            <element signature="class#SectionsPagerAdapter#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>

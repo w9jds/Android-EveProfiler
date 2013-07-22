@@ -1,11 +1,14 @@
 package com.w9jds.eveprofiler.Objects.Character;
 
-import java.text.DecimalFormat;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by Jeremy on 6/6/13.
  */
-public class Info {
+public class Info implements Serializable {
+
+    private static final long serialVersionUID = 0L;
 
     public String name;
     public String race;
@@ -24,10 +27,25 @@ public class Info {
     public String lastKnownLocation;
     public double securityStatus;
     //employment history here
-    public String cachedUntil;
+    public Date cachedUntil;
 
-    public String getCachedUntil() { return cachedUntil; }
-    public void setCachedUntil(String CachedUntil) { this.cachedUntil = CachedUntil; }
+    public Date getCachedUntil() { return cachedUntil; }
+    public void setCachedUntil(String CachedUntil)
+    {
+        String[] split1 = CachedUntil.split(" ");
+        String[] CashedDate = split1[0].split("-");
+        String[] CashedTime = split1[1].split(":");
+
+        Date Cashed = new Date();
+        Cashed.setYear(Integer.parseInt(CashedDate[0]));
+        Cashed.setMonth(Integer.parseInt(CashedDate[1]));
+        Cashed.setDate(Integer.parseInt(CashedDate[2]));
+        Cashed.setHours(Integer.parseInt(CashedTime[0]));
+        Cashed.setMinutes(Integer.parseInt(CashedTime[1]));
+        Cashed.setSeconds(Integer.parseInt(CashedTime[2]));
+
+        this.cachedUntil = Cashed;
+    }
 
     public double getAccountBalance() { return accountBalance; }
     public void setAccountBalance(double AccountBalance) { this.accountBalance = AccountBalance; }

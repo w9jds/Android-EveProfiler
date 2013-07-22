@@ -1,7 +1,6 @@
 package com.w9jds.eveprofiler.DataAccess;
 
 import com.w9jds.eveprofiler.Objects.Character.CharacterMain;
-
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 import java.util.ArrayList;

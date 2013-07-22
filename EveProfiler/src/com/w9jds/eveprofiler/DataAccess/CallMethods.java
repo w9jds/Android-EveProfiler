@@ -4,103 +4,159 @@ import com.w9jds.eveprofiler.Core.KeysInfo;
 import com.w9jds.eveprofiler.Core.getXml;
 import com.w9jds.eveprofiler.Objects.Character.CharacterMain;
 import com.w9jds.eveprofiler.Objects.Character.Info;
+import com.w9jds.eveprofiler.Objects.ReturnResult;
+import com.w9jds.eveprofiler.Objects.Server.ServerStatus;
+
+import org.apache.http.HttpStatus;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
+
 import javax.xml.parsers.SAXParserFactory;
 
 /**
  * Created by Jeremy on 6/6/13.
  */
-class CallMethods
+public class CallMethods
 {
     private XMLReader reader;
 
-    public ArrayList<CharacterMain> CharactersList(String vCode, String keyid)
+    public ReturnResult GetDateTime()
+    {
+        ReturnResult rrReturn = new ReturnResult();
+        rrReturn = new getXml().ApiGetCall(null, "/server/ServerStatus.xml.aspx", rrReturn);
+        if (rrReturn.getStatusCode() == HttpStatus.SC_OK)
+        {
+            try
+            {
+                reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
+                ParseServerStatus Handler = new ParseServerStatus();
+                reader.setContentHandler(Handler);
+                InputSource inputSource = new InputSource();
+                inputSource.setEncoding("UTF-8");
+                inputSource.setCharacterStream(new StringReader(rrReturn.getoReturn().toString()));
+                reader.parse(inputSource);
+                rrReturn.setoReturn(Handler.data);
+            }
+            catch(Exception e)
+            {
+                rrReturn.setoReturn(null);
+            }
+        }
+
+        return rrReturn;
+    }
+
+    public ReturnResult GetCharactersList(String vCode, String keyid)
     {
         ArrayList<KeysInfo> params = new ArrayList<KeysInfo>();
         params.add(new KeysInfo("keyid", keyid));
         params.add(new KeysInfo("vCode", vCode));
 
-        try
+        ReturnResult rrReturn = new ReturnResult();
+        rrReturn = new getXml().ApiGetCall(params, "/account/Characters.xml.aspx", rrReturn);
+        if (rrReturn.getStatusCode() == HttpStatus.SC_OK)
         {
-            reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
-            ParseCharacterList Handler = new ParseCharacterList();
-            reader.setContentHandler(Handler);
-            InputSource inputSource = new InputSource();
-            inputSource.setEncoding("UTF-8");
-            inputSource.setCharacterStream(new StringReader(new getXml().ApiGetCall(params, "/account/Characters.xml.aspx")));
-            reader.parse(inputSource);
-            return Handler.data;
+            try
+            {
+                reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
+                ParseCharacterList Handler = new ParseCharacterList();
+                reader.setContentHandler(Handler);
+                InputSource inputSource = new InputSource();
+                inputSource.setEncoding("UTF-8");
+                inputSource.setCharacterStream(new StringReader(rrReturn.getoReturn().toString()));
+                reader.parse(inputSource);
+                rrReturn.setoReturn(Handler.data);
+            }
+            catch(Exception e)
+            {
+                rrReturn.setoReturn(null);
+            }
         }
-        catch(Exception e)
-        {
-            return null;
-        }
+
+        return rrReturn;
     }
 
-    public Info CharacterInfo(String characterid, String vCode, String keyid)
+    public ReturnResult GetCharacterInfo(String characterid, String vCode, String keyid)
     {
         ArrayList<KeysInfo> params = new ArrayList<KeysInfo>();
         params.add(new KeysInfo("keyid", keyid));
         params.add(new KeysInfo("vCode", vCode));
         params.add(new KeysInfo("characterID", characterid));
 
-        try
+        ReturnResult rrReturn = new ReturnResult();
+        rrReturn = new getXml().ApiGetCall(params, "/eve/CharacterInfo.xml.aspx", rrReturn);
+        if (rrReturn.getStatusCode() == HttpStatus.SC_OK)
         {
-            reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
-            ParseCharacterInfo Handler = new ParseCharacterInfo();
-            reader.setContentHandler(Handler);
-            InputSource inputSource = new InputSource();
-            inputSource.setEncoding("UTF-8");
-            inputSource.setCharacterStream(new StringReader(new getXml().ApiGetCall(params, "/eve/CharacterInfo.xml.aspx")));
-            reader.parse(inputSource);
-            return Handler.data;
+            try
+            {
+                reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
+                ParseCharacterInfo Handler = new ParseCharacterInfo();
+                reader.setContentHandler(Handler);
+                InputSource inputSource = new InputSource();
+                inputSource.setEncoding("UTF-8");
+                inputSource.setCharacterStream(new StringReader(rrReturn.getoReturn().toString()));
+                reader.parse(inputSource);
+                rrReturn.setoReturn(Handler.data);
+            }
+            catch(Exception e)
+            {
+                rrReturn.setoReturn(null);
+            }
         }
-        catch(Exception e)
-        {
-            return null;
-        }
+
+        return rrReturn;
     }
 
-    public byte[] CharacterPortrait(String CharID, String size)
+    public ReturnResult GetCharacterPortrait(String CharID, String size)
     {
-        return new getXml().ApiImageCall("http://image.eveonline.com/Character/", CharID, size);
+        ReturnResult rrReturn = new ReturnResult();
+        return new getXml().ApiImageCall("http://image.eveonline.com/Character/", CharID, size, rrReturn);
     }
 
-    public byte[] AlliancePortrait(String AllyID, String size)
+    public ReturnResult GetAlliancePortrait(String AllyID, String size)
     {
-        return new getXml().ApiImageCall("http://image.eveonline.com/Alliance/", AllyID, size);
+        ReturnResult rrReturn = new ReturnResult();
+        return new getXml().ApiImageCall("http://image.eveonline.com/Alliance/", AllyID, size, rrReturn);
     }
 
-    public byte[] CorporationPortrait(String CorpID, String size)
+    public ReturnResult GetCorporationPortrait(String CorpID, String size)
     {
-        return new getXml().ApiImageCall("http://image.eveonline.com/Corporation/", CorpID, size);
+        ReturnResult rrReturn = new ReturnResult();
+        return new getXml().ApiImageCall("http://image.eveonline.com/Corporation/", CorpID, size, rrReturn);
     }
 
-    public ArrayList<com.w9jds.eveprofiler.Objects.MailInfo> CharacterMailHeaders(String CharacterID, String vCode, String keyid)
+    public ReturnResult CharacterMailHeaders(String CharacterID, String vCode, String keyid)
     {
         ArrayList<KeysInfo> params = new ArrayList<KeysInfo>();
         params.add(new KeysInfo("keyid", keyid));
         params.add(new KeysInfo("vCode", vCode));
         params.add(new KeysInfo("characterID", CharacterID));
 
-        try
+        ReturnResult rrReturn = new ReturnResult();
+        rrReturn = new getXml().ApiGetCall(params, "/char/MailMessages.xml.aspx", rrReturn);
+        if (rrReturn.getStatusCode() == HttpStatus.SC_OK)
         {
-            reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
-            ParseCharacterMailHeaders Handler = new ParseCharacterMailHeaders();
-            reader.setContentHandler(Handler);
-            InputSource inputSource = new InputSource();
-            inputSource.setEncoding("UTF-8");
-            inputSource.setCharacterStream(new StringReader(new getXml().ApiGetCall(params, "/char/MailMessages.xml.aspx")));
-            reader.parse(inputSource);
-            return Handler.data;
+            try
+            {
+                reader = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
+                ParseCharacterMailHeaders Handler = new ParseCharacterMailHeaders();
+                reader.setContentHandler(Handler);
+                InputSource inputSource = new InputSource();
+                inputSource.setEncoding("UTF-8");
+                inputSource.setCharacterStream(new StringReader(rrReturn.getoReturn().toString()));
+                reader.parse(inputSource);
+                rrReturn.setoReturn(Handler.data);
+            }
+            catch(Exception e)
+            {
+                rrReturn.setoReturn(null);
+            }
         }
-        catch(Exception e)
-        {
-            return null;
-        }
+
+        return rrReturn;
     }
 
 //    public void CharacterSheet(CharacterInfo Character)

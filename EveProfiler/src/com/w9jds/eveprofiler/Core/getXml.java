@@ -1,27 +1,23 @@
 package com.w9jds.eveprofiler.Core;
 
-import android.os.AsyncTask;
+import com.w9jds.eveprofiler.Objects.ReturnResult;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Jeremy on 6/6/13.
- */
+ **/
 public class getXml
 {
-    public byte[] ApiImageCall(String uri, String toonID, String size)
+    public ReturnResult ApiImageCall(String uri, String toonID, String size, ReturnResult rrReturn)
     {
-        byte[] responseArray = new byte[Integer.parseInt(size)];
-
         try
         {
             HttpClient httpclient = new DefaultHttpClient();
@@ -33,53 +29,47 @@ public class getXml
                 httpget = new HttpGet(uri + toonID + "_" + size + ".png");
 
             HttpResponse response = httpclient.execute(httpget);
-            HttpEntity entity = response.getEntity();
-            responseArray = EntityUtils.toByteArray(entity);
+            rrReturn.setStatusCode(response.getStatusLine().getStatusCode());
+            if (rrReturn.getStatusCode() == HttpStatus.SC_OK)
+            {
+                HttpEntity entity = response.getEntity();
+                rrReturn.setoReturn(EntityUtils.toByteArray(entity));
+            }
         }
-        catch(Exception e){}
+        catch(Exception e)
+        {
+            rrReturn.setoReturn(false);
+        }
 
-        return responseArray;
+        return rrReturn;
     }
 
-//    public String ApiPostCall(ArrayList<KeysInfo> Params, String pathurl)
-//    {
-//        String responseString = null;
-//
-//        try
-//        {
-//            HttpClient httpclient = new DefaultHttpClient();
-//            HttpPost httppost = new HttpPost("https://api.eveonline.com" + pathurl);
-//
-//            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(Params.size());
-//            for (int i = 0; i < Params.size(); i++)
-//                nameValuePairs.add(new BasicNameValuePair(Params.get(i).getKeyName(), Params.get(i).getKeyValue()));
-//
-//            HttpResponse response = httpclient.execute(httppost);
-//            HttpEntity entity = response.getEntity();
-//            responseString = EntityUtils.toString(entity);
-//        }
-//        catch(Exception e){}
-//
-//        return responseString;
-//    }
-
-    public String ApiGetCall(ArrayList<KeysInfo> Params, String pathurl)
+    public ReturnResult ApiGetCall(ArrayList<KeysInfo> Params, String pathurl, ReturnResult rrReturn)
     {
-        String responseString = null;
-
         try
         {
             HttpClient httpclient = new DefaultHttpClient();
-            HttpGet httpget = new HttpGet(CreateUri("https://api.eveonline.com" + pathurl, Params));
+            HttpGet httpget;
+
+            if (Params != null)
+                httpget = new HttpGet(CreateUri("https://api.eveonline.com" + pathurl, Params));
+            else
+                httpget = new HttpGet("https://api.eveonline.com/" + pathurl);
 
             HttpResponse response = httpclient.execute(httpget);
-            HttpEntity entity = response.getEntity();
-            if (!entity.getContentType().getValue().equals("text/html; charset=us-ascii"))
-                responseString = EntityUtils.toString(entity);
+            rrReturn.setStatusCode(response.getStatusLine().getStatusCode());
+            if (rrReturn.getStatusCode() == HttpStatus.SC_OK)
+            {
+                HttpEntity entity = response.getEntity();
+                rrReturn.setoReturn(EntityUtils.toString(entity));
+            }
         }
-        catch(Exception e){}
+        catch(Exception e)
+        {
+            rrReturn.setoReturn(false);
+        }
 
-        return responseString;
+        return rrReturn;
 
     }
 
