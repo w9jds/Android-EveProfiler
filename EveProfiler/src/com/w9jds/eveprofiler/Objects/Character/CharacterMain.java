@@ -1,6 +1,5 @@
 package com.w9jds.eveprofiler.Objects.Character;
 
-import com.w9jds.eveprofiler.Objects.MailInfo;
 import java.io.Serializable;
 import java.util.ArrayList;
 

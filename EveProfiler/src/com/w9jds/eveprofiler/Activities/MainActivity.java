@@ -1,15 +1,11 @@
 package com.w9jds.eveprofiler.Activities;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OptionalDataException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import android.content.Context;
+import android.os.AsyncTask;
 import android.support.v4.app.*;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,9 +13,9 @@ import android.widget.*;
 import com.w9jds.eveprofiler.Classes.*;
 import com.w9jds.eveprofiler.DataAccess.CallMethods;
 import com.w9jds.eveprofiler.ListAdapters.DrawerListAdapter;
-import com.w9jds.eveprofiler.DataAccess.CallApi;
 import com.w9jds.eveprofiler.Objects.Account;
 import com.w9jds.eveprofiler.Objects.Character.CharacterMain;
+import com.w9jds.eveprofiler.Objects.ReturnResult;
 import com.w9jds.eveprofiler.R;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
@@ -35,8 +31,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.apache.http.HttpStatus;
+
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener 
 {
+    private SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
     private ActionBarDrawerToggle mDrawerToggle;
 	private ViewPager mViewPager;
 	private final PrevSettings prevSettings = new PrevSettings();
@@ -72,7 +71,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             }
             catch (Exception x)
             {
-                getCharacters();
+                new getCharacters().execute();
             }
         }
     }
@@ -131,42 +130,43 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         }
     }
 
-	private void getCharacters()
-	{
-//		ArrayList<Object> get = new ArrayList<Object>();
-//		get.add("getCharacters");
-//		get.add(this);
-//        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-//        get.add(settings.getString("keyid", null));
-//        get.add(settings.getString("vCode", null));
-//		new CallApi().execute(get);
-
-//        CallMethods Calls = new CallMethods();
-//        Characters = Calls.CharactersList(vCode, keyid);
-//
-//        for (CharacterMain Character : Characters)
-//        {
-//            Character.setCharacterInfo(Calls.CharacterInfo(Character.getCharacterID(), vCode, keyid));
-//            Character.setCharacterPortrait(Calls.CharacterPortrait(Character.getCharacterID(), "1024"));
-//            Character.setCorporationPortrait(Calls.CorporationPortrait(Character.getCharacterInfo().getCorporationID(), "128"));
-//            if (Character.getCharacterInfo().getAllianceID() != null)
-//                Character.setAlliancePortrait(Calls.AlliancePortrait(Character.getCharacterInfo().getAllianceID(), "128"));
-//        }
-
-
-	}
-
-	public void ApiResponse(ArrayList<CharacterMain> apiCharacters) throws IOException
+    private class getCharacters extends AsyncTask<Void, Void, Void>
     {
-        ThisAccount.setCharacters(apiCharacters);
+        protected Void doInBackground(Void... info)
+        {
+            CallMethods Calls = new CallMethods();
+            ReturnResult rrReturn;
+            rrReturn = Calls.GetCharactersList(settings.getString("vCode", null), settings.getString("keyid", null));
 
-        FileOutputStream fos = this.getBaseContext().openFileOutput("MainPage", Context.MODE_PRIVATE);
-        ObjectOutputStream os = new ObjectOutputStream(fos);
-        os.writeObject(ThisAccount.getCharacters());
-        os.close();
+            if (rrReturn.getStatusCode() == HttpStatus.SC_OK)
+                ThisAccount.setCharacters((ArrayList<CharacterMain>)rrReturn.getoReturn());
 
-		CreateTabItems();
-	}
+            for (CharacterMain Character : ThisAccount.getCharacters())
+            {
+                rrReturn = Calls.GetCharacterInfo(Character.getCharacterID(), settings.getString("vCode", null), settings.getString("keyid", null));
+                if (rrReturn.getStatusCode() == HttpStatus.SC_OK)
+                    Character.setCharacterInfo((com.w9jds.eveprofiler.Objects.Character.Info)rrReturn.getoReturn());
+
+                rrReturn = Calls.GetCharacterPortrait(Character.getCharacterID(), "1024");
+                if (rrReturn.getStatusCode() == HttpStatus.SC_OK)
+                    Character.setCharacterPortrait((byte[])rrReturn.getoReturn());
+
+                rrReturn = Calls.GetCorporationPortrait(Character.getCharacterInfo().getCorporationID(), "128");
+                if (rrReturn.getStatusCode() == HttpStatus.SC_OK)
+                    Character.setCorporationPortrait((byte[])rrReturn.getoReturn());
+
+                if (Character.getCharacterInfo().getAllianceID() != null)
+                {
+                    rrReturn = Calls.GetAlliancePortrait(Character.getCharacterInfo().getAllianceID(), "128");
+                    if (rrReturn.getStatusCode() == HttpStatus.SC_OK)
+                        Character.setAlliancePortrait((byte[])rrReturn.getoReturn());
+                }
+            }
+
+            return info[0];
+        }
+
+    }
 
     void CreateTabItems()
 	{
@@ -222,7 +222,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	        case R.id.action_refresh:
 	        	ActionBar actionBar = getActionBar();
 	        	actionBar.removeAllTabs();
-	        	getCharacters();
+                new getCharacters().execute();
 	        	break;
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -240,7 +240,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         	if (prevSettings.getapiKey().equals(sharedPrefs.getString("keyid", null)) == false || prevSettings.getvCode().equals(sharedPrefs.getString("vCode", null)) == false){
 	        	ActionBar actionBar = getActionBar();
 	        	actionBar.removeAllTabs();
-	        	getCharacters();
+                new getCharacters().execute();
         	}
         	if (prevSettings.getsmallDrawer() != sharedPrefs.getBoolean("drawerSize", true))
         		LoadDrawer();

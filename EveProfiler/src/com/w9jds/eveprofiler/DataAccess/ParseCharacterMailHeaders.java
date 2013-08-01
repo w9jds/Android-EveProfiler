@@ -1,6 +1,6 @@
 package com.w9jds.eveprofiler.DataAccess;
 
-import com.w9jds.eveprofiler.Objects.MailInfo;
+import com.w9jds.eveprofiler.Objects.Character.MailInfo;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 import java.util.ArrayList;

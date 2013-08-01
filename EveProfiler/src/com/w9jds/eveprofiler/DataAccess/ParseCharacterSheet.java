@@ -1,9 +1,6 @@
 package com.w9jds.eveprofiler.DataAccess;
 
-import com.w9jds.eveprofiler.Objects.SkillInfo;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-import java.util.ArrayList;
 
 /**
  * Created by Jeremy on 6/6/13.

@@ -1,11 +1,10 @@
-package com.w9jds.eveprofiler.Objects;
+package com.w9jds.eveprofiler.Objects.Character;
 
 /**
  * Created by Jeremy on 5/19/13.
- */
+ **/
 public class MailInfo
 {
-
     private String messageID;
     private String senderID;
     private String senderName;

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.*;
 import com.w9jds.eveprofiler.Objects.Account;
-import com.w9jds.eveprofiler.DataAccess.CallApi;
 import com.w9jds.eveprofiler.ListAdapters.MailHeaderListAdapter;
 import com.w9jds.eveprofiler.Objects.Character.CharacterMain;
 import com.w9jds.eveprofiler.R;
@@ -36,11 +35,11 @@ public class MailActivity extends FragmentActivity implements ActionBar.OnNaviga
 
     private void getMail()
     {
-        ArrayList<Object> get = new ArrayList<Object>();
-        get.add("getMail");
-        get.add(this);
-        get.add(ThisAccount.getCharacters());
-        new CallApi().execute(get);
+//        ArrayList<Object> get = new ArrayList<Object>();
+//        get.add("getMail");
+//        get.add(this);
+//        get.add(ThisAccount.getCharacters());
+//        new CallApi().execute(get);
     }
 
     public void ApiResponse(ArrayList<CharacterMain> CharactersIn)

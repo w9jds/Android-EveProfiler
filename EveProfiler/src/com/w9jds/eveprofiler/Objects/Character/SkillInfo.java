@@ -1,4 +1,4 @@
-package com.w9jds.eveprofiler.Objects;
+package com.w9jds.eveprofiler.Objects.Character;
 
 import java.text.DecimalFormat;
 

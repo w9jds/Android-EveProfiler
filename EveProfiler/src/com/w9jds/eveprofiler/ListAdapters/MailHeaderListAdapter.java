@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.w9jds.eveprofiler.Objects.MailInfo;
+import com.w9jds.eveprofiler.Objects.Character.MailInfo;
 import com.w9jds.eveprofiler.R;
 
 import java.util.ArrayList;

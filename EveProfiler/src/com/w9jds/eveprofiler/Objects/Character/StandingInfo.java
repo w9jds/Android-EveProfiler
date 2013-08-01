@@ -1,4 +1,4 @@
-package com.w9jds.eveprofiler.Objects;
+package com.w9jds.eveprofiler.Objects.Character;
 
 /**
  * Created by Jeremy on 5/15/13.

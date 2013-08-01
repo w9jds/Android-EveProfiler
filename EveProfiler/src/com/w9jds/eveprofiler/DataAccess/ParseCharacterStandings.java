@@ -1,6 +1,6 @@
 package com.w9jds.eveprofiler.DataAccess;
 
-import com.w9jds.eveprofiler.Objects.StandingInfo;
+import com.w9jds.eveprofiler.Objects.Character.StandingInfo;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
