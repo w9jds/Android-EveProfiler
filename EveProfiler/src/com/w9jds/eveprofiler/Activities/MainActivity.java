@@ -1,10 +1,12 @@
 package com.w9jds.eveprofiler.Activities;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-
+import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v4.app.*;
 import android.support.v4.view.GravityCompat;
@@ -35,7 +37,8 @@ import org.apache.http.HttpStatus;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener 
 {
-    private SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+    private SharedPreferences settings;
+    private Context ThisContext;
     private ActionBarDrawerToggle mDrawerToggle;
 	private ViewPager mViewPager;
 	private final PrevSettings prevSettings = new PrevSettings();
@@ -49,13 +52,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		setContentView(R.layout.activity_main);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
+        settings = PreferenceManager.getDefaultSharedPreferences(this);
+        ThisContext = this.getBaseContext();
+
         LoadDrawer();
         LoadInfo();
 	}
 
     private void LoadInfo()
     {
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         if (settings.contains("keyid") == false || settings.contains("vCode") == false)
             startActivityForResult(new Intent(this, SettingsActivity.class), RESULT_SETTINGS);
         else
@@ -163,6 +168,20 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 }
             }
 
+            try
+            {
+                FileOutputStream fos = ThisContext.openFileOutput("MainPage", Context.MODE_PRIVATE);
+                ObjectOutputStream os = new ObjectOutputStream(fos);
+                os.writeObject(ThisAccount.getCharacters());
+                os.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+
+            CreateTabItems();
+
             return info[0];
         }
 
@@ -171,18 +190,19 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     void CreateTabItems()
 	{
 		final ActionBar actionBar = getActionBar();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-		mViewPager = (ViewPager) findViewById(R.id.pager);
-		mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
 
-		mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() 
-		{
-			@Override
-			public void onPageSelected(int position) { actionBar.setSelectedNavigationItem(position); }
-		});
+        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener()
+            {
+                @Override
+                public void onPageSelected(int position) { actionBar.setSelectedNavigationItem(position); }
+            });
 
 		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++)
 			actionBar.addTab(actionBar.newTab().setText(mSectionsPagerAdapter.getPageTitle(i)).setTabListener(this));
@@ -220,6 +240,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	        	startActivityForResult(new Intent(this, SettingsActivity.class), RESULT_SETTINGS);
 	        	break;
 	        case R.id.action_refresh:
+                mViewPager.removeAllViews();
 	        	ActionBar actionBar = getActionBar();
 	        	actionBar.removeAllTabs();
                 new getCharacters().execute();
@@ -238,7 +259,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         case RESULT_SETTINGS:
         	SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         	if (prevSettings.getapiKey().equals(sharedPrefs.getString("keyid", null)) == false || prevSettings.getvCode().equals(sharedPrefs.getString("vCode", null)) == false){
-	        	ActionBar actionBar = getActionBar();
+	        	mViewPager.removeAllViews();
+                ActionBar actionBar = getActionBar();
 	        	actionBar.removeAllTabs();
                 new getCharacters().execute();
         	}
